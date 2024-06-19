@@ -12,6 +12,7 @@ import { VerificacionComponent } from './components/verificacion/verificacion.co
 import { EstatusComponent } from './components/estatus/estatus.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { BooksService } from './services/books.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    BooksService // este tendrá los métodos para pedir los datos.
   ],
   bootstrap: [AppComponent]
 })
