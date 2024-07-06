@@ -1,0 +1,61 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Calculo Diferencial",
+      "genero": "Matemáticas",
+      "description": "pa estudiar",
+      "pages": 200,
+      "author": "Ron Larson & Bruce Edwards",
+      "index": "dwqwdw",
+      "image": "https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
+      "create_at": "20/06/24"
+    },
+    {
+      "id": "0",
+      "title": "La Caperucita Roja",
+      "genero": "",
+      "description": "Es un libro de fantasía.",
+      "pages": 0,
+      "author": "",
+      "index": "",
+      "image": "https://www.klim.com.co/sites/default/files/inline-images/caperucita-roja-encontrandose-con-lobo-feroz.jpg",
+      "create_at": "2024-06-26T03:09:24.364Z"
+    },
+    {
+      "id": "0",
+      "title": "El Patito Feo",
+      "genero": "",
+      "description": "Un cuento de fabula bastante divertido y entretenido.",
+      "pages": 0,
+      "author": "",
+      "index": "",
+      "image": "https://m.media-amazon.com/images/I/610kbaNEsyL._AC_UF894,1000_QL80_.jpg",
+      "create_at": "2024-06-26T05:32:16.782Z"
+    },
+    {
+      "id": "2",
+      "title": "Historia de México",
+      "genero": "Educativo",
+      "description": "Un libro de la historia de México.",
+      "pages": "323",
+      "author": "Juanito",
+      "index": "",
+      "image": "https://images.cdn1.buscalibre.com/fit-in/360x360/14/24/14240604130c9d8a1ac80bf770e8d6c0.jpg",
+      "create_at": "2024-06-26T06:10:20.066Z"
+    }
+  ],
+  "booksd": [
+    {
+      "id": "1",
+      "title": "Calculo Diferencial",
+      "genero": "Matemáticas",
+      "description": "pa estudiar",
+      "pages": 200,
+      "author": "Ron Larson & Bruce Edwards",
+      "index": "dwqwdw",
+      "image": "https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
+      "create_at": "20/06/24"
+    }
+  ]
+}

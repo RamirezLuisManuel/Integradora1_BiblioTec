@@ -74,11 +74,11 @@ body {
 
 }
 h1{
-    
-    height: 80px;
+    line-height: 100px;
     text-align: center;
     font-weight: bold;
-    color: #005779;
+    color: white;
+    height: 100px;
     padding: 0%;
-    background-color: rgb(117, 154, 255);
+    background-color: rgb(42, 102, 255);
 }

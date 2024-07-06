@@ -7,7 +7,16 @@ import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { VerificacionComponent } from './components/verificacion/verificacion.component';
 import { EstatusComponent } from './components/estatus/estatus.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { CatFisicoComponent } from './components/cat-fisico/cat-fisico.component';
+import { CatDigitalComponent } from './components/cat-digital/cat-digital.component';
+import { InicioadminComponent } from './components/inicioadmin/inicioadmin.component';
+import { InformesComponent } from './components/informes/informes.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { AltalibrosdigitalesComponent } from './components/altalibrosdigitales/altalibrosdigitales.component';
+import { AltalibrosfisicosComponent } from './components/altalibrosfisicos/altalibrosfisicos.component';
+import { BajalibrosdigitalesComponent } from './components/bajalibrosdigitales/bajalibrosdigitales.component';
+import { BajalibrosfisicosComponent } from './components/bajalibrosfisicos/bajalibrosfisicos.component';
+
 
 const routes: Routes = [
   {
@@ -44,8 +53,40 @@ const routes: Routes = [
     component : RegistroComponent 
   },
   {
-    path : 'catalogo',
-    component : CatalogoComponent
+    path : 'catalogo/fisico',
+    component : CatFisicoComponent
+  },
+  {
+    path : 'catalogo/digital',
+    component : CatDigitalComponent
+  },
+  {
+    path : 'inicioadmin',
+    component : InicioadminComponent
+  },
+  {
+    path : 'informes',
+    component : InformesComponent
+  },
+  {
+    path : 'inventario',
+    component : InventarioComponent
+  },
+  {
+    path : 'bajadigital',
+    component : BajalibrosdigitalesComponent
+  },
+  {
+    path : 'bajafisica',
+    component : BajalibrosfisicosComponent
+  },
+  {
+    path : 'altadigital',
+    component : AltalibrosdigitalesComponent
+  },
+  {
+    path : 'altafisica',
+    component : AltalibrosfisicosComponent
   }
 ];
 
