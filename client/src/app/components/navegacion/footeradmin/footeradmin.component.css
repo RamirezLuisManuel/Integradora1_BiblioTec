@@ -1,0 +1,12 @@
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    margin-top: end;
+}
+
+.bg-custom{
+    background-color: #A64D79;
+}
+

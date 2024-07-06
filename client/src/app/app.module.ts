@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { NovedadesComponent } from './components/novedades/novedades.component';
-import { LoginComponent } from './components/login/login.component';
-import { RecuperarComponent } from './components/recuperar/recuperar.component';
-import { VerificacionComponent } from './components/verificacion/verificacion.component';
-import { EstatusComponent } from './components/estatus/estatus.component';
-import { RegistroComponent } from './components/registro/registro.component';
-import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { BooksService } from './services/books.service';
+
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navegacion/navigation/navigation.component';
+import { FooterComponent } from './components/navegacion/footer/footer.component';
+import { InicioComponent } from './components/usuario/inicio/inicio.component';
+import { NovedadesComponent } from './components/usuario/novedades/novedades.component';
+import { NavigationAdminComponent } from './components/navegacion/navigation-admin/navigation-admin.component';
+import { InicioadminComponent } from './components/admin/inicioadmin/inicioadmin.component';
+import { CrudComponent } from './components/admin/crud/crud.component';
+import { FooteradminComponent } from './components/navegacion/footeradmin/footeradmin.component';
+import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarlibro.component';
+import { CatDigitalComponent } from './components/usuario/cat-digital/cat-digital.component';
+import { CatFisicoComponent } from './components/usuario/cat-fisico/cat-fisico.component';
+import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 
 @NgModule({
   declarations: [
@@ -20,20 +26,26 @@ import { BooksService } from './services/books.service';
     NavigationComponent,
     InicioComponent,
     NovedadesComponent,
-    LoginComponent,
-    RecuperarComponent,
-    VerificacionComponent,
-    EstatusComponent,
-    RegistroComponent,
-    CatalogoComponent
+    InicioadminComponent,
+    FooterComponent,
+    NavigationAdminComponent,
+    CrudComponent,
+    FooteradminComponent,
+    AgregarlibroComponent,
+    CatDigitalComponent,
+    CatFisicoComponent,
+    EstatusComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     BooksService // este tendrá los métodos para pedir los datos.
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }

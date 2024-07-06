@@ -1,0 +1,36 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Calculo Diferencial",
+      "genero": "Matemáticas",
+      "author": "Ron Larson & Bruce Edwards",
+      "image": "https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
+      "create_at": "2024-06-26T03:09:24.364Z"
+    },
+    {
+      "id": "2",
+      "title": "La Caperucita Roja",
+      "genero": "Fantasia",
+      "author": "",
+      "image": "https://www.klim.com.co/sites/default/files/inline-images/caperucita-roja-encontrandose-con-lobo-feroz.jpg",
+      "create_at": "2024-06-26T03:09:24.364Z"
+    },
+    {
+      "id": "3",
+      "title": "El Patito Feo",
+      "genero": "Fantasia",
+      "author": "",
+      "image": "https://aulainfantil.com/wp-content/uploads/2023/10/el-patito-feo.jpg",
+      "create_at": "2024-06-26T05:32:16.782Z"
+    },
+    {
+      "id": "4",
+      "title": "Historia de México",
+      "genero": "Educativo",
+      "author": "Juanito",
+      "image": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcL2EyZDU4Y2Y0LTMyMDctNDMyYi04NjI0LTE2NWUyNTk1MmVmNC0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
+      "create_at": "2024-06-26T06:10:20.066Z"
+    }
+  ]
+}
