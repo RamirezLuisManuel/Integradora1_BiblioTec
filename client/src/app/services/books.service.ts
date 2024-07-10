@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'; //interfaz que permite las pe
 import { Book } from '../models/Book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn : 'root'
 })
 export class BooksService {
 
@@ -24,5 +24,8 @@ export class BooksService {
 
   saveBook(book:Book){
 		return this.http.post(`${this.API_URI}`,book);
+}
+  updateBook(id: number, updatedBook: Book){
+    return this.http.put(`${this.API_URI}/${id}`, updatedBook);
 }
 }

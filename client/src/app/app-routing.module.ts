@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './components/inicio/inicio.component'; 
-import { NovedadesComponent } from './components/novedades/novedades.component';
-import { LoginComponent } from './components/login/login.component';
-import { RecuperarComponent } from './components/recuperar/recuperar.component';
-import { VerificacionComponent } from './components/verificacion/verificacion.component';
-import { EstatusComponent } from './components/estatus/estatus.component';
-import { RegistroComponent } from './components/registro/registro.component';
-import { CatFisicoComponent } from './components/cat-fisico/cat-fisico.component';
-import { CatDigitalComponent } from './components/cat-digital/cat-digital.component';
-import { InicioadminComponent } from './components/inicioadmin/inicioadmin.component';
-import { InformesComponent } from './components/informes/informes.component';
-import { InventarioComponent } from './components/inventario/inventario.component';
-import { AltalibrosdigitalesComponent } from './components/altalibrosdigitales/altalibrosdigitales.component';
-import { AltalibrosfisicosComponent } from './components/altalibrosfisicos/altalibrosfisicos.component';
-import { BajalibrosdigitalesComponent } from './components/bajalibrosdigitales/bajalibrosdigitales.component';
-import { BajalibrosfisicosComponent } from './components/bajalibrosfisicos/bajalibrosfisicos.component';
+import { InicioComponent } from './components/usuario/inicio/inicio.component'; 
+import { NovedadesComponent } from './components/usuario/novedades/novedades.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RecuperarComponent } from './components/auth/recuperar/recuperar.component';
+import { VerificacionComponent } from './components/auth/verificacion/verificacion.component';
+import { RegistroComponent } from './components/auth/registro/registro.component';
+import { CatFisicoComponent } from './components/usuario/cat-fisico/cat-fisico.component';
+import { CatDigitalComponent } from './components/usuario/cat-digital/cat-digital.component';
+import { InicioadminComponent } from './components/admin/inicioadmin/inicioadmin.component';
+import { CrudComponent } from './components/admin/crud/crud.component';
+
+import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarlibro.component';
+import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
+import { EliminarlibroComponent } from './components/admin/eliminarlibro/eliminarlibro.component';
+import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 
 
 const routes: Routes = [
@@ -43,11 +42,7 @@ const routes: Routes = [
   {
     path : 'verificacion',
     component : VerificacionComponent
-  },
-  {
-    path : 'estatus',
-    component : EstatusComponent
-  },
+  },  
   {
     path : 'registro',
     component : RegistroComponent 
@@ -65,28 +60,24 @@ const routes: Routes = [
     component : InicioadminComponent
   },
   {
-    path : 'informes',
-    component : InformesComponent
+    path: 'crud',
+    component: CrudComponent
   },
   {
-    path : 'inventario',
-    component : InventarioComponent
+    path: 'agregarlibro',
+    component: AgregarlibroComponent
   },
   {
-    path : 'bajadigital',
-    component : BajalibrosdigitalesComponent
+    path: 'editarlibro',
+    component: EditarlibroComponent
   },
   {
-    path : 'bajafisica',
-    component : BajalibrosfisicosComponent
+    path: 'eliminalibro',
+    component: EliminarlibroComponent
   },
   {
-    path : 'altadigital',
-    component : AltalibrosdigitalesComponent
-  },
-  {
-    path : 'altafisica',
-    component : AltalibrosfisicosComponent
+    path: 'estatus',
+    component: EstatusComponent
   }
 ];
 
