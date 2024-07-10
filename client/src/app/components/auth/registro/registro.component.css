@@ -5,11 +5,11 @@
 }
 body {
     font-family: sans-serif;
-    background-color: #9FC5F8;
+    background-image: url("../../../../assets/interior-biblioteca-sala-vacia-leer-libros-estantes-madera_33099-1722.avif");
 }
 .form-login {
     width: 400px;
-    height: 450px;
+    height: 520px;
     background: #666666;
     margin: auto;
     margin-top: 70px;
@@ -69,11 +69,11 @@ body {
     border: 0px;
 }
 h1{
-    line-height: 100px;
+    line-height: 80px;
     text-align: center;
     font-weight: bold;
     color: white;
-    height: 100px;
+    height: 80px;
     padding: 0%;
-    background-color: rgb(42, 102, 255);
+    background-color: rgb(104, 146, 253);
 }

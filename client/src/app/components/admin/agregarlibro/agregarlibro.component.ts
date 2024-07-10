@@ -11,12 +11,14 @@ export class AgregarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    id:0,
+    isbn:0,
     title : '',
-    genero: '',
     author: '',
+    genero: '',
+    create_at : new Date(),
+    availability:0,
     image : '',
-    create_at : new Date()
+    description:'',
   }; 
 	constructor(private booksService : BooksService){}
   
@@ -24,7 +26,7 @@ export class AgregarlibroComponent {
 
   saveNewBook(){
     delete this.book.create_at;
-	  delete this.book.id; //elimina solo del objeto a enviar estos datos, ya que son generados por la base de datos directamente y no necesitan ser enviados.
+	  delete this.book.isbn; //elimina solo del objeto a enviar estos datos, ya que son generados por la base de datos directamente y no necesitan ser enviados.
     this.booksService.saveBook(this.book).subscribe(
       resp =>{console.log(resp)},
       err => console.log(err)

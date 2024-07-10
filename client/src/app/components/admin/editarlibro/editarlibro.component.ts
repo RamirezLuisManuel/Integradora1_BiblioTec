@@ -11,20 +11,22 @@ export class EditarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    id:0,
+    isbn:0,
     title : '',
-    genero: '',
     author: '',
+    genero: '',
+    create_at : new Date(),
+    availability:0,
     image : '',
-    create_at : new Date()
+    description:'',
   };
   constructor(private booksService : BooksService){}
 
   ngOnInit(){ }
   
   updateBook(){
-    if (this.book.id) {
-      this.booksService.updateBook(this.book.id, this.book).subscribe(
+    if (this.book.isbn) {
+      this.booksService.updateBook(this.book.isbn, this.book).subscribe(
         resp => {
           console.log(resp);
         },

@@ -19,6 +19,7 @@ import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarli
 import { CatDigitalComponent } from './components/usuario/cat-digital/cat-digital.component';
 import { CatFisicoComponent } from './components/usuario/cat-fisico/cat-fisico.component';
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
+import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EstatusComponent } from './components/usuario/estatus/estatus.component
     AgregarlibroComponent,
     CatDigitalComponent,
     CatFisicoComponent,
-    EstatusComponent
+    EstatusComponent,
+    PrestamosComponent
   ],
   imports: [
     BrowserModule,

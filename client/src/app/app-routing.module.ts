@@ -15,6 +15,8 @@ import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarli
 import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
 import { EliminarlibroComponent } from './components/admin/eliminarlibro/eliminarlibro.component';
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
+import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
+import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 
 
 const routes: Routes = [
@@ -78,6 +80,10 @@ const routes: Routes = [
   {
     path: 'estatus',
     component: EstatusComponent
+  },
+  {
+    path: 'prestamos',
+    component: PrestamosComponent
   }
 ];
 
