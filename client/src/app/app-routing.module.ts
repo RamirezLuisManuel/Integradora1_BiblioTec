@@ -22,7 +22,7 @@ import { PrestamosComponent } from './components/admin/prestamos/prestamos.compo
 const routes: Routes = [
   {
     path : '',
-    redirectTo : 'login',
+    redirectTo : 'inicio',
     pathMatch : 'full'
   },
   {

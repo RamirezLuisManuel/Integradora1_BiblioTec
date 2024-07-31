@@ -1,10 +1,12 @@
 export interface Book{
     isbn?:number;
+    id?:number;
     title?:string;
     author?:string;
     genero?:string;
     create_at?:Date;
-    availability?:number;
+    tipo?:string;
+    disponibilidad?:number;
     image?:string;
     description?:string;
 }//El signo de interrogación nos dice que el campo es opcional

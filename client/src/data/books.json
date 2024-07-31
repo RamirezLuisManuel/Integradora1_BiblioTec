@@ -1,44 +1,52 @@
 {
   "books": [
     {
-      "isbn":"1",
-      "title":"Calculo Diferencial",
-      "author":"Ron Larson & Bruce Edwards",
-      "genero":"Matemáticas",
+      "isbn": "1",
+      "id": "AER121",
+      "title": "Calculo Diferencial",
+      "author": "Ron Larson & Bruce Edwards",
+      "genero": "Matemáticas",
       "create_at": "2024-06-26T03:09:24.364Z",
-      "availability":"5",
-      "image":"https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
-      "description":"Libro educativo."
+      "tip": "Fisico",
+      "disponibilidad": "5",
+      "image": "https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
+      "description": "Libro educativo."
     },
     {
-      "isbn":"2",
-      "title":"La Caperucita Roja",
-      "author":"Pedro",
-      "genero":"Fantasia",
+      "isbn": "2",
+      "id": "AER122",
+      "title": "La Caperucita Roja",
+      "author": "Pedro",
+      "genero": "Fantasia",
       "create_at": "2024-T03:09:24.364Z",
-      "availability":"5",
-      "image":"https://www.klim.com.co/sites/default/files/inline-images/caperucita-roja-encontrandose-con-lobo-feroz.jpg",
-      "description":"Libro infantil."
+      "tip": "Fisico",
+      "disponibilidad": "5",
+      "image": "https://www.klim.com.co/sites/default/files/inline-images/caperucita-roja-encontrandose-con-lobo-feroz.jpg",
+      "description": "Libro infantil."
     },
     {
       "isbn": "3",
+      "id": "AER123",
       "title": "El Patito Feo",
-      "author":"Pedro",
-      "genero":"Fantasia",
+      "author": "Pedro",
+      "genero": "Fantasia",
       "create_at": "2024-06-26T05:32:16.782Z",
-      "availability":"2",
+      "tip": "Fisico",
+      "disponibilidad": "2",
       "image": "https://aulainfantil.com/wp-content/uploads/2023/10/el-patito-feo.jpg",
-      "description":"Libro infantil."
+      "description": "Libro infantil."
     },
     {
       "isbn": "4",
+      "id": "AER124",
       "title": "Historia de México",
       "author": "Juanito",
       "genero": "Educativo",
       "create_at": "2024-06-26T06:10:20.066Z",
-      "availability":"2",
+      "tip": "Fisico",
+      "disponibilidad": "2",
       "image": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcL2EyZDU4Y2Y0LTMyMDctNDMyYi04NjI0LTE2NWUyNTk1MmVmNC0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
-      "description":"Libro educativo."
+      "description": "Libro educativo."
     }
   ]
 }

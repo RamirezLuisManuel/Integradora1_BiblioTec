@@ -1,5 +1,4 @@
 <app-navigation-admin></app-navigation-admin>
-
 <!DOCTYPE html>
 <html lang="es" class="h-100">
 
@@ -23,33 +22,37 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">ISBN</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Genero</th>
                         <th scope="col">Autor</th>
-                        <th scope="col">Vista Previa</th>
                         <th scope="col">Fecha de Registro</th>
-                        <th scope="col">Modificacion</th>
                         <th scope="col">Descripcion</th>
+                        <th scope="col">Tipo</th>
                         <th scope="col">Disponibilidad</th>
+                        <th scope="col">Vista Previa</th>
+                        <th scope="col">Modificacion</th>
                     </tr>
                 </thead>
 
                 <tbody  *ngFor="let book of books">
                     <tr>
+                        <td>{{book.isbn}}</td>
                         <td>{{book.id}}</td>
                         <td>{{book.title}}</td>
                         <td>{{book.genero}}</td>
                         <td>{{book.author}}</td>
+                        <td>{{book.create_at}}</td>  
+                        <td>{{book.descripcion}}</td>
+                        <td>{{book.tipo}}</td>
+                        <td>{{book.disponibilidad}}</td>
                         <td><img [src]="book.image" class="card-img-top"></td>
-                        <td>{{book.create_at}}</td>
                         <td>
                             <a href="/editarlibro" class="btn btn-warning btn-sm me-2">Editar</a>
 
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#eliminaModal" data-bs-id="1">Eliminar</button>
-                        </td>   
-                        <td>Descripcion lewwcewcwece</td>
-                        <td>Disponibilidad </td>
+                        </td> 
                     </tr>
 
                 </tbody>

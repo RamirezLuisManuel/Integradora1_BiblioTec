@@ -12,11 +12,13 @@ export class AgregarlibroComponent {
 
   book : Book = {
     isbn:0,
+    id: 0,
     title : '',
     author: '',
     genero: '',
     create_at : new Date(),
-    availability:0,
+    tipo : '',
+    disponibilidad:0,
     image : '',
     description:'',
   }; 

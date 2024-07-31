@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
-import { Book } from '../../../models/Book';
 import { BooksService } from '../../../services/books.service';
+import { Book } from '../../../models/Book';
 
 @Component({
   selector: 'app-editarlibro',
@@ -12,11 +12,13 @@ export class EditarlibroComponent {
 
   book : Book = {
     isbn:0,
+    id: 0,
     title : '',
     author: '',
     genero: '',
     create_at : new Date(),
-    availability:0,
+    tipo : '',
+    disponibilidad:0,
     image : '',
     description:'',
   };
