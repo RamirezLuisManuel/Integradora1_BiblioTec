@@ -47,6 +47,16 @@
       "disponibilidad": "2",
       "image": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcL2EyZDU4Y2Y0LTMyMDctNDMyYi04NjI0LTE2NWUyNTk1MmVmNC0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
       "description": "Libro educativo."
+    },
+    {
+      "id": 0,
+      "title": "",
+      "author": "",
+      "genero": "",
+      "tipo": "",
+      "disponibilidad": 0,
+      "image": "",
+      "description": ""
     }
   ]
 }
