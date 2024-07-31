@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { BooksService } from '../../../services/books.service';
 import { Book } from '../../../models/Book';
 

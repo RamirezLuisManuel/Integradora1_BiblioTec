@@ -17,6 +17,7 @@ import { EliminarlibroComponent } from './components/admin/eliminarlibro/elimina
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
+import { MultasComponent } from './components/admin/multas/multas.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,10 @@ const routes: Routes = [
   {
     path: 'prestamos',
     component: PrestamosComponent
+  },
+  {
+    path: 'multas',
+    component: MultasComponent
   }
 ];
 

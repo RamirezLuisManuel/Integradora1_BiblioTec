@@ -57,6 +57,16 @@
       "disponibilidad": 0,
       "image": "",
       "description": ""
+    },
+    {
+      "id": 0,
+      "title": "",
+      "author": "",
+      "genero": "",
+      "tipo": "",
+      "disponibilidad": 0,
+      "image": "",
+      "description": ""
     }
   ]
 }
