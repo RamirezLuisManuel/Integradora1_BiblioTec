@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'; //interfaz que permite las pe
 import { Book } from '../models/Book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn : 'root'
 })
 export class BooksService {
 
