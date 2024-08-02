@@ -16,6 +16,7 @@ CREATE TABLE Usuarios (
     Nombre VARCHAR(25) NOT NULL,
     ApPaterno VARCHAR(255) NOT NULL,
     ApMaterno VARCHAR(255) NOT NULL,
+    Contrasena VARCHAR(16)  NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
     Correo VARCHAR(255) NOT NULL,
     Telefono VARCHAR(15) NOT NULL,

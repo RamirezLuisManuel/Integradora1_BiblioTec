@@ -21,6 +21,5 @@ import pool from '../database';
 	
 	}
 	
-
 const librosController = new LibrosController();
 export default librosController;

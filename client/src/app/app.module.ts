@@ -21,6 +21,8 @@ import { CatFisicoComponent } from './components/usuario/cat-fisico/cat-fisico.c
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 import { MultasComponent } from './components/admin/multas/multas.component';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
+import { RegistroadminComponent } from './components/admin/registroadmin/registroadmin.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { MultasComponent } from './components/admin/multas/multas.component';
     CatFisicoComponent,
     EstatusComponent,
     PrestamosComponent,
-    MultasComponent
+    MultasComponent,
+    UsuariosComponent,
+    RegistroadminComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,8 @@ import { EstatusComponent } from './components/usuario/estatus/estatus.component
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 import { MultasComponent } from './components/admin/multas/multas.component';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
+import { RegistroadminComponent } from './components/admin/registroadmin/registroadmin.component';
 
 
 const routes: Routes = [
@@ -49,6 +51,10 @@ const routes: Routes = [
   {
     path : 'registro',
     component : RegistroComponent 
+  },
+  {
+    path: 'registroadmin',
+    component: RegistroadminComponent
   },
   {
     path : 'catalogo/fisico',
@@ -89,6 +95,10 @@ const routes: Routes = [
   {
     path: 'multas',
     component: MultasComponent
+  },
+  {
+    path: 'usuarios',
+    component: UsuariosComponent
   }
 ];
 
