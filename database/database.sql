@@ -27,7 +27,7 @@ CREATE TABLE Usuarios (
 -- Crear la tabla Libros
 CREATE TABLE Libros (
     Isbn VARCHAR(20) PRIMARY KEY,
-    Id VARCHAR(20) NOT NULL,
+    Id VARCHAR(20) NOT NULL UNIQUE,
     Titulo VARCHAR(255) NOT NULL,
     Autor VARCHAR(255) NOT NULL,
     Tema VARCHAR(255) NOT NULL,

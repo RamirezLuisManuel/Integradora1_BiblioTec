@@ -2,23 +2,32 @@ import{Request, Response} from 'express';
 import pool from '../database';
 
 	class LibrosController{
-		public list(req : Request, resp : Response){
-			console.log(req.body);
-			resp.json({text:'Listig books'});
+		public async list(req:Request, resp:Response){
+			const libros = await pool.query('SELECT * FROM Libros');
+			resp.json(libros);
 		}
-		public create (req:Request, resp:Response){
-			resp.json({text : 'Creating a book’'});
+		public async create(req:Request,resp:Response):Promise<void>{
+			await pool.query('INSERT INTO Libros set ?',[req.body]);
+			resp.json({message : 'Libro guardado'});
 		}
-		public delete(req:Request, resp:Response){
-			resp.json({text:'Deleting a book'});
+		public async delete(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('DELETE FROM Libros WHERE Id=?',[Id]);
+			resp.json({message: 'EL libro fue eliminado'});
 		}
-		public update(req:Request, resp:Response){
-			resp.json({text:'Updating a book'+req.params.Id});
+		public async update(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('UPDATE Libros set ? WHERE Id = ?',[req.body,Id]);
+			resp.json({message : 'EL libro fue atualizado'});
 		}
-		public getOne(req : Request, resp: Response){
-			resp.json({text : 'This is a book' + req.params.Id});
-		}
-	
+		public async getOne(req:Request, resp:Response){
+			const {Id} = req.params; //se recupera el id del request params.
+			const libros = await pool.query('SELECT * FROM Libros WHERE Id=?',[Id]);
+			if(libros.length > 0){
+				return resp.json(libros[0]);
+			}
+			resp.status(404).json({text: 'EL libro no existe'});
+		} 
 	}
 	
 const librosController = new LibrosController();
