@@ -13,10 +13,10 @@ import pool from '../database';
 			resp.json({text:'Borrar libro'});
 		}
 		public update(req:Request, resp:Response){
-			resp.json({text:'Actualizar libro'+req.params.Id});
+			resp.json({text:'Actualizar invetario'+req.params.Id});
 		}
 		public getOne(req : Request, resp: Response){
-			resp.json({text : 'Este es un libro' + req.params.Id});
+			resp.json({text : 'Este es un inventario' + req.params.Id});
 		}
 	
 	}

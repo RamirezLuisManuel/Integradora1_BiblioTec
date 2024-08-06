@@ -12,10 +12,10 @@ class InventarioController {
         resp.json({ text: 'Borrar libro' });
     }
     update(req, resp) {
-        resp.json({ text: 'Actualizar libro' + req.params.Id });
+        resp.json({ text: 'Actualizar invetario' + req.params.Id });
     }
     getOne(req, resp) {
-        resp.json({ text: 'Este es un libro' + req.params.Id });
+        resp.json({ text: 'Este es un inventario' + req.params.Id });
     }
 }
 const inventarioController = new InventarioController();

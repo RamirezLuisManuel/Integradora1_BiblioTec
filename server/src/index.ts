@@ -1,8 +1,7 @@
 import express, {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import librosRoutes from './routes/librosRoutes';
-import loginRoutes from './routes/loginRoutes';
-import usuarioRoutes from './routes/usuarioRoutes';
+import tipousuarioRoutes from './routes/tipousuarioRoutes';
 
 import morgan from 'morgan';
 import cors from 'cors';
@@ -27,6 +26,7 @@ class Server{
     routes() : void {
         this.app.use('/',indexRoutes);
         this.app.use('/api/libros',librosRoutes);
+        this.app.use('/api/tipou',tipousuarioRoutes);
     }
 
     start() : void{

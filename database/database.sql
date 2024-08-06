@@ -6,7 +6,7 @@ USE biblioteca;
 
 -- Crear la tabla TipoUsuario
 CREATE TABLE TipoUsuario (
-    IdTipo INT AUTO_INCREMENT PRIMARY KEY,
+    IdTipo INT PRIMARY KEY,
     Descripcion VARCHAR(15) NOT NULL
 );
 
