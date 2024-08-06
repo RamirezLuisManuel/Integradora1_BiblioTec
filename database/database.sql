@@ -20,7 +20,9 @@ CREATE TABLE Usuarios (
     Correo VARCHAR(255) NOT NULL,
     Telefono VARCHAR(15) NOT NULL,
     IdTipo INT,
-    FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo)
+    FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo),
+    Contraseña VARCHAR(16) not NULL,
+    Estado VARCHAR(15) not NULL,
 );
 
 -- Crear la tabla Libros
