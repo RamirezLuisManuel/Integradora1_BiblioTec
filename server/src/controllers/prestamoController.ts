@@ -7,7 +7,7 @@ import pool from '../database';
 			resp.json({text:'Lista de prestamos'});
 		}
 		public create (req:Request, resp:Response){
-			resp.json({text : 'Creación de un prestamo’'});
+			resp.json({text : 'Creación de un prestamo'});
 		}
 		public delete(req:Request, resp:Response){
 			resp.json({text:'Eliminar un prestamo'});

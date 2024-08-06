@@ -7,7 +7,7 @@ import pool from '../database';
 			resp.json({text:'Lista de usuarios'});
 		}
 		public create (req:Request, resp:Response){
-			resp.json({text : 'Creación de un usuario’'});
+			resp.json({text : 'Creación de un usuario'});
 		}
 		public delete(req:Request, resp:Response){
 			resp.json({text:'Eliminar un usuario'});
