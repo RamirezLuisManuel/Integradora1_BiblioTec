@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import inventarioController from '../controllers/libroController';
+import inventarioController from '../controllers/inventarioController';
 
 
 class InventarioRoutes{
