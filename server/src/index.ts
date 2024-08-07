@@ -6,6 +6,10 @@ import tipousuarioRoutes from './routes/tipousuarioRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 import inventarioRoutes from './routes/inventarioRoutes';
+import usuarioRoutes from './routes/usuarioRoutes';
+import multaRoutes from './routes/multaRoutes';
+import prestamoRoutes from './routes/prestamoRoutes';
+import novedadesRouter from './routes/novedadesRouter';
 
 class Server{
     public app:Application;
@@ -29,6 +33,10 @@ class Server{
         this.app.use('/api/libros',librosRoutes);
         this.app.use('/api/inventario',inventarioRoutes);
         this.app.use('/api/tipo',tipousuarioRoutes);
+        this.app.use('/api/usuario',usuarioRoutes);
+        this.app.use('/api/multa',multaRoutes);
+        this.app.use('/api/prestamo',prestamoRoutes);
+        this.app.use('/api/novedades',novedadesRouter);
     }
 
     start() : void{
