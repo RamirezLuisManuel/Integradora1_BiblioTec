@@ -2,25 +2,33 @@ import{Request, Response} from 'express';
 import pool from '../database';
 
 	class PrestamoController{
-		public list(req : Request, resp : Response){
-			console.log(req.body);
-			resp.json({text:'Lista de prestamos'});
+		public async list(req:Request, resp:Response){
+			const prestamo = await pool.query('SELECT * FROM Prestamos');
+			resp.json(prestamo);
 		}
-		public create (req:Request, resp:Response){
-			resp.json({text : 'Creación de un prestamo'});
+		public async create(req:Request,resp:Response):Promise<void>{
+			await pool.query('INSERT INTO Prestamos set ?',[req.body]);
+			resp.json({message : 'Datos de prestamo guardados'});
 		}
-		public delete(req:Request, resp:Response){
-			resp.json({text:'Eliminar un prestamo'});
+		public async delete(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('DELETE FROM Prestamos WHERE Id=?',[Id]);
+			resp.json({message: 'EL prestamo fue eliminado'});
 		}
-		public update(req:Request, resp:Response){
-			resp.json({text:'Actualizando un prestamo'+req.params.Id});
+		public async update(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('UPDATE Prestamos set ? WHERE Id = ?',[req.body,Id]);
+			resp.json({message : 'EL prestamo fue atualizado'});
 		}
-		public getOne(req : Request, resp: Response){
-			resp.json({text : 'Este es el prestamo' + req.params.Id});
-		}
-	
+		public async getOne(req:Request, resp:Response){
+			const {Id} = req.params; //se recupera el id del request params.
+			const prestamo = await pool.query('SELECT * FROM Libros WHERE Id=?',[Id]);
+			if(prestamo.length > 0){
+				return resp.json(prestamo[0]);
+			}
+			resp.status(404).json({text: 'Datos del prestamo no existen'});
+		} 
 	}
 	
-
 const prestamoController = new PrestamoController();
 export default prestamoController;
