@@ -12,7 +12,7 @@ CREATE TABLE TipoUsuario (
 
 -- Crear la tabla Usuarios
 CREATE TABLE Usuarios (
-    NControl INT PRIMARY KEY,
+    Matricula INT PRIMARY KEY,
     Nombre VARCHAR(25) NOT NULL,
     ApPaterno VARCHAR(255) NOT NULL,
     ApMaterno VARCHAR(255) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE Prestamos (
     Isbn VARCHAR(20),
     Fechaprestamos TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Fechadevolucion DATE,
-    FOREIGN KEY (NControl) REFERENCES Usuarios(NControl),
+    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula),
     FOREIGN KEY (Isbn) REFERENCES Libros(Isbn)
 );
 
@@ -65,3 +65,16 @@ CREATE TABLE Multa (
     IdPrestamo INT,
     FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo)
 );
+
+-- Crear la tabla Novedades
+CREATE TABLE Novedades (
+    IdNovedad INT AUTO_INCREMENT PRIMARY KEY,
+    Matricula INT,
+    NomEvent VARCHAR(255) NOT NULL,
+    FechaInicioEvent DATE NOT NULL,
+    FechaFinEvent DATE NOT NULL,
+    DesEvent TEXT,
+    StaEvent VARCHAR(50) NOT NULL,
+    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula)
+);
+
