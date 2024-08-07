@@ -6,7 +6,7 @@ USE biblioteca;
 
 -- Crear la tabla TipoUsuario
 CREATE TABLE TipoUsuario (
-    IdTipo INT AUTO_INCREMENT PRIMARY KEY,
+    IdTipo INT PRIMARY KEY,
     Descripcion VARCHAR(15) NOT NULL
 );
 
@@ -21,14 +21,14 @@ CREATE TABLE Usuarios (
     Telefono VARCHAR(15) NOT NULL,
     IdTipo INT,
     FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo),
-    Contraseña VARCHAR(16) NOT NULL,
-    Estado VARCHAR(15) NOT NULL
+    Contraseña VARCHAR(16) not NULL,
+    Estado VARCHAR(15) not NULL,
 );
 
 -- Crear la tabla Libros
 CREATE TABLE Libros (
     Isbn VARCHAR(20) PRIMARY KEY,
-    Id VARCHAR(20) NOT NULL,
+    Id VARCHAR(20) NOT NULL UNIQUE,
     Titulo VARCHAR(255) NOT NULL,
     Autor VARCHAR(255) NOT NULL,
     Tema VARCHAR(255) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE Multa (
     Fecha DATE NOT NULL,
     Estatus VARCHAR(50) NOT NULL,
     IdPrestamo INT,
-    FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo)
+    FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamos)
 );
 
 -- Crear la tabla Novedades

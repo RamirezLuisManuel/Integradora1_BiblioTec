@@ -2,25 +2,34 @@ import{Request, Response} from 'express';
 import pool from '../database';
 
 	class TipoController{
-		public list(req : Request, resp : Response){
-			console.log(req.body);
-			resp.json({text:'Listig type'});
+		public async list(req:Request, resp:Response){
+			const tipo = await pool.query('SELECT * FROM TipoUsuario');
+			resp.json(tipo);
 		}
-		public create (req:Request, resp:Response){
-			resp.json({text : 'Creating a type'});
+		public async create(req:Request,resp:Response):Promise<void>{
+			await pool.query('INSERT INTO TipoUsuario set ?',[req.body]);
+			resp.json({message : 'Tipo guardado'});
 		}
-		public delete(req:Request, resp:Response){
-			resp.json({text:'Deleting a type'});
+		public async delete(req:Request, resp:Response){
+			const {IdTipo} = req.params;
+			await pool.query('DELETE FROM TipoUsuario WHERE IdTipo=?',[IdTipo]);
+			resp.json({message: 'EL tipo fue eliminado'});
 		}
-		public update(req:Request, resp:Response){
-			resp.json({text:'Updating a type'+req.params.Id});
+		public async update(req:Request, resp:Response){
+			const {IdTipo} = req.params;
+			await pool.query('UPDATE TipoUsuario set ? WHERE IdTipo = ?',[req.body,IdTipo]);
+			resp.json({message : 'EL tipo fue atualizado'});
 		}
-		public getOne(req : Request, resp: Response){
-			resp.json({text : 'This is a type' + req.params.Id});
+		public async getOne(req:Request, resp:Response){
+			const {IdTipo} = req.params; //se recupera el id del request params.
+			const tipo = await pool.query('SELECT * FROM TipoUsuario WHERE IdTipo=?',[IdTipo]);
+			if(tipo.length > 0){
+				return resp.json(tipo[0]);
+			}
+			resp.status(404).json({text: 'EL tipo no existe'});
 		}
-	
+
 	}
-	
 
 const tipoController = new TipoController();
 export default tipoController;
