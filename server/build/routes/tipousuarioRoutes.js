@@ -11,11 +11,11 @@ class TipousuarioRoutes {
         this.config();
     }
     config() {
-        this.router.get('/tipo', libroController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
-        this.router.post('/tipo ', libroController_1.default.create);
-        this.router.delete('/tipo/:Id', libroController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/tipo/:Id', libroController_1.default.update);
-        this.router.get('/tipo/:Id', libroController_1.default.getOne);
+        this.router.get('/', libroController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
+        this.router.post('/', libroController_1.default.create);
+        this.router.delete('/:Id', libroController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:Id', libroController_1.default.update);
+        this.router.get('/:Id', libroController_1.default.getOne);
     }
 }
 const tipousuarioRoutes = new TipousuarioRoutes();

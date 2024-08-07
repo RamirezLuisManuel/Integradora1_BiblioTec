@@ -11,11 +11,11 @@ class InventarioRoutes {
         this.config();
     }
     config() {
-        this.router.get('/crud/', libroController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
-        this.router.post('/crud/', libroController_1.default.create);
-        this.router.delete('/crud/:Id', libroController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/crud/:Id', libroController_1.default.update);
-        this.router.get('/crud/:Id', libroController_1.default.getOne);
+        this.router.get('/', libroController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
+        this.router.post('/', libroController_1.default.create);
+        this.router.delete('/:Id', libroController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:Id', libroController_1.default.update);
+        this.router.get('/:Id', libroController_1.default.getOne);
     }
 }
 const inventarioRoutes = new InventarioRoutes();

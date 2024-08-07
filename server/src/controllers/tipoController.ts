@@ -3,8 +3,8 @@ import pool from '../database';
 
 	class TipoController{
 		public async list(req:Request, resp:Response){
-			const tipoU = await pool.query('SELECT * FROM TipoUsuario');
-			resp.json(tipoU);
+			const tipo = await pool.query('SELECT * FROM TipoUsuario');
+			resp.json(tipo);
 		}
 		public async create(req:Request,resp:Response):Promise<void>{
 			await pool.query('INSERT INTO TipoUsuario set ?',[req.body]);
@@ -22,14 +22,14 @@ import pool from '../database';
 		}
 		public async getOne(req:Request, resp:Response){
 			const {IdTipo} = req.params; //se recupera el id del request params.
-			const libros = await pool.query('SELECT * FROM TipoUsuario WHERE IdTipo=?',[IdTipo]);
-			if(libros.length > 0){
-				return resp.json(libros[0]);
+			const tipo = await pool.query('SELECT * FROM TipoUsuario WHERE IdTipo=?',[IdTipo]);
+			if(tipo.length > 0){
+				return resp.json(tipo[0]);
 			}
 			resp.status(404).json({text: 'EL tipo no existe'});
 		}
-	
+
 	}
-	
+
 const tipoController = new TipoController();
 export default tipoController;

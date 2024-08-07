@@ -10,7 +10,7 @@ import pool from '../database';
 			resp.json({text : 'Crear libro'});
 		}	
 		public delete(req:Request, resp:Response){
-			resp.json({text:'Borrar libro'});
+			resp.json({text:'Borrar'});
 		}
 		public update(req:Request, resp:Response){
 			resp.json({text:'Actualizar invetario'+req.params.Id});
@@ -20,6 +20,6 @@ import pool from '../database';
 		}
 	
 	}
-	
+
 const inventarioController = new InventarioController();
 export default inventarioController;

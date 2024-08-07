@@ -5,6 +5,7 @@ import tipousuarioRoutes from './routes/tipousuarioRoutes';
 
 import morgan from 'morgan';
 import cors from 'cors';
+import inventarioRoutes from './routes/inventarioRoutes';
 
 class Server{
     public app:Application;
@@ -26,14 +27,14 @@ class Server{
     routes() : void {
         this.app.use('/',indexRoutes);
         this.app.use('/api/libros',librosRoutes);
-        this.app.use('/api/tipou',tipousuarioRoutes);
+        this.app.use('/api/inventario',inventarioRoutes);
+        this.app.use('/api/tipo',tipousuarioRoutes);
     }
 
     start() : void{
         this.app.listen(this.app.get('port'),()=>{
             console.log('Server on port', this.app.get('port'));
         });
-        
     }
 }
 

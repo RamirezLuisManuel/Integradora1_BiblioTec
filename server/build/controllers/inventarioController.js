@@ -9,7 +9,7 @@ class InventarioController {
         resp.json({ text: 'Crear libro' });
     }
     delete(req, resp) {
-        resp.json({ text: 'Borrar libro' });
+        resp.json({ text: 'Borrar' });
     }
     update(req, resp) {
         resp.json({ text: 'Actualizar invetario' + req.params.Id });

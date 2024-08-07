@@ -16,8 +16,8 @@ const database_1 = __importDefault(require("../database"));
 class TipoController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipoU = yield database_1.default.query('SELECT * FROM TipoUsuario');
-            resp.json(tipoU);
+            const tipo = yield database_1.default.query('SELECT * FROM TipoUsuario');
+            resp.json(tipo);
         });
     }
     create(req, resp) {
@@ -43,9 +43,9 @@ class TipoController {
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { IdTipo } = req.params; //se recupera el id del request params.
-            const libros = yield database_1.default.query('SELECT * FROM TipoUsuario WHERE IdTipo=?', [IdTipo]);
-            if (libros.length > 0) {
-                return resp.json(libros[0]);
+            const tipo = yield database_1.default.query('SELECT * FROM TipoUsuario WHERE IdTipo=?', [IdTipo]);
+            if (tipo.length > 0) {
+                return resp.json(tipo[0]);
             }
             resp.status(404).json({ text: 'EL tipo no existe' });
         });

@@ -16,12 +16,13 @@ CREATE TABLE Usuarios (
     Nombre VARCHAR(25) NOT NULL,
     ApPaterno VARCHAR(255) NOT NULL,
     ApMaterno VARCHAR(255) NOT NULL,
-    Contrasena VARCHAR(16)  NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
     Correo VARCHAR(255) NOT NULL,
     Telefono VARCHAR(15) NOT NULL,
     IdTipo INT,
-    FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo)
+    FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo),
+    Contraseña VARCHAR(16) not NULL,
+    Estado VARCHAR(15) not NULL,
 );
 
 -- Crear la tabla Libros
@@ -52,7 +53,7 @@ CREATE TABLE Inventario (
     CodLibro INT AUTO_INCREMENT PRIMARY KEY,
     Isbn VARCHAR(20),
     Cantidad INT NOT NULL,
-    FOREIGN KEY (isbn) REFERENCES Libros(isbn)
+    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn)
 );
 
 -- Crear la tabla Multa
@@ -62,5 +63,5 @@ CREATE TABLE Multa (
     Fecha DATE NOT NULL,
     Estatus VARCHAR(50) NOT NULL,
     IdPrestamo INT,
-    FOREIGN KEY (idPrestamo) REFERENCES Prestamos(idPrestamos)
+    FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamos)
 );
