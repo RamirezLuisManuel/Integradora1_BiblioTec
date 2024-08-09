@@ -7,7 +7,7 @@ import { Book } from '../models/Book';
 })
 export class BooksService {
 
-  API_URI = `http://localhost:3000/api`;   //Back-end
+  API_URI = `http://localhost:3000/api/libros`;   //Back-end
   //API_URI = `http://localhost:3000/books`;    //Front-end con acceso a datos json.
 
   constructor(private http : HttpClient){}
