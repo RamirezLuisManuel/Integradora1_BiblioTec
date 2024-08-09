@@ -22,7 +22,7 @@ import pool from '../database';
 		}
 		public async getOne(req:Request, resp:Response){
 			const {Id} = req.params; //se recupera el id del request params.
-			const prestamo = await pool.query('SELECT * FROM Libros WHERE Id=?',[Id]);
+			const prestamo = await pool.query('SELECT * FROM Prestamos WHERE Id=?',[Id]);
 			if(prestamo.length > 0){
 				return resp.json(prestamo[0]);
 			}
