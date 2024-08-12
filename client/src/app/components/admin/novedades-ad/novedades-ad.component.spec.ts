@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecuperarComponent } from './recuperar.component';
+import { NovedadesAdComponent } from './novedades-ad.component';
 
-describe('RecuperarComponent', () => {
-  let component: RecuperarComponent;
-  let fixture: ComponentFixture<RecuperarComponent>;
+describe('NovedadesAdComponent', () => {
+  let component: NovedadesAdComponent;
+  let fixture: ComponentFixture<NovedadesAdComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RecuperarComponent]
+      declarations: [NovedadesAdComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RecuperarComponent);
+    fixture = TestBed.createComponent(NovedadesAdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -22,7 +22,7 @@ import { EstatusComponent } from './components/usuario/estatus/estatus.component
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 import { MultasComponent } from './components/admin/multas/multas.component';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
-import { RegistroadminComponent } from './components/admin/registroadmin/registroadmin.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { RegistroadminComponent } from './components/admin/registroadmin/registr
     PrestamosComponent,
     MultasComponent,
     UsuariosComponent,
-    RegistroadminComponent
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

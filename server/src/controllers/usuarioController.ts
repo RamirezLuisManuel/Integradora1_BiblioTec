@@ -53,7 +53,7 @@ class UsuarioController {
       const { Matricula } = req.params; // Se recupera la matrícula del request params.
       const usuarios = await pool.query('SELECT * FROM Usuarios WHERE Matricula = ?', [Matricula]);
       if (usuarios.length > 0) {
-        return resp.json(usuarios[0]);
+         resp.json(usuarios[0]);
       }
       resp.status(404).json({ message: 'El usuario no existe' });
     } catch (error) {

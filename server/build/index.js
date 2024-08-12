@@ -10,6 +10,10 @@ const tipousuarioRoutes_1 = __importDefault(require("./routes/tipousuarioRoutes"
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const inventarioRoutes_1 = __importDefault(require("./routes/inventarioRoutes"));
+const usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
+const multaRoutes_1 = __importDefault(require("./routes/multaRoutes"));
+const prestamoRoutes_1 = __importDefault(require("./routes/prestamoRoutes"));
+const novedadesRouter_1 = __importDefault(require("./routes/novedadesRouter"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -28,6 +32,10 @@ class Server {
         this.app.use('/api/libros', librosRoutes_1.default);
         this.app.use('/api/inventario', inventarioRoutes_1.default);
         this.app.use('/api/tipo', tipousuarioRoutes_1.default);
+        this.app.use('/api/usuario', usuarioRoutes_1.default);
+        this.app.use('/api/multa', multaRoutes_1.default);
+        this.app.use('/api/prestamo', prestamoRoutes_1.default);
+        this.app.use('/api/novedades', novedadesRouter_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

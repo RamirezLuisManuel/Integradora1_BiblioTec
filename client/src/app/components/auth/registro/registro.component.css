@@ -77,3 +77,24 @@ h1{
     padding: 0%;
     background-color: rgb(104, 146, 253);
 }
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espacia los botones uniformemente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.button-container button {
+    flex: 1;
+    padding: 10px 20px;
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button-container a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}

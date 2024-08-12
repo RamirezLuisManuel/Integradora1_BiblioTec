@@ -13,43 +13,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class MultaController {
+class NovedadesController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const multa = yield database_1.default.query('SELECT * FROM Multa');
-            resp.json(multa);
+            const novedades = yield database_1.default.query('SELECT * FROM Novedades');
+            resp.json(novedades);
         });
     }
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO Multa set ?', [req.body]);
-            resp.json({ message: 'Datos de la multa guardados' });
+            yield database_1.default.query('INSERT INTO Novedades set ?', [req.body]);
+            resp.json({ message: 'Novedad guardada' });
         });
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Id } = req.params;
-            yield database_1.default.query('DELETE FROM Multa WHERE Id=?', [Id]);
-            resp.json({ message: 'Datos de la multa eliminados' });
+            yield database_1.default.query('DELETE FROM Novedades WHERE Id=?', [Id]);
+            resp.json({ message: 'La novedad fue eliminado' });
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Id } = req.params;
-            yield database_1.default.query('UPDATE Multa set ? WHERE Id = ?', [req.body, Id]);
-            resp.json({ message: 'La multa fue atualizado' });
+            yield database_1.default.query('UPDATE Novedades set ? WHERE Id = ?', [req.body, Id]);
+            resp.json({ message: 'La novedad fue atualizado' });
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Id } = req.params; //se recupera el id del request params.
-            const multa = yield database_1.default.query('SELECT * FROM Multa WHERE Id=?', [Id]);
-            if (multa.length > 0) {
-                return resp.json(multa[0]);
+            const novedades = yield database_1.default.query('SELECT * FROM Novedades WHERE Id=?', [Id]);
+            if (novedades.length > 0) {
+                return resp.json(novedades[0]);
             }
-            resp.status(404).json({ text: 'La multa no existe' });
+            resp.status(404).json({ text: 'La novedad no existe' });
         });
     }
 }
-const multaController = new MultaController();
-exports.default = multaController;
+const novedadesController = new NovedadesController();
+exports.default = novedadesController;

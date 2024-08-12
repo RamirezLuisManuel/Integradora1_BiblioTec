@@ -27,6 +27,7 @@ CREATE TABLE Usuarios (
 
 -- Crear la tabla Libros
 CREATE TABLE Libros (
+<<<<<<< HEAD
     IdLibro VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
     Isbn VARCHAR(20) NOT NULL, -- Identificador del libro
     Titulo VARCHAR(255) NOT NULL, -- Título del libro
@@ -34,6 +35,14 @@ CREATE TABLE Libros (
     Tema VARCHAR(100) NOT NULL, -- Tema del libro
     Contenido VARCHAR(50) NOT NULL -- Contenido del libro
     FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+=======
+    Id VARCHAR(20) NOT NULL PRIMARY KEY --'Identificador del libro',
+    Isbn VARCHAR(20) NOT NULL-- 'Código ISBN del libro',
+    Titulo VARCHAR(255) NOT NULL -- 'Título del libro',
+    Autor VARCHAR(255) NOT NULL -- 'Autor del libro',
+    Tema VARCHAR(255) NOT NULL -- 'Tema del libro',
+    Tipo VARCHAR(255) NOT NULL -- 'Tipo de libro',
+>>>>>>> 532601570c043b4748dfa52dd2f73bb1eac0beb3
 );
 
 -- Crear la tabla Prestamos
@@ -49,6 +58,7 @@ CREATE TABLE Prestamos (
 
 -- Crear la tabla Inventario
 CREATE TABLE Inventario (
+<<<<<<< HEAD
     CodLibro INT PRIMARY KEY, -- Código único del libro en inventario
     IdLibro VARCHAR(20), -- Código ISBN del libro
     Cantidad INT NOT NULL, -- Cantidad de libros en inventario
@@ -58,6 +68,12 @@ CREATE TABLE Inventario (
     Imagen VARCHAR(255),
     FOREIGN KEY (IdLibro) REFERENCES Libros(IdLibro),
     FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula)
+=======
+    Isbn VARCHAR(20)-- 'Código ISBN del libro',
+    Cantidad INT NOT NULL -- 'Cantidad de libros en inventario',
+    Descripcion TEXT -- 'Descripción del libro',
+    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn)
+>>>>>>> 532601570c043b4748dfa52dd2f73bb1eac0beb3
 );
 
 -- Crear la tabla Multa

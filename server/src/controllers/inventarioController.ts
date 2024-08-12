@@ -12,17 +12,17 @@ import pool from '../database';
 		}
 		public async delete(req:Request, resp:Response){
 			const {Id} = req.params;
-			await pool.query('DELETE FROM Inventario WHERE Id=?',[Id]);
+			await pool.query('DELETE FROM Inventario WHERE IdInventario=?',[Id]);
 			resp.json({message: 'Los datos del inventario fueron eliminados'});
 		}
 		public async update(req:Request, resp:Response){
 			const {Id} = req.params;
-			await pool.query('UPDATE Inventario set ? WHERE Id = ?',[req.body,Id]);
+			await pool.query('UPDATE Inventario set ? WHERE IdInventario = ?',[req.body,Id]);
 			resp.json({message : 'EL inventario fue atualizado'});
 		}
 		public async getOne(req:Request, resp:Response){
 			const {Id} = req.params; //se recupera el id del request params.
-			const inventario = await pool.query('SELECT * FROM Inventario WHERE Id=?',[Id]);
+			const inventario = await pool.query('SELECT * FROM Inventario WHERE IdInventario=?',[Id]);
 			if(inventario.length > 0){
 				return resp.json(inventario[0]);
 			}
