@@ -11,9 +11,9 @@ class InventarioRoutes{
     config():void{
         this.router.get('/',inventarioController.list);//Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/',inventarioController.create);
-        this.router.delete('/:Id',inventarioController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id',inventarioController.update);
-        this.router.get('/:Id',inventarioController.getOne);
+        this.router.delete('/:Isbn',inventarioController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:Isbn',inventarioController.update);
+        this.router.get('/:Isbn',inventarioController.getOne);
     }
 }
 

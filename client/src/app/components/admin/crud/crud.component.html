@@ -37,15 +37,15 @@
 
                 <tbody  *ngFor="let book of books">
                     <tr>
-                        <td>{{book.isbn}}</td>
-                        <td>{{book.id}}</td>
-                        <td>{{book.title}}</td>
-                        <td>{{book.genero}}</td>
-                        <td>{{book.author}}</td>
-                        <td>{{book.create_at}}</td>  
-                        <td>{{book.descripcion}}</td>
-                        <td>{{book.tipo}}</td>
-                        <td>{{book.disponibilidad}}</td>
+                        <td>{{book.Isbn}}</td>
+                        <td>{{book.Id}}</td>
+                        <td>{{book.Titulo}}</td>
+                        <td>{{book.Tema}}</td>
+                        <td>{{book.Autor}}</td>
+                        <td>{{book.FechaIngreso}}</td>  
+                        <td>{{book.Descripcion}}</td>
+                        <td></td>
+                        <td>{{book.Tipo}}</td>
                         <td><img [src]="book.image" class="card-img-top"></td>
                         <td>
                             <a href="/editarlibro" class="btn btn-warning btn-sm me-2">Editar</a>

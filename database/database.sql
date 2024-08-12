@@ -27,14 +27,12 @@ CREATE TABLE Usuarios (
 
 -- Crear la tabla Libros
 CREATE TABLE Libros (
-    Isbn VARCHAR(20) PRIMARY KEY -- 'Código ISBN del libro',
-    Id VARCHAR(20) NOT NULL --'Identificador del libro',
+    Id VARCHAR(20) NOT NULL PRIMARY KEY --'Identificador del libro',
+    Isbn VARCHAR(20) NOT NULL-- 'Código ISBN del libro',
     Titulo VARCHAR(255) NOT NULL -- 'Título del libro',
     Autor VARCHAR(255) NOT NULL -- 'Autor del libro',
     Tema VARCHAR(255) NOT NULL -- 'Tema del libro',
-    Descripcion TEXT -- 'Descripción del libro',
-    Disponibilidad BOOLEAN NOT NULL -- 'Disponibilidad del libro',
-    Tipo VARCHAR(255) NOT NULL -- 'Tipo de libro'
+    Tipo VARCHAR(255) NOT NULL -- 'Tipo de libro',
 );
 
 -- Crear la tabla Prestamos
@@ -50,9 +48,9 @@ CREATE TABLE Prestamos (
 
 -- Crear la tabla Inventario
 CREATE TABLE Inventario (
-    CodLibro INT  PRIMARY KEY -- 'Código único del libro en inventario',
-    Isbn VARCHAR(20) -- 'Código ISBN del libro',
+    Isbn VARCHAR(20)-- 'Código ISBN del libro',
     Cantidad INT NOT NULL -- 'Cantidad de libros en inventario',
+    Descripcion TEXT -- 'Descripción del libro',
     FOREIGN KEY (Isbn) REFERENCES Libros(Isbn)
 );
 
