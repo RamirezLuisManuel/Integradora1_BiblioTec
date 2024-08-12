@@ -11,18 +11,18 @@ import pool from '../database';
 			resp.json({message : 'Novedad guardada'});
 		}
 		public async delete(req:Request, resp:Response){
-			const {Id} = req.params;
-			await pool.query('DELETE FROM Novedades WHERE Id=?',[Id]);
+			const {IdNovedad} = req.params;
+			await pool.query('DELETE FROM Novedades WHERE IdNovedad=?',[IdNovedad]);
 			resp.json({message: 'La novedad fue eliminado'});
 		}
 		public async update(req:Request, resp:Response){
-			const {Id} = req.params;
-			await pool.query('UPDATE Novedades set ? WHERE Id = ?',[req.body,Id]);
+			const {IdNovedad} = req.params;
+			await pool.query('UPDATE Novedades set ? WHERE IdNovedad = ?',[req.body,IdNovedad]);
 			resp.json({message : 'La novedad fue atualizado'});
 		}
 		public async getOne(req:Request, resp:Response){
-			const {Id} = req.params; //se recupera el id del request params.
-			const novedades = await pool.query('SELECT * FROM Novedades WHERE Id=?',[Id]);
+			const {IdNovedad} = req.params; //se recupera el id del request params.
+			const novedades = await pool.query('SELECT * FROM Novedades WHERE IdNovedad=?',[IdNovedad]);
 			if(novedades.length > 0){
 				return resp.json(novedades[0]);
 			}

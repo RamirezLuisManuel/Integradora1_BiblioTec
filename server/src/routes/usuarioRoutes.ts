@@ -10,9 +10,9 @@ class UsuarioRoutes{
     config():void{
         this.router.get('/',usuarioController.list);//Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/',usuarioController.create);
-        this.router.delete('/:Id',usuarioController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id',usuarioController.update);
-        this.router.get('/:Id',usuarioController.getOne);
+        this.router.delete('/:Matricula',usuarioController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:Matricula',usuarioController.update);
+        this.router.get('/:Matricula',usuarioController.getOne);
     }
 }
 
