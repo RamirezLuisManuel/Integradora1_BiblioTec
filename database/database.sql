@@ -33,7 +33,7 @@ CREATE TABLE Libros (
     Autor VARCHAR(100) NOT NULL, -- Autor del libro
     Tema VARCHAR(100) NOT NULL, -- Tema del libro
     Contenido VARCHAR(50) NOT NULL -- Contenido del libro
-
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
 
 -- Crear la tabla Prestamos
@@ -41,8 +41,8 @@ CREATE TABLE Prestamos (
     IdPrestamo INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del préstamo
     Matricula INT, -- Número de control del préstamo
     IdLibro VARCHAR(20), -- Código ISBN del libro prestado
-    Fechaprestamos TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha del préstamo
-    Fechadevolucion DATE, -- Fecha de devolución del libro
+    FechaPrestamos TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha del préstamo
+    FechaDevolucion DATE, -- Fecha de devolución del libro
     FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula),
     FOREIGN KEY (IdLibro) REFERENCES Libros(IdLibro)
 );
