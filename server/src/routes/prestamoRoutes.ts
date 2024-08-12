@@ -11,9 +11,9 @@ class PrestamoRoutes{
     config():void{
         this.router.get('/',prestamoController.list);//Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/',prestamoController.create);
-        this.router.delete('/:Id',prestamoController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id',prestamoController.update);
-        this.router.get('/:Id',prestamoController.getOne);
+        this.router.delete('/:IdPrestamo',prestamoController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:IdPrestamo',prestamoController.update);
+        this.router.get('/:IdPrestamo',prestamoController.getOne);
     }
 }
 
