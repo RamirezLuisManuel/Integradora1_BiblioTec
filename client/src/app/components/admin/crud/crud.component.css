@@ -2,5 +2,15 @@ body{
     background-color: #D5A6BD;
 }
 main>.container {
-    padding: 20px 30px 0;
+    padding: 20px 0px;
+}
+
+/* Reduce el tamaño de la fuente en las celdas de la tabla */
+.table td, .table th {
+    font-size: 12px; /* Ajusta el tamaño según lo que necesites */
+}
+
+/* Reduce el tamaño de la fuente en el encabezado de la tabla */
+.table thead th {
+    font-size: 12px; /* Ajusta el tamaño según lo que necesites */
 }

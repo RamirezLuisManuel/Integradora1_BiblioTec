@@ -8,7 +8,7 @@
     background-color: rgb(125, 125, 125);
 }
 .nav-item-space{
-    margin-left: 120px;
+    margin-left: 300px;
     margin-right: 400px;
 }
 body{
@@ -18,11 +18,9 @@ h2{
     background-color: rgb(79, 173, 255);
     text-align: center;    
 }
-.margen-posterior {
-    margin-right: 20px; /* Ajusta el valor según sea necesario */
-  }
-  
-  .margen-inferior {
-    margin-bottom: 20px; /* Ajusta el valor según sea necesario */
-  }
-  
+p{
+    text-align: left;
+    line-height: 0.9; 
+}
+
+    

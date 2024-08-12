@@ -1,7 +1,7 @@
 <app-navigation-admin></app-navigation-admin>
 <!DOCTYPE html>
 <html lang="es" class="h-100">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,45 +15,56 @@
 <body class="d-flex flex-column h-100">
 
     <!-- Begin page content -->
-    <main class="flex-shrink-0">
+        <main class="flex-shrink-0">
         <div class="container">
             <h3 class="my-3">Nuevo Libro</h3>
 
             <form action="#" class="row g-3" method="post" autocomplete="off">
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="clave" class="form-label">ISBN</label>
-                    <input type="text" class="form-control" [ngModel]="book.id" name="ISBN"  required autofocus>
+                    <input type="text" class="form-control" [ngModel]="book.isbn"  required autofocus>
                 </div>
-
-                <div class="col-md-8">
-                    <label for="nombre" class="form-label">Titulo</label>
-                    <input type="text" class="form-control" [ngModel]="book.title" name="titulo" required>
+                <div class="col-md-3">
+                    <label for="clave" class="form-label">ID</label>
+                    <input type="text" class="form-control" [ngModel]="book.id" required>
                 </div>
-
                 <div class="col-md-6">
-                    <label for="fecha_nacimiento" class="form-label">Fecha de Creacion</label>
-                    <input type="date" class="form-control" [ngModel]="book.create_at" name="fecha_de_creacion" required>
+                    <label for="nombre" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" [ngModel]="book.title" required>
                 </div>
-
+                <div class="col-md-6">
+                    <label for="correo_electronico" class="form-label">Autor</label>
+                    <input type="text" class="form-control" [ngModel]="book.author" name="autor" required>
+                </div>
                 <div class="col-md-6">
                     <label for="telefono" class="form-label">Genero</label>
                     <input type="text" class="form-control" [ngModel]="book.genero" name="genero" required>
                 </div>
-
-                <div class="col-md-6">
-                    <label for="correo_electronico" class="form-label">Autor</label>
-                    <input type="text" class="form-control" [ngModel]="book.author" name="autor">
+                <div class="col-md-3">
+                    <label for="fecha_nacimiento" class="form-label">Fecha de creacion</label>
+                    <input type="date" class="form-control" [ngModel]="book.create_at" name="fecha_de_creacion" required>
                 </div>
-
+                <div class="col-md-2">
+                    <label for="telefono" class="form-label">Tipo de Libro</label>
+                    <input type="text" class="form-control" [ngModel]="book.tipo" name="genero" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="telefono" class="form-label">Disponibilidad</label>
+                    <input type="text" class="form-control" [ngModel]="book.disponibilidad" name="genero" required>
+                </div>
+                <div class="col-md-5">
+                    <label for="text" class="form-label">Imagen</label>
+                    <textarea class="form-control" [ngModel]="book.image" name="autor" rows="1"></textarea>
+                </div>
                 <div class="col-md-6">
-                    <label for="departamento" class="form-label">Imagen de Muestra</label>
-                    <input type="text" class="form-select" [ngModel]="book.image" name="imagen" required>
+                    <label for="text" class="form-label">Descripcion</label>
+                    <textarea class="form-control" [ngModel]="book.description" name="autor" rows="2"></textarea>
                 </div>
 
                 <div class="col-12">
                     <a href="/crud" class="btn btn-secondary">Regresar</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#guardaModal" data-bs-id="1" (click)="saveNewBook()">Guardar</button>
                 </div>
             </form>

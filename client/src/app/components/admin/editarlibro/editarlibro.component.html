@@ -21,46 +21,89 @@
 
             <form action="#" class="row g-3" method="post" autocomplete="off">
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="clave" class="form-label">ISBN</label>
-                    <input type="text" class="form-control" name="clave" required autofocus>
+                    <input type="text" class="form-control" name="ISBN"  required autofocus>
                 </div>
-
-                <div class="col-md-8">
+                <div class="col-md-3">
+                    <label for="clave" class="form-label">ID</label>
+                    <input type="text" class="form-control" name="ISBN" required>
+                </div>
+                <div class="col-md-6">
                     <label for="nombre" class="form-label">Titulo</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" name="titulo" required>
                 </div>
-
-                <div class="col-md-6">
-                    <label for="fecha_nacimiento" class="form-label">Fecha de Modificacion</label>
-                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="telefono" class="form-label">Genero</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" required>
-                </div>
-
                 <div class="col-md-6">
                     <label for="correo_electronico" class="form-label">Autor</label>
-                    <input type="email" class="form-control" id="correo_electronico" name="correo_electronico">
+                    <input type="text" class="form-control" name="autor" required>
                 </div>
-
                 <div class="col-md-6">
-                    <label for="departamento" class="form-label">Imagen de Muestra</label>
-                    <input type="text" class="form-control"  name="departamento" required>
+                    <label for="telefono" class="form-label">Genero</label>
+                    <input type="text" class="form-control" name="genero" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="fecha_nacimiento" class="form-label">Fecha de creacion</label>
+                    <input type="date" class="form-control" name="fecha_de_creacion" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="telefono" class="form-label">Tipo de Libro</label>
+                    <input type="text" class="form-control" name="genero" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="telefono" class="form-label">Disponibilidad</label>
+                    <input type="text" class="form-control" name="genero" required>
+                </div>
+                <div class="col-md-5">
+                    <label for="text" class="form-label">Imagen</label>
+                    <textarea class="form-control" name="autor" rows="1"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="text" class="form-label">Descripcion</label>
+                    <textarea class="form-control" name="autor" rows="2"></textarea>
                 </div>
 
                 <div class="col-12">
                     <a href="/crud" class="btn btn-secondary">Regresar</a>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                data-bs-target="#guardaModal" data-bs-id="1" (click)="updateBook()">Editar</button>
                 </div>
             </form>
             <br>
         </div>
     </main>
+
+    <div class="modal fade" id="guardaModal" tabindex="-1" aria-labelledby="guardaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="guardaModalLabel">Aviso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Libro modificado exitosamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script>
+            const guardaModal = document.getElementById('guardaModal');
+            if (guardaModal) {
+                guardaModal.addEventListener('show.bs.modal', event => {
+                    // Button that triggered the modal
+                    const button = event.relatedTarget;
+    
+                    // Update the modal's content.
+                    const form = guardaModal.querySelector('#form-guarda');
+                    form.setAttribute('action', './editarlibro.component.html');
+                });
+            }
+        </script>
 </body>
 </html>

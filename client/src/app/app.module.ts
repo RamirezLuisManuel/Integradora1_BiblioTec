@@ -19,6 +19,10 @@ import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarli
 import { CatDigitalComponent } from './components/usuario/cat-digital/cat-digital.component';
 import { CatFisicoComponent } from './components/usuario/cat-fisico/cat-fisico.component';
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
+import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
+import { MultasComponent } from './components/admin/multas/multas.component';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { EstatusComponent } from './components/usuario/estatus/estatus.component
     AgregarlibroComponent,
     CatDigitalComponent,
     CatFisicoComponent,
-    EstatusComponent
+    EstatusComponent,
+    PrestamosComponent,
+    MultasComponent,
+    UsuariosComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

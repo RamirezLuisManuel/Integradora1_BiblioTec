@@ -2,15 +2,16 @@
 <body></body>
 <br>
 <h2><b>Catalogo Digital</b></h2>
-<div class="col-md-3" *ngFor="let book of books" >
+<div class="col-md-3" *ngFor="let book of books">
   <div class="card text-center">
     <div class="card-header bg-custom1 text-white d-flex justify-content-between align-items-center">
-      {{book.title}}
+      {{book.Titulo}}
     </div>
     <div class="card-body bg-custom2">
       <img [src]="book.image" class="card-img-top">
-      <p><b>Genero: </b>{{book.genero}}</p>
-      <p><b>Autor: </b>{{book.author}}</p>
+      <p><b>Genero: </b>{{book.Tema}}</p>
+      <p><b>Autor: </b>{{book.Autor}}</p>
+      <p><b>Autor: </b>{{book.Description}}</p>
       <a href="" class="btn btn-primary btn-block">Ver libro</a>
     </div>
   </div>

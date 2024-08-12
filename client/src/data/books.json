@@ -1,36 +1,72 @@
 {
   "books": [
     {
-      "id": "1",
+      "isbn": "1",
+      "id": "AER121",
       "title": "Calculo Diferencial",
-      "genero": "Matemáticas",
       "author": "Ron Larson & Bruce Edwards",
+      "genero": "Matemáticas",
+      "create_at": "2024-06-26T03:09:24.364Z",
+      "tip": "Fisico",
+      "disponibilidad": "5",
       "image": "https://i0.wp.com/derechoenmexico.mx/wp-content/uploads/2018/02/DERECHOENMEXICO.png?fit=960%2C500&ssl=1",
-      "create_at": "2024-06-26T03:09:24.364Z"
+      "description": "Libro educativo."
     },
     {
-      "id": "2",
+      "isbn": "2",
+      "id": "AER122",
       "title": "La Caperucita Roja",
+      "author": "Pedro",
       "genero": "Fantasia",
-      "author": "",
+      "create_at": "2024-T03:09:24.364Z",
+      "tip": "Fisico",
+      "disponibilidad": "5",
       "image": "https://www.klim.com.co/sites/default/files/inline-images/caperucita-roja-encontrandose-con-lobo-feroz.jpg",
-      "create_at": "2024-06-26T03:09:24.364Z"
+      "description": "Libro infantil."
     },
     {
-      "id": "3",
+      "isbn": "3",
+      "id": "AER123",
       "title": "El Patito Feo",
+      "author": "Pedro",
       "genero": "Fantasia",
-      "author": "",
+      "create_at": "2024-06-26T05:32:16.782Z",
+      "tip": "Fisico",
+      "disponibilidad": "2",
       "image": "https://aulainfantil.com/wp-content/uploads/2023/10/el-patito-feo.jpg",
-      "create_at": "2024-06-26T05:32:16.782Z"
+      "description": "Libro infantil."
     },
     {
-      "id": "4",
+      "isbn": "4",
+      "id": "AER124",
       "title": "Historia de México",
-      "genero": "Educativo",
       "author": "Juanito",
+      "genero": "Educativo",
+      "create_at": "2024-06-26T06:10:20.066Z",
+      "tip": "Fisico",
+      "disponibilidad": "2",
       "image": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3BsYXlcL2EyZDU4Y2Y0LTMyMDctNDMyYi04NjI0LTE2NWUyNTk1MmVmNC0xOTIwLTEwODAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoiMTIwMCJ9fX0=",
-      "create_at": "2024-06-26T06:10:20.066Z"
+      "description": "Libro educativo."
+    },
+    {
+      "id": 0,
+      "title": "",
+      "author": "",
+      "genero": "",
+      "tipo": "",
+      "disponibilidad": 0,
+      "image": "",
+      "description": ""
+    },
+    {
+      "id": 0,
+      "title": "",
+      "author": "",
+      "genero": "",
+      "tipo": "",
+      "disponibilidad": 0,
+      "image": "",
+      "description": ""
     }
   ]
 }

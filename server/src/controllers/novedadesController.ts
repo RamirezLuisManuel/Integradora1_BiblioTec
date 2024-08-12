@@ -1,0 +1,34 @@
+import{Request, Response} from 'express';
+import pool from '../database';
+
+	class NovedadesController{
+		public async list(req:Request, resp:Response){
+			const novedades = await pool.query('SELECT * FROM Novedades');
+			resp.json(novedades);
+		}
+		public async create(req:Request,resp:Response):Promise<void>{
+			await pool.query('INSERT INTO Novedades set ?',[req.body]);
+			resp.json({message : 'Novedad guardada'});
+		}
+		public async delete(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('DELETE FROM Novedades WHERE Id=?',[Id]);
+			resp.json({message: 'La novedad fue eliminado'});
+		}
+		public async update(req:Request, resp:Response){
+			const {Id} = req.params;
+			await pool.query('UPDATE Novedades set ? WHERE Id = ?',[req.body,Id]);
+			resp.json({message : 'La novedad fue atualizado'});
+		}
+		public async getOne(req:Request, resp:Response){
+			const {Id} = req.params; //se recupera el id del request params.
+			const novedades = await pool.query('SELECT * FROM Novedades WHERE Id=?',[Id]);
+			if(novedades.length > 0){
+				return resp.json(novedades[0]);
+			}
+			resp.status(404).json({text: 'La novedad no existe'});
+		} 
+	}
+	
+const novedadesController = new NovedadesController();
+export default novedadesController;

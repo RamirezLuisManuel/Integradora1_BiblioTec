@@ -18,5 +18,9 @@ h2{
     background-color: rgb(79, 173, 255);
     text-align: center;    
 }
+p{
+    text-align: left;
+    line-height: 0.9; 
+}
 
     

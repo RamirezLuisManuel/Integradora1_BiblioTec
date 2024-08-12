@@ -1,15 +1,17 @@
 <app-navigation></app-navigation>
 <body></body>
 <h2><b>Catalogo Fisico</b></h2>
-<div class="col-md-3" *ngFor="let book of books">
+<div class="col-md-3" *ngFor="let Libro of books">
   <div class="card text-center">
     <div class="card-header bg-custom1 text-white d-flex justify-content-between align-items-center">
-      {{book.title}}
+      {{Libro.title}}
     </div>
     <div class="card-body bg-custom2">
-      <img [src]="book.image" class="card-img-top">      
-      <p><b>Genero: </b>{{book.genero}}</p>
-      <p><b>Autor: </b>{{book.author}}</p>
+      <img [src]="Libro.image" class="card-img-top">    
+      <p><b>Genero: </b>{{Libro.genero}}</p>
+      <p><b>Autor: </b>{{Libro.author}}</p>
+      <p><b>Disponibilidad: </b>{{Libro.availability}}</p>
+      <p><b>Descriccion: </b>{{Libro.description}}</p>
       <a href="" class="btn btn-primary btn-block">Reservar</a>
     </div>
   </div>
