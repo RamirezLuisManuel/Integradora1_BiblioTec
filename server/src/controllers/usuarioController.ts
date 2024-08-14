@@ -48,19 +48,38 @@ class UsuarioController {
     }
   }
 
-  public async getOne(req: Request, resp: Response): Promise<void> {
+  public async login(req: Request, resp: Response): Promise<void> {
     try {
-      const { Matricula } = req.params; // Se recupera la matrícula del request params.
-      const usuarios = await pool.query('SELECT * FROM Usuarios WHERE Matricula = ?', [Matricula]);
+      const { Matricula, Contrasenia } = req.body;
+      
+      // Consulta para verificar el usuario y la contraseña
+      const usuarios = await pool.query('SELECT * FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
+  
       if (usuarios.length > 0) {
-         resp.json(usuarios[0]);
+        // Si se encuentra el usuario, enviar respuesta de éxito
+        resp.json({ success: true });
+      } else {
+        // Si no se encuentra el usuario, enviar respuesta de error
+        resp.status(401).json({ success: false, message: 'Usuario o contraseña incorrectos' });
       }
-      resp.status(404).json({ message: 'El usuario no existe' });
     } catch (error) {
-      resp.status(500).json({ message: 'Error al obtener el usuario', error });
+      resp.status(500).json({ message: 'Error en la autenticación', error });
     }
   }
+  
+ // public async getOne(req: Request, resp: Response): Promise<void> {
+ //   try {
+  //    const { Matricula } = req.params; // Se recupera la matrícula del request params.
+    //  const usuarios = await pool.query('SELECT * FROM Usuarios WHERE Matricula = ?', [Matricula]);
+    //  if (usuarios.length > 0) {
+    //     resp.json(usuarios[0]);
+    //  }
+    //  resp.status(404).json({ message: 'El usuario no existe' });
+    //} catch (error) {
+   //   resp.status(500).json({ message: 'Error al obtener el usuario', error });
+   // }
+ // }
+//}
 }
-
 const usuarioController = new UsuarioController();
 export default usuarioController;

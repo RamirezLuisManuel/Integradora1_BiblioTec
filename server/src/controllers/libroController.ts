@@ -9,13 +9,13 @@ import pool from '../database';
 		
 		public async create(req: Request, resp: Response): Promise<void> {
 			try {
-				const { Id } = req.body;
+				const { Isbn } = req.body;
 				
 				// Verificar si el ID ya existe en la base de datos
-				const existingBook = await pool.query('SELECT * FROM Libros WHERE Id = ?', [Id]);
+				const existingBook = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
 				
 				if (existingBook.length > 0) {
-					resp.status(400).json({ message: 'El ID ya existe. No se puede duplicar.' });
+					resp.status(400).json({ message: 'El ISBN ya existe. No se puede duplicar.' });
 					return;
 				}
 	
@@ -30,10 +30,10 @@ import pool from '../database';
 
 		public async delete(req: Request, resp: Response) {
 			try{
-				const { Id } = req.params;
-				const libro = await pool.query('SELECT * FROM Libros WHERE Id = ?', [Id]);
+				const { Isbn } = req.params;
+				const libro = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
 				if (libro.length > 0) {
-					await pool.query('DELETE FROM Libros WHERE Id = ?', [Id]);
+					await pool.query('DELETE FROM Libros WHERE Isbn = ?', [Isbn]);
 					resp.json({ message: 'El libro fue eliminado' });
 				} else {
 					resp.status(404).json({ text: 'El libro no existe' });
@@ -46,10 +46,10 @@ import pool from '../database';
 		
 		public async update(req: Request, resp: Response): Promise<void> {
 			try {
-				const { Id } = req.params;
-				const libro = await pool.query('SELECT * FROM Libros WHERE Id = ?', [Id]);
+				const { Isbn } = req.params;
+				const libro = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
 				if (libro.length > 0) {
-					await pool.query('UPDATE Libros set ? WHERE Id = ?', [req.body, Id]);
+					await pool.query('UPDATE Libros set ? WHERE Isbn = ?', [req.body, Isbn]);
 					resp.json({ message: 'El libro fue actualizado' });
 				} else {
 					resp.status(404).json({ text: 'El libro no existe' });
@@ -63,10 +63,10 @@ import pool from '../database';
 		
 		public async getOne(req: Request, resp: Response): Promise<void> {
 			try{
-				const { Id } = req.params; // Se recupera el ISBN de los parámetros de la solicitud.
+				const { Isbn } = req.params; // Se recupera el ISBN de los parámetros de la solicitud.
 			
 				// Ejecuta la consulta en la base de datos.
-				const libros = await pool.query('SELECT * FROM Libros WHERE Id = ?', [Id]);
+				const libros = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
 			
 				// Verifica si se encontró algún libro.
 				if (libros.length > 0) {

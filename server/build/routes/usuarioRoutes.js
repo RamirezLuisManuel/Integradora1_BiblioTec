@@ -15,7 +15,7 @@ class UsuarioRoutes {
         this.router.post('/', usuarioController_1.default.create);
         this.router.delete('/:Matricula', usuarioController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
         this.router.put('/:Matricula', usuarioController_1.default.update);
-        this.router.get('/:Matricula', usuarioController_1.default.getOne);
+        this.router.post('/login', usuarioController_1.default.login);
     }
 }
 const usuarioRoutes = new UsuarioRoutes();

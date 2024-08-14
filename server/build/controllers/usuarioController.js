@@ -70,18 +70,23 @@ class UsuarioController {
             }
         });
     }
-    getOne(req, resp) {
+    login(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { Matricula } = req.params; // Se recupera la matrícula del request params.
-                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios WHERE Matricula = ?', [Matricula]);
+                const { Matricula, Contrasenia } = req.body;
+                // Consulta para verificar el usuario y la contraseña
+                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
                 if (usuarios.length > 0) {
-                    resp.json(usuarios[0]);
+                    // Si se encuentra el usuario, enviar respuesta de éxito
+                    resp.json({ success: true });
                 }
-                resp.status(404).json({ message: 'El usuario no existe' });
+                else {
+                    // Si no se encuentra el usuario, enviar respuesta de error
+                    resp.status(401).json({ success: false, message: 'Usuario o contraseña incorrectos' });
+                }
             }
             catch (error) {
-                resp.status(500).json({ message: 'Error al obtener el usuario', error });
+                resp.status(500).json({ message: 'Error en la autenticación', error });
             }
         });
     }
