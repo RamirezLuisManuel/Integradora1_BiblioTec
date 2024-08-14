@@ -1,5 +1,5 @@
 export interface Usuario{
-    Matricula:number;
+    Matricula:string;
     Nombre:string;
     ApPaterno :string;
     ApMaterno :string;
@@ -7,6 +7,6 @@ export interface Usuario{
     Correo :string;
     Telefono :string;
     IdTipo : number;
-    Contraseña : string;
+    Contrasenia : string;
     StaUsuario : string;
 }
