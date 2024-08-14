@@ -6,27 +6,6 @@ import pool from '../database';
 			const libros = await pool.query('SELECT * FROM Libros');
 			resp.json(libros);
 		}
-<<<<<<< HEAD
-		public async create(req:Request,resp:Response):Promise<void>{
-			await pool.query('INSERT INTO Libros set ?',[req.body]);
-			resp.json({message : 'Libro guardado'});
-		}
-		public async delete(req:Request, resp:Response){
-			const {Id} = req.params;
-			await pool.query('DELETE FROM Libros WHERE Id=?',[Id]);
-			resp.json({message: 'EL libro fue eliminado'});
-		}
-		public async update(req:Request, resp:Response){
-			const {Id} = req.params;
-			await pool.query('UPDATE Libros set ? WHERE Id = ?',[req.body,Id]);
-			resp.json({message : 'EL libro fue atualizado'});
-		}
-		public async getOne(req:Request, resp:Response){
-			const {Id} = req.params; //se recupera el id del request params.
-			const libros = await pool.query('SELECT * FROM Libros WHERE Id=?',[Id]);
-			if(libros.length > 0){
-				return resp.json(libros[0]);
-=======
 		
 		public async create(req: Request, resp: Response): Promise<void> {
 			try {
@@ -46,7 +25,6 @@ import pool from '../database';
 			} catch (error) {
 				console.error('Error al crear el libro:', error);
 				resp.status(500).json({ message: 'Error interno del servidor' });
->>>>>>> 532601570c043b4748dfa52dd2f73bb1eac0beb3
 			}
 		}		
 

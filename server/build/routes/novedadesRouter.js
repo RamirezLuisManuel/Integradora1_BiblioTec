@@ -13,9 +13,9 @@ class NovedadesRoutes {
     config() {
         this.router.get('/', novedadesController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/', novedadesController_1.default.create);
-        this.router.delete('/:Id', novedadesController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id', novedadesController_1.default.update);
-        this.router.get('/:Id', novedadesController_1.default.getOne);
+        this.router.delete('/:IdNovedad', novedadesController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:IdNovedad', novedadesController_1.default.update);
+        this.router.get('/:IdNovedad', novedadesController_1.default.getOne);
     }
 }
 const novedadesRoutes = new NovedadesRoutes();

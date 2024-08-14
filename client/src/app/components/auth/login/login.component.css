@@ -13,10 +13,11 @@ body {
     background: #666666;
     margin: auto;
     margin-top: 70px;
-    box-sizing: 7px 13px 37px #b94747;
     padding: 20px 30px;
     border-top: 4px solid #017bab;
     color: white;
+    border-radius: 15px; /* Añade esquinas redondeadas */
+    box-shadow: 7px 13px 37px #b94747; /* Corregido: esto es para la sombra */
 }
 
 .form-login h5{

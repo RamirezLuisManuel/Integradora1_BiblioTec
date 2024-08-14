@@ -28,22 +28,22 @@ class MultaController {
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('DELETE FROM Multa WHERE Id=?', [Id]);
+            const { IdMulta } = req.params;
+            yield database_1.default.query('DELETE FROM Multa WHERE IdMulta=?', [IdMulta]);
             resp.json({ message: 'Datos de la multa eliminados' });
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('UPDATE Multa set ? WHERE Id = ?', [req.body, Id]);
+            const { IdMulta } = req.params;
+            yield database_1.default.query('UPDATE Multa set ? WHERE IdMulta = ?', [req.body, IdMulta]);
             resp.json({ message: 'La multa fue atualizado' });
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params; //se recupera el id del request params.
-            const multa = yield database_1.default.query('SELECT * FROM Multa WHERE Id=?', [Id]);
+            const { IdMulta } = req.params; //se recupera el id del request params.
+            const multa = yield database_1.default.query('SELECT * FROM Multa WHERE IdMulta=?', [IdMulta]);
             if (multa.length > 0) {
                 return resp.json(multa[0]);
             }
