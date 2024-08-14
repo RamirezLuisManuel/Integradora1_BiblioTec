@@ -10,9 +10,9 @@ class LibrosRoutes{
     config():void{
         this.router.get('/',libroController.list);//Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/',libroController.create);
-        this.router.delete('/:Id',libroController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id',libroController.update);
-        this.router.get('/:Id',libroController.getOne);
+        this.router.delete('/:Isbn',libroController.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:Isbn',libroController.update);
+        this.router.get('/:Isbn',libroController.getOne);
     }
 }
 

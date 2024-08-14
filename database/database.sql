@@ -21,69 +21,50 @@ CREATE TABLE Usuarios (
     Telefono VARCHAR(15) NOT NULL, -- Teléfono del usuario
     IdTipo INT, -- Identificador del tipo de usuario
     FOREIGN KEY (IdTipo) REFERENCES TipoUsuario(IdTipo),
-    Contrasenia VARCHAR(16) NOT NULL, -- Contraseña del usuario
+    Contrasenia VARCHAR(255) NOT NULL, -- Contraseña del usuario encriptada
     StaUsuario VARCHAR(15) NOT NULL -- Estatus del usuario
 );
 
 -- Crear la tabla Libros
 CREATE TABLE Libros (
-<<<<<<< HEAD
-    IdLibro VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
-    Isbn VARCHAR(20) NOT NULL, -- Identificador del libro
+    Isbn VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
     Titulo VARCHAR(255) NOT NULL, -- Título del libro
     Autor VARCHAR(100) NOT NULL, -- Autor del libro
-    Tema VARCHAR(100) NOT NULL, -- Tema del libro
-    Contenido VARCHAR(50) NOT NULL -- Contenido del libro
-    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-=======
-    Id VARCHAR(20) NOT NULL PRIMARY KEY --'Identificador del libro',
-    Isbn VARCHAR(20) NOT NULL-- 'Código ISBN del libro',
-    Titulo VARCHAR(255) NOT NULL -- 'Título del libro',
-    Autor VARCHAR(255) NOT NULL -- 'Autor del libro',
-    Tema VARCHAR(255) NOT NULL -- 'Tema del libro',
-    Tipo VARCHAR(255) NOT NULL -- 'Tipo de libro',
->>>>>>> 532601570c043b4748dfa52dd2f73bb1eac0beb3
+    Tema VARCHAR(50) NOT NULL, -- Tema del libro
+    Descripcion VARCHAR(255), -- Descripción del libro opcional
+    Disponibilidad VARCHAR(15), -- Muestra si está disponible o no
+    Contenido VARCHAR(50) NOT NULL, -- Contenido del libro
+    TipoLibro VARCHAR(50) NOT NULL, -- Tipo al que pertenece
+    ImagenLibro VARCHAR(255) NOT NULL, -- Imagen del libro
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Fecha de registro del libro
 );
 
 -- Crear la tabla Prestamos
 CREATE TABLE Prestamos (
     IdPrestamo INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del préstamo
     Matricula INT, -- Número de control del préstamo
-    IdLibro VARCHAR(20), -- Código ISBN del libro prestado
+    Isbn VARCHAR(20), -- Código ISBN del libro prestado
     FechaPrestamos TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha del préstamo
     FechaDevolucion DATE, -- Fecha de devolución del libro
-    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula),
-    FOREIGN KEY (IdLibro) REFERENCES Libros(IdLibro)
+    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula) ON DELETE CASCADE,
+    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn) ON DELETE CASCADE
 );
 
 -- Crear la tabla Inventario
 CREATE TABLE Inventario (
-<<<<<<< HEAD
     CodLibro INT PRIMARY KEY, -- Código único del libro en inventario
-    IdLibro VARCHAR(20), -- Código ISBN del libro
-    Cantidad INT NOT NULL, -- Cantidad de libros en inventario
-    Matricula INT NOT NULL, -- Matricula del administrador
-    Descripcion VARCHAR(255),
-    Catnidad INT NOT NULL,
-    Imagen VARCHAR(255),
-    FOREIGN KEY (IdLibro) REFERENCES Libros(IdLibro),
-    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula)
-=======
-    Isbn VARCHAR(20)-- 'Código ISBN del libro',
-    Cantidad INT NOT NULL -- 'Cantidad de libros en inventario',
-    Descripcion TEXT -- 'Descripción del libro',
-    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn)
->>>>>>> 532601570c043b4748dfa52dd2f73bb1eac0beb3
+    Isbn VARCHAR(20), -- Código ISBN del libro
+    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn) ON DELETE CASCADE
 );
 
 -- Crear la tabla Multa
 CREATE TABLE Multa (
     IdMulta INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único de la multa
     Monto DECIMAL(10, 2) NOT NULL, -- Monto de la multa
-    Fecha DATE NOT NULL, -- Fecha de la multa
+    FechaInicio DATE NOT NULL, -- Fecha de la multa
     Estatus VARCHAR(50) NOT NULL, -- Estatus de la multa
     IdPrestamo INT, -- Identificador del préstamo asociado a la multa
-    FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo)
+    FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo) ON DELETE CASCADE
 );
 
 -- Crear la tabla Novedades
@@ -95,5 +76,27 @@ CREATE TABLE Novedades (
     FechaFinEvent DATE NOT NULL, -- Fecha de fin del evento
     DesEvent TEXT, -- Descripción del evento
     StaEvent VARCHAR(50) NOT NULL, -- Estatus del evento
-    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula)
+    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula) ON DELETE CASCADE
 );
+
+-- Crear el trigger para encriptar la contraseña antes de insertar un usuario
+DELIMITER $$
+CREATE TRIGGER before_insert_usuarios
+BEFORE INSERT ON Usuarios
+FOR EACH ROW
+BEGIN
+    SET NEW.Contrasenia = SHA2(NEW.Contrasenia, 256);
+END$$
+
+DELIMITER $$
+
+-- Crear el trigger para encriptar la contraseña antes de actualizar un usuario
+CREATE TRIGGER before_update_usuarios
+BEFORE UPDATE ON Usuarios
+FOR EACH ROW
+BEGIN
+    IF NEW.Contrasenia != OLD.Contrasenia THEN
+        SET NEW.Contrasenia = SHA2(NEW.Contrasenia, 256);
+    END IF;
+END$$
+DELIMITER ;

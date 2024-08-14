@@ -1,31 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; //interfaz que permite las peticiones 
-import { Usuario } from '../models/Usuario';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn : 'root'
+  providedIn: 'root'
 })
 export class UsuarioService {
+  API_URI = 'http://localhost:3000/api/usuario'; // Asegúrate de que el back-end esté corriendo en este puerto
 
-  API_URI = `http://localhost:3000/api/usuarios`;   //Back-end
-  //API_URI = `http://localhost:3000/books`;    //Front-end con acceso a datos json.
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient){}
-
-  getUsuarios(){
-    return this.http.get(`${this.API_URI}`);
+  login(Matricula: string, Contrasenia: string): Observable<any> {
+    return this.http.post(`${this.API_URI}/login`, { Matricula, Contrasenia });
   }
 
-  getUsuario(id : string){
-    return this.http.get(`${this.API_URI}/${id}`);
-  }
-
-  setUsuarios(){}
-
-  saveUsuario(usuario:Usuario){
-		return this.http.post(`${this.API_URI}`,usuario);
-}
-  updateUsuario(id: number, updatedUsuario: Usuario){
-    return this.http.put(`${this.API_URI}/${id}`, updatedUsuario);
-}
+  // Otros métodos del servicio...
 }
