@@ -16,38 +16,78 @@ const database_1 = __importDefault(require("../database"));
 class UsuarioController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usuarios = yield database_1.default.query('SELECT * FROM Usuarios');
-            resp.json(usuarios);
+            try {
+                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios');
+                resp.json(usuarios);
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al obtener los usuarios', error });
+            }
         });
     }
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO Usuarios set ?', [req.body]);
-            resp.json({ message: 'Usuario guardado' });
+            try {
+                yield database_1.default.query('INSERT INTO Usuarios SET ?', [req.body]);
+                resp.json({ message: 'Usuario guardado' });
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al crear el usuario', error });
+            }
         });
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('DELETE FROM Usuarios WHERE Id=?', [Id]);
-            resp.json({ message: 'EL usuario fue eliminado' });
+            try {
+                const { Matricula } = req.params;
+                const result = yield database_1.default.query('DELETE FROM Usuarios WHERE Matricula = ?', [Matricula]);
+                if (result.affectedRows > 0) {
+                    resp.json({ message: 'El usuario fue eliminado' });
+                }
+                else {
+                    resp.status(404).json({ message: 'Usuario no encontrado' });
+                }
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al eliminar el usuario', error });
+            }
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('UPDATE Usuarios set ? WHERE Id = ?', [req.body, Id]);
-            resp.json({ message: 'EL usuario fue atualizado' });
+            try {
+                const { Matricula } = req.params;
+                const result = yield database_1.default.query('UPDATE Usuarios SET ? WHERE Matricula = ?', [req.body, Matricula]);
+                if (result.affectedRows > 0) {
+                    resp.json({ message: 'El usuario fue actualizado' });
+                }
+                else {
+                    resp.status(404).json({ message: 'Usuario no encontrado' });
+                }
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al actualizar el usuario', error });
+            }
         });
     }
-    getOne(req, resp) {
+    login(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params; //se recupera el id del request params.
-            const usuarios = yield database_1.default.query('SELECT * FROM Usuarios WHERE Id=?', [Id]);
-            if (usuarios.length > 0) {
-                return resp.json(usuarios[0]);
+            try {
+                const { Matricula, Contrasenia } = req.body;
+                // Consulta para verificar el usuario y la contraseña
+                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
+                if (usuarios.length > 0) {
+                    // Si se encuentra el usuario, enviar respuesta de éxito
+                    resp.json({ success: true });
+                }
+                else {
+                    // Si no se encuentra el usuario, enviar respuesta de error
+                    resp.status(401).json({ success: false, message: 'Usuario o contraseña incorrectos' });
+                }
             }
-            resp.status(404).json({ text: 'EL usuario no existe' });
+            catch (error) {
+                resp.status(500).json({ message: 'Error en la autenticación', error });
+            }
         });
     }
 }

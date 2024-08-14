@@ -16,38 +16,73 @@ const database_1 = __importDefault(require("../database"));
 class PrestamoController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const prestamo = yield database_1.default.query('SELECT * FROM Prestamos');
-            resp.json(prestamo);
+            try {
+                const prestamo = yield database_1.default.query('SELECT * FROM Prestamos');
+                resp.json(prestamo);
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al obtener los préstamos', error });
+            }
         });
     }
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO Prestamos set ?', [req.body]);
-            resp.json({ message: 'Datos de prestamo guardados' });
+            try {
+                yield database_1.default.query('INSERT INTO Prestamos SET ?', [req.body]);
+                resp.json({ message: 'Datos de préstamo guardados' });
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al crear el préstamo', error });
+            }
         });
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('DELETE FROM Prestamos WHERE Id=?', [Id]);
-            resp.json({ message: 'EL prestamo fue eliminado' });
+            try {
+                const { IdPrestamo } = req.params;
+                const result = yield database_1.default.query('DELETE FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+                if (result.affectedRows > 0) {
+                    resp.json({ message: 'El préstamo fue eliminado' });
+                }
+                else {
+                    resp.status(404).json({ message: 'Préstamo no encontrado' });
+                }
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al eliminar el préstamo', error });
+            }
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('UPDATE Prestamos set ? WHERE Id = ?', [req.body, Id]);
-            resp.json({ message: 'EL prestamo fue atualizado' });
+            try {
+                const { IdPrestamo } = req.params;
+                const result = yield database_1.default.query('UPDATE Prestamos SET ? WHERE IdPrestamo = ?', [req.body, IdPrestamo]);
+                if (result.affectedRows > 0) {
+                    resp.json({ message: 'El préstamo fue actualizado' });
+                }
+                else {
+                    resp.status(404).json({ message: 'Préstamo no encontrado' });
+                }
+            }
+            catch (error) {
+                resp.status(500).json({ message: 'Error al actualizar el préstamo', error });
+            }
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params; //se recupera el id del request params.
-            const prestamo = yield database_1.default.query('SELECT * FROM Libros WHERE Id=?', [Id]);
-            if (prestamo.length > 0) {
-                return resp.json(prestamo[0]);
+            try {
+                const { IdPrestamo } = req.params; // Se recupera el id del request params.
+                const prestamo = yield database_1.default.query('SELECT * FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+                if (prestamo.length > 0) {
+                    resp.json(prestamo[0]);
+                }
+                resp.status(404).json({ message: 'Datos del préstamo no existen' });
             }
-            resp.status(404).json({ text: 'Datos del prestamo no existen' });
+            catch (error) {
+                resp.status(500).json({ message: 'Error al obtener el préstamo', error });
+            }
         });
     }
 }

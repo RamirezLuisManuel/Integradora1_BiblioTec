@@ -13,9 +13,9 @@ class MultaRoutes {
     config() {
         this.router.get('/', multaController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/', multaController_1.default.create);
-        this.router.delete('/:Id', multaController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
-        this.router.put('/:Id', multaController_1.default.update);
-        this.router.get('/:Id', multaController_1.default.getOne);
+        this.router.delete('/:IdMulta', multaController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
+        this.router.put('/:IdMulta', multaController_1.default.update);
+        this.router.get('/:IdMulta', multaController_1.default.getOne);
     }
 }
 const multaRoutes = new MultaRoutes();

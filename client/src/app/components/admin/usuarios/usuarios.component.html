@@ -1,6 +1,4 @@
-
 <app-navigation-admin></app-navigation-admin>
-<body></body>
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <div class="container">
@@ -18,15 +16,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td>{{ usuario.Matricula }}</td>
+                        <td>{{ usuario.Nombre }}</td>
+                        <td>{{ usuario.ApPaterno }} {{ usuario.ApMaterno }}</td>
+                        <td>{{ usuario.Direccion }}</td>
+                        <td>{{ usuario.Correo }}</td>
+                        <td>{{ usuario.Telefono }}</td>
+                        <td>{{ usuario.Prestamos }}</td>
+                        <td>{{ usuario.Multas }}</td>
                     </tr>
                 </tbody>
             </table>

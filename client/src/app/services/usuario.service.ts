@@ -14,5 +14,7 @@ export class UsuarioService {
     return this.http.post(`${this.API_URI}/login`, { Matricula, Contrasenia });
   }
 
-  // Otros métodos del servicio...
+  getUsuarios(): Observable<any> {
+    return this.http.get(`${this.API_URI}`);
+  }
 }

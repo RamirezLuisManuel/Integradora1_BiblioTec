@@ -28,22 +28,22 @@ class NovedadesController {
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('DELETE FROM Novedades WHERE Id=?', [Id]);
+            const { IdNovedad } = req.params;
+            yield database_1.default.query('DELETE FROM Novedades WHERE IdNovedad=?', [IdNovedad]);
             resp.json({ message: 'La novedad fue eliminado' });
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params;
-            yield database_1.default.query('UPDATE Novedades set ? WHERE Id = ?', [req.body, Id]);
+            const { IdNovedad } = req.params;
+            yield database_1.default.query('UPDATE Novedades set ? WHERE IdNovedad = ?', [req.body, IdNovedad]);
             resp.json({ message: 'La novedad fue atualizado' });
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Id } = req.params; //se recupera el id del request params.
-            const novedades = yield database_1.default.query('SELECT * FROM Novedades WHERE Id=?', [Id]);
+            const { IdNovedad } = req.params; //se recupera el id del request params.
+            const novedades = yield database_1.default.query('SELECT * FROM Novedades WHERE IdNovedad=?', [IdNovedad]);
             if (novedades.length > 0) {
                 return resp.json(novedades[0]);
             }
