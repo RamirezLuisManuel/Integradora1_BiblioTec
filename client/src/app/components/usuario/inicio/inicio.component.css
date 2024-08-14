@@ -3,10 +3,11 @@ p{
     font-family: sans-serif;
     text-align: center;
     margin-left: 0px;
-    color: rgb(0, 0, 0);
+    color: rgb(45, 45, 45);
 }
-body{
-    background-color: #9FC5F8;
+body {
+    font-family: sans-serif;
+    background-image: url("../../../../assets/library-bookcases-background-interior-bookshop-600nw-2455897043.jpg");
 }
 
 .alto{
@@ -17,11 +18,94 @@ body{
     background: url(https://www.dipucadiz.es/export/sites/default/cultura/.galerias/lectura/Banner_Biblioteca.jpg_541957993.jpg);
     background-size: 100%;
 }
+.carousel-inner {
+    height: 300px; /* Ajusta la altura del carrusel */
+  }
+  
+  .carousel-custom {
+    object-fit: cover; /* Mantiene el aspecto de la imagen al cubrir el área */
+    height: 100%; /* Asegura que la imagen cubra toda la altura del contenedor */
+    width: 100%;
+  }
+  
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
+  .form-login {
+    width: 800px;
+    height: 1450px;
+    background: rgba(160, 160, 160, 0.8); /* Fondo con transparencia */
+    margin: auto;
+    margin-top: 70px;
+    padding: 20px 30px;
+    border-top: 4px solid #017bab;
+    border-radius: 15px; /* Añade esquinas redondeadas */
+    box-shadow: 7px 13px 37px #b94747; /* Sombra del formulario */
+}
+
+
+
+.form-login h5{
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+
+.controls {
+    width: 100%;
+    border: 1px solid #006f9b;
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background: #c4c1c1;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.buttons {
+    width: 100%;
+    height: 40px;
+    background: #017bab;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.form-login p{
+    height: 35px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.form-login a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.buttons a:hover {
+    text-decoration: underline;
+}
+
+.form-login button{
+    padding: 3px 10px;
+    background-color: #bcbcbc;
+    border: 0px;
+}
+.form-login div{
+    margin-left: 50%;
+    background-color: #666666;
+
+}
 h1{
-    font-size:  45px;
-    font-style: normal;
-    font-family: sans-serif;
-    color:white;
-    
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    height: 80px;
+    padding: 0%;
 }
