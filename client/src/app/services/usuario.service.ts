@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { Usuario } from '../models/Usuario';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +16,9 @@ export class UsuarioService {
 
   getUsuarios(): Observable<any> {
     return this.http.get(`${this.API_URI}`);
+  }
+
+  registerUsuario(usuario: Usuario): Observable<any> {
+    return this.http.post(`${this.API_URI}/`, usuario);
   }
 }

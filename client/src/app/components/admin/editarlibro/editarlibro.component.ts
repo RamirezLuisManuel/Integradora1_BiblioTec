@@ -11,7 +11,7 @@ export class EditarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    isbn:'',
+    isbn: '',
     id: 0,
     title : '',
     author: '',
