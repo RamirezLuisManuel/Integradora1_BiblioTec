@@ -7,7 +7,10 @@ p{
 }
 body {
     font-family: sans-serif;
-    background-image: url("../../../../assets/library-bookcases-background-interior-bookshop-600nw-2455897043.jpg");
+    background-image: url("../../../../assets/libroyfoco.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .alto{

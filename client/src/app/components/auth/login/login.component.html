@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
 </head>
 <body>
     <h1>BiblioTec UTNG</h1>
@@ -11,10 +10,10 @@
         <form (ngSubmit)="onSubmit()">
             <input class="controls" type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario" required autofocus>
             <input class="controls" type="password" [(ngModel)]="contrasenia" name="contrasenia" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
+            <p><a class="btn-custom" type="submit">Ingresar</a></p>
         </form>
         <br>
-        <p><a routerLink="/registro">¿No tienes cuenta?</a></p>
+        <p><a class="btn-custom" routerLink="/registro">¿No tienes cuenta?</a></p>
     </section>
 </body>
 </html>

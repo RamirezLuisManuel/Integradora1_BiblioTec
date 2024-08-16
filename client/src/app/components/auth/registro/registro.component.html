@@ -1,23 +1,41 @@
 <html lang="en" dir="ltr">
     <h1>BiblioTec UTNG</h1>
-    <body>
+    <body></body>
         <section class="form-login">
             <h5>Registrate</h5> 
-            <input class="controls" type="text" name="usuario" value="" placeholder="Matricula" autofocus>
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Nombre(s)">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Apellido Peterno">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Apellido Materno">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Correo electrónico">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Dirección">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Teléfono">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Crear contraseña">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Confirmar contraseña">
-            <div class="button-container">
-                <p><button><a href="/inicio">Aceptar</a></button></p>
-                <p><button onclick="window.history.back();"><a>Regresar</a></button></p>
-            </div>
+            <form action="#" class="row g-3" method="post" autocomplete="off">
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Matricula" required autofocus>
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Nombre(s)">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Apellido Peterno">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Apellido Materno">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Correo electrónico">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Dirección">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Teléfono">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="password" name="contraseña" value="" placeholder="Crear contraseña">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="password" name="contraseña" value="" placeholder="Confirmar contraseña">            
+                </div>
+            </form>
+                <p><a class="btn-custom" href="/inicio">Aceptar</a></p>
+                <br>
+                <p><a class="btn-custom" onclick="window.history.back();">Regresar</a></p> 
             <br>
         </section>
-    </body>
 </html>
 <br>

@@ -1,41 +1,41 @@
 <app-navigation></app-navigation>
-<body></body>
-<div class="container mt-4">
-    <h2 class="text-center"><b>Perfil de Usuario</b></h2>
-    <form>
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" readonly>
-      </div>
-      <div class="form-group">
-        <label for="apellido">Apellido:</label>
-        <input type="text" class="form-control" id="apellido" placeholder="Tu apellido" readonly>
-      </div>
-      <div class="form-group">
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
-      </div>
-      <div class="form-group"> 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" class="form-control" id="telefono" placeholder="Tu número de teléfono">
-      </div>
-      <hr>
-      <h4><b>Cambiar Contraseña</b></h4>
-      <div class="form-group">
-        <label for="passwordActual">Contraseña Actual:</label>
-        <input type="password" class="form-control" id="passwordActual" placeholder="Ingresa tu contraseña actual">
-      </div>
-      <div class="form-group">
-        <label for="nuevaPassword">Nueva Contraseña:</label>
-        <input type="password" class="form-control" id="nuevaPassword" placeholder="Ingresa tu nueva contraseña">
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirmar Nueva Contraseña:</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu nueva contraseña">
-      </div>
-      <br>
-      <button type="submit" class="btn btn-primary btn-block">Actualizar Perfil</button>
-    </form>
-  </div>
-  
+<html lang="en" dir="ltr">
+    <body>
+        <section class="form-login">
+            <h5>Perfil</h5> 
+            <form action="#" class="row g-3" method="post" autocomplete="off">
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Matricula" required autofocus>
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Nombre(s)">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Apellido Peterno">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Apellido Materno">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Correo electrónico">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="text" value="" placeholder="Dirección">
+                </div>
+                <div class="col-md-3">
+                    <input class="controls" type="text" value="" placeholder="Teléfono">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="password" name="contraseña" value="" placeholder="Crear contraseña">
+                </div>
+                <div class="col-md-4">
+                    <input class="controls" type="password" name="contraseña" value="" placeholder="Confirmar contraseña">            
+                </div>
+            </form>
+              <p><a class="btn-custom">Cambiar contraseña</a></p> 
+            <br>
+        </section>
+<br>
+</body>
+</html>
 <app-footer></app-footer>

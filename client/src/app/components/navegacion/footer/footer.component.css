@@ -8,4 +8,7 @@
 .footer-spacing {
     margin-top: 40px; /* Ajusta el valor según el espacio que desees */
 }
+.bg-custom{
+    background-color: rgb(55, 55, 55);
+  }
 

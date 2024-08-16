@@ -1,14 +1,23 @@
 body{
-    background-color: #9FC5F8;
+  background-color: #766b59;
 }
 div{
   align-items: center;
   text-align: center;
 
 }
-h2{
-  background-color: rgb(79, 173, 255);
+h2 {
+  background-color: rgb(145, 145, 145);
+  color: white; /* Color del texto */
   text-align: center;
+  width: 80%; /* Ajuste del ancho para un mejor equilibrio */
+  margin: 20px auto; /* Añade margen superior e inferior */
+  padding: 10px; /* Más espacio interno para un diseño más espacioso */
+  border-radius: 10px; /* Bordes más redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  font-family: 'Arial', sans-serif; /* Cambia la tipografía */
+  font-size: 1.8rem; /* Ajusta el tamaño de la fuente */
+  letter-spacing: 1px; /* Espaciado entre letras */
 }
 .carousel-inner {
   height: 300px; /* Ajusta la altura del carrusel */

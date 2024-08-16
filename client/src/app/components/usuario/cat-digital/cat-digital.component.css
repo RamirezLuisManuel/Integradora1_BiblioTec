@@ -20,7 +20,7 @@ h2 {
     text-align: center;
     width: 90%; /* Ajusta el ancho según tus necesidades */
     margin: 0 auto; /* Centra horizontalmente el elemento */
-    padding: 5px; /* Añade un poco de padding para que el texto no esté pegado al borde */
+    padding: 2px; /* Añade un poco de padding para que el texto no esté pegado al borde */
     border-radius: 5px; /* (Opcional) Añade bordes redondeados para un efecto más suave */
 }
 
