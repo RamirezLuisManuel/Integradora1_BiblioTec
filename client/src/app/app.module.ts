@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BooksService } from './services/books.service';
 
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navegacion/navigation/navigation.component';
@@ -51,9 +51,11 @@ import { LoginComponent } from './components/auth/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    BooksService // este tendrá los métodos para pedir los datos.
+    BooksService, // este tendrá los métodos para pedir los datos.
+    provideHttpClient(withFetch()) 
   ],
   bootstrap: [AppComponent],
   exports: []

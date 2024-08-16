@@ -11,7 +11,7 @@ export class AgregarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    isbn:0,
+    isbn:'',
     id: 0,
     title : '',
     author: '',

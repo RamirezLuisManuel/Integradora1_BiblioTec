@@ -1,122 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>Registro de Usuario</title>
-    <style>
-      .error { color: red; }
-    </style>
-  </head>
-  <body>
-    <h1>BiblioTec</h1>
-    <section class="form-login">
-      <h5>Regístrate</h5>
-      <form id="registerForm">
-        <input class="controls" type="text" name="Matricula" placeholder="Matricula" autofocus required>
-        <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)" required>
-        <span id="nombreError" class="error"></span>
-        <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno" required>
-        <span id="apPaternoError" class="error"></span>
-        <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno" required>
-        <span id="apMaternoError" class="error"></span>
-        <input class="controls" type="email" name="Correo" placeholder="Correo electrónico" required>
-        <input class="controls" type="text" name="Direccion" placeholder="Dirección" required>
-        <input class="controls" type="text" name="Telefono" placeholder="Teléfono" required>
-        <span id="telefonoError" class="error"></span>
-        <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña" required>
-        <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña" required>
-        <span id="contraseniaError" class="error"></span>
-        <div class="button-container">
-          <button type="submit">Aceptar</button>
-          <button type="button" onclick="window.history.back();">Regresar</button>
-        </div>
-      </form>
-    </section>
-
-    <script>
-      document.getElementById('registerForm').addEventListener('submit', async function(event) {
-        event.preventDefault(); // Prevenir el envío del formulario por defecto
-
-        const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
-
-        // Validaciones adicionales
-        const nombreRegex = /^[a-zA-Z\s]+$/;
-        const telefonoRegex = /^\d{10}$/;
-        const contraseniaRegex = /^.{8,16}$/;
-
-        let valid = true;
-
-        // Validar nombres
-        if (!nombreRegex.test(data.Nombre)) {
-          document.getElementById('nombreError').textContent = 'El nombre no debe contener números ni caracteres extraños';
-          valid = false;
-        } else {
-          document.getElementById('nombreError').textContent = '';
-        }
-
-        if (!nombreRegex.test(data.ApPaterno)) {
-          document.getElementById('apPaternoError').textContent = 'El apellido paterno no debe contener números ni caracteres extraños';
-          valid = false;
-        } else {
-          document.getElementById('apPaternoError').textContent = '';
-        }
-
-        if (!nombreRegex.test(data.ApMaterno)) {
-          document.getElementById('apMaternoError').textContent = 'El apellido materno no debe contener números ni caracteres extraños';
-          valid = false;
-        } else {
-          document.getElementById('apMaternoError').textContent = '';
-        }
-
-        // Validar teléfono
-        if (!telefonoRegex.test(data.Telefono)) {
-          document.getElementById('telefonoError').textContent = 'El teléfono debe tener exactamente 10 dígitos';
-          valid = false;
-        } else {
-          document.getElementById('telefonoError').textContent = '';
-        }
-
-        // Validar contraseña
-        if (!contraseniaRegex.test(data.Contrasenia)) {
-          document.getElementById('contraseniaError').textContent = 'La contraseña debe tener entre 8 y 16 caracteres';
-          valid = false;
-        } else {
-          document.getElementById('contraseniaError').textContent = '';
-        }
-
-        // Validar que las contraseñas coincidan
-        if (data.Contrasenia !== data.ConfirmarContrasenia) {
-          alert('Las contraseñas no coinciden');
-          valid = false;
-        }
-
-        if (!valid) {
-          return;
-        }
-
-        // Enviar datos al servidor
-        try {
-          const response = await fetch('/api/usuarios', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-
-          if (response.ok) {
-            alert('Usuario registrado exitosamente');
-            window.location.href = '/inicio'; // Redirigir a la página de inicio
-          } else {
-            const errorData = await response.json();
-            alert(`Error: ${errorData.message}`);
-          }
-        } catch (error) {
-          alert('Error al registrar el usuario');
-          console.error('Error:', error);
-        }
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario</title>
+</head>
+<body>
+  <h1>BiblioTec</h1>
+  <section class="form-login">
+    <h5>Regístrate</h5>
+    <form id="registerForm" (submit)="onSubmit($event)">
+      <input class="controls" type="text" name="Matricula" placeholder="Matricula" autofocus>
+      <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)">
+      <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno">
+      <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno">
+      <input class="controls" type="email" name="Correo" placeholder="Correo electrónico">
+      <input class="controls" type="text" name="Direccion" placeholder="Dirección">
+      <input class="controls" type="text" name="Telefono" placeholder="Teléfono">
+      <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña">
+      <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña">
+      <div class="button-container">
+        <button type="submit">Aceptar</button>
+        <button type="button" onclick="window.history.back();">Regresar</button>
+      </div>
+    </form>
+  </section>
+</body>
 </html>
