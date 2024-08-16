@@ -28,22 +28,22 @@ class InventarioController {
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { IdInventario } = req.params;
-            yield database_1.default.query('DELETE FROM Inventario WHERE IdInventario=?', [IdInventario]);
+            const { CodLibro } = req.params;
+            yield database_1.default.query('DELETE FROM Inventario WHERE CodLibro=?', [CodLibro]);
             resp.json({ message: 'Los datos del inventario fueron eliminados' });
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { IdInventario } = req.params;
-            yield database_1.default.query('UPDATE Inventario set ? WHERE IdInventario = ?', [req.body, IdInventario]);
+            const { CodLibro } = req.params;
+            yield database_1.default.query('UPDATE Inventario set ? WHERE CodLibro = ?', [req.body, CodLibro]);
             resp.json({ message: 'EL inventario fue atualizado' });
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { IdInventario } = req.params; //se recupera el id del request params.
-            const inventario = yield database_1.default.query('SELECT * FROM Inventario WHERE IdInventario=?', [IdInventario]);
+            const { CodLibro } = req.params; //se recupera el id del request params.
+            const inventario = yield database_1.default.query('SELECT * FROM Inventario WHERE CodLibro=?', [CodLibro]);
             if (inventario.length > 0) {
                 return resp.json(inventario[0]);
             }

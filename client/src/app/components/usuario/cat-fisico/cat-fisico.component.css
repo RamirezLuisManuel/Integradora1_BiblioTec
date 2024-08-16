@@ -29,10 +29,15 @@ h2 {
     letter-spacing: 1px; /* Espaciado entre letras */
 }
 
-
 p{
     text-align: left;
     line-height: 0.9; 
 }
-
+.img-fixed {
+    width: 100%; /* Asegura que ocupe el ancho del contenedor */
+    height: 200px; /* Fija la altura de todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
+    border-radius: 5px; /* (Opcional) Añade bordes redondeados a las imágenes */
+  }
+  
     

@@ -10,7 +10,7 @@
   <body>
     <h1>BiblioTec</h1>
     <section class="form-login">
-      <h5>Regístrate</h5>
+      <h5>Regístro</h5>
       <form id="registerForm">
         <input class="controls" type="text" name="Matricula" placeholder="Matricula" autofocus required>
         <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)" required>
@@ -26,12 +26,11 @@
         <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña" required>
         <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña" required>
         <span id="contraseniaError" class="error"></span>
-        <div class="button-container">
-          <button type="submit">Aceptar</button>
-          <button type="button" onclick="window.history.back();">Regresar</button>
-        </div>
+          <p><a  class="btn-custom" type="submit">Aceptar</a></p>
+          <p><a  class="btn-custom" type="button" onclick="window.history.back();">Regresar</a></p>
       </form>
     </section>
+    <br>
 
     <script>
       document.getElementById('registerForm').addEventListener('submit', async function(event) {
