@@ -53,11 +53,7 @@ class PrestamoController {
       const { IdPrestamo } = req.params; // Se recupera el id del request params.
       const prestamo = await pool.query('SELECT * FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
       if (prestamo.length > 0) {
-<<<<<<< HEAD
-        resp.json(prestamo[0]);
-=======
          resp.json(prestamo[0]);
->>>>>>> c3f3b4bdcbe3bfb9da80611bc766fc18e725f07c
       }
       resp.status(404).json({ message: 'Datos del préstamo no existen' });
     } catch (error) {
