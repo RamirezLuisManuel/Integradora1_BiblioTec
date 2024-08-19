@@ -1,23 +1,28 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <h1>BiblioTec UTNG</h1>
-    <body>
-        <section class="form-login">
-            <h5>Registrate</h5> 
-            <input class="controls" type="text" name="usuario" value="" placeholder="Matricula" autofocus>
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Nombre(s)">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Apellido Peterno">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Apellido Materno">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Correo electrónico">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Dirección">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Teléfono">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Crear contraseña">
-            <input class="controls" type="password" name="contraseña" value="" placeholder="Confirmar contraseña">
-            <div class="button-container">
-                <p><button><a href="/inicio">Aceptar</a></button></p>
-                <p><button onclick="window.history.back();"><a>Regresar</a></button></p>
-            </div>
-            <br>
-        </section>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario</title>
+</head>
+<body>
+  <h1>BiblioTec</h1>
+  <section class="form-login">
+    <h5>Regístrate</h5>
+    <form id="registerForm" (submit)="onSubmit($event)">
+      <input class="controls" type="text" name="Matricula" placeholder="Matricula" autofocus>
+      <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)">
+      <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno">
+      <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno">
+      <input class="controls" type="email" name="Correo" placeholder="Correo electrónico">
+      <input class="controls" type="text" name="Direccion" placeholder="Dirección">
+      <input class="controls" type="text" name="Telefono" placeholder="Teléfono">
+      <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña">
+      <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña">
+      <div class="button-container">
+        <button type="submit">Aceptar</button>
+        <button type="button" onclick="window.history.back();">Regresar</button>
+      </div>
+    </form>
+  </section>
+</body>
 </html>
-<br>

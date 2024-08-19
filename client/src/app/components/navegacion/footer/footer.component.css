@@ -5,3 +5,7 @@
     color: white;
     margin-top: end;
 }
+.footer-spacing {
+    margin-top: 40px; /* Ajusta el valor según el espacio que desees */
+}
+

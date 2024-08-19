@@ -11,7 +11,7 @@ export class AgregarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    isbn:0,
+    isbn:'',
     id: 0,
     title : '',
     author: '',
@@ -26,12 +26,13 @@ export class AgregarlibroComponent {
   
 	ngOnInit(){}
 
-  saveNewBook(){
-    delete this.book.create_at;
-	  delete this.book.isbn; //elimina solo del objeto a enviar estos datos, ya que son generados por la base de datos directamente y no necesitan ser enviados.
+  saveNewBook() {
     this.booksService.saveBook(this.book).subscribe(
-      resp =>{console.log(resp)},
-      err => console.log(err)
+      res => {
+        console.log('Libro guardado con éxito', res);
+        // Lógica adicional después de guardar el libro, como redirigir a otra página o mostrar un mensaje de éxito.
+      },
+      err => console.error(err)
     );
   }
 

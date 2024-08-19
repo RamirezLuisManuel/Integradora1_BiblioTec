@@ -11,13 +11,19 @@
     margin-left: 300px;
     margin-right: 400px;
 }
-body{
+body {
     background-color: #9FC5F8;
 }
-h2{
+
+h2 {
     background-color: rgb(79, 173, 255);
-    text-align: center;    
+    text-align: center;
+    width: 90%; /* Ajusta el ancho según tus necesidades */
+    margin: 0 auto; /* Centra horizontalmente el elemento */
+    padding: 5px; /* Añade un poco de padding para que el texto no esté pegado al borde */
+    border-radius: 5px; /* (Opcional) Añade bordes redondeados para un efecto más suave */
 }
+
 p{
     text-align: left;
     line-height: 0.9; 

@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //interfaz que permite las peticiones 
-import { Book } from '../models/Book';
+import { TipoUsuario } from '../models/Tipo';
 
 @Injectable({
   providedIn : 'root'
 })
-export class BooksService {
+export class TipoService {
 
-  API_URI = `http://localhost:3000/api/libros`;   //Back-end
+  API_URI = `http://localhost:3000/api/tipo`;   //Back-end
   //API_URI = `http://localhost:3000/books`;    //Front-end con acceso a datos json.
 
   constructor(private http : HttpClient){}
 
-  getBooks(){
+  getTipos(){
     return this.http.get(`${this.API_URI}`);
   }
 
-  getBook(Isbn : string){
+  getTipo(Isbn : string){
     return this.http.get(`${this.API_URI}/${Isbn}`);
   }
 
-  setBooks(){}
+  setTipo(){}
 
-  saveBook(book:Book){
-		return this.http.post(`${this.API_URI}`,book);
+  saveTipo(tipo:TipoUsuario){
+		return this.http.post(`${this.API_URI}`,tipo);
 }
-  updateBook(Isbn: String, updatedBook: Book){
-    return this.http.put(`${this.API_URI}/${Isbn}`, updatedBook);
+  updateTipo(IdTipo: Number, updatedTipo: TipoUsuario){
+    return this.http.put(`${this.API_URI}/${IdTipo}`, updatedTipo);
 }
 }
