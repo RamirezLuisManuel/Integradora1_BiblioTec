@@ -22,15 +22,14 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">ISBN</th>
-                        <th scope="col">ID</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Genero</th>
                         <th scope="col">Autor</th>
-                        <th scope="col">Fecha de<br>Registro</th>
                         <th scope="col">Descripcion</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Disponibilidad</th>
                         <th scope="col">Vista Previa</th>
+                        <th scope="col">Fecha</th>
                         <th scope="col">Modificacion</th>
                     </tr>
                 </thead>
@@ -38,15 +37,14 @@
                 <tbody  *ngFor="let book of books">
                     <tr>
                         <td>{{book.Isbn}}</td>
-                        <td>{{book.Id}}</td>
                         <td>{{book.Titulo}}</td>
                         <td>{{book.Tema}}</td>
-                        <td>{{book.Autor}}</td>
-                        <td>{{book.FechaIngreso}}</td>  
+                        <td>{{book.Autor}}</td>  
                         <td>{{book.Descripcion}}</td>
-                        <td></td>
-                        <td>{{book.Tipo}}</td>
-                        <td><img [src]="book.image" class="card-img-top"></td>
+                        <td>{{book.TipoLibro}}</td>
+                        <td>{{book.Disponibilidad}}</td>
+                        <td><img [src]="book.Imagen" class="card-img-top"></td>
+                        <td>{{book.FechaRegistro}}</td>
                         <td>
                             <a href="/editarlibro" class="btn btn-warning btn-sm me-2">Editar</a>
 

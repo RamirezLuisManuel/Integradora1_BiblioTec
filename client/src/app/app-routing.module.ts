@@ -11,13 +11,14 @@ import { CrudComponent } from './components/admin/crud/crud.component';
 
 import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarlibro.component';
 import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
-import { EliminarlibroComponent } from './components/admin/eliminarlibro/eliminarlibro.component';
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
 import { MultasComponent } from './components/admin/multas/multas.component';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
+import { NovedadesAdComponent } from './components/admin/novedades-ad/novedades-ad.component';
+import { RolesComponent } from './components/admin/roles/roles.component';
 
 
 const routes: Routes = [
@@ -67,10 +68,6 @@ const routes: Routes = [
     component: EditarlibroComponent
   },
   {
-    path: 'eliminalibro',
-    component: EliminarlibroComponent
-  },
-  {
     path: 'estatus',
     component: EstatusComponent
   },
@@ -89,6 +86,14 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent
+  },
+  {
+    path: 'agrnovedades',
+    component: NovedadesAdComponent
+  },
+  {
+    path: 'roles',
+    component: RolesComponent
   }
 ];
 

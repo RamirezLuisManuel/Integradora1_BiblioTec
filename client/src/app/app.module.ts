@@ -24,6 +24,7 @@ import { MultasComponent } from './components/admin/multas/multas.component';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { RolesComponent } from './components/admin/roles/roles.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoginComponent } from './components/auth/login/login.component';
     MultasComponent,
     UsuariosComponent,
     PerfilComponent,
-    LoginComponent
+    LoginComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,

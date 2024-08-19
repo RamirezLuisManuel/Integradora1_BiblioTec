@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { NovedadesService } from '../../../services/novedades.service';
 
 @Component({
   selector: 'app-novedades-ad',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class NovedadesAdComponent {
 
+  @HostBinding('class') classes = 'row';
+
+  novedades:any=[]
+
+  constructor (private novedadesService : NovedadesService){}
+
+  ngOnInit (){
+    this.novedadesService.getNovedades().subscribe(
+      resp => {
+        this.novedades=resp
+      },
+      err => console.log(err)
+    );
+  }
 }

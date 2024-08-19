@@ -12,15 +12,15 @@ export class AgregarlibroComponent {
 
   book : Book = {
     isbn:'',
-    id: 0,
-    title : '',
-    author: '',
-    genero: '',
-    create_at : new Date(),
-    tipo : '',
+    titulo:'',
+    autor:'',
+    tema:'',
+    descripcion:'',
     disponibilidad:0,
-    image : '',
-    description:'',
+    contenido:'',
+    tipolibro:'',
+    imagenlibro:'',
+    fecharegistro: new Date()
   }; 
 	constructor(private booksService : BooksService){}
   

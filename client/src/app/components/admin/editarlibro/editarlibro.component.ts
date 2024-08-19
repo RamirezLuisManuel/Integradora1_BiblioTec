@@ -11,16 +11,16 @@ export class EditarlibroComponent {
   @HostBinding('class') classes='row';
 
   book : Book = {
-    isbn: '',
-    id: 0,
-    title : '',
-    author: '',
-    genero: '',
-    create_at : new Date(),
-    tipo : '',
+    isbn:'',
+    titulo:'',
+    autor:'',
+    tema:'',
+    descripcion:'',
     disponibilidad:0,
-    image : '',
-    description:'',
+    contenido:'',
+    tipolibro:'',
+    imagenlibro:'',
+    fecharegistro: new Date()
   };
   constructor(private booksService : BooksService){}
 
