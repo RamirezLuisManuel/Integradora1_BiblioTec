@@ -1,17 +1,21 @@
 body {
-    background-color: #aa9f8e;
-}
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/fondo\ de\ libros.jpeg'); /* Ruta a tu imagen de textura */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Tamaño de la imagen de fondo */
+  }
+  
+  
 
 .card {
     width: 900px;
     height: 550%;
     background: rgba(102, 102, 102, 0.8); /* Gris con 80% de opacidad */
     margin: auto;
-    padding: 20px 10px;
-    border-top: 4px solid #017bab;
+    border-top: 4px solid #949494;
     color: white;
     border-radius: 15px; /* Esquinas redondeadas */
-    box-shadow: 7px 13px 37px #080808; /* Sombra */
+    box-shadow: 7px 13px 37px #000000; /* Sombra */
 }
 .card-body {
     padding: 2rem;
@@ -19,4 +23,7 @@ body {
 
 h3 {
     text-align: center;
+}
+.color-message{
+    color: black;
 }

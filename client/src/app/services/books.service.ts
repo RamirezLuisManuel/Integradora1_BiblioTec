@@ -28,4 +28,7 @@ export class BooksService {
   updateBook(Isbn: String, updatedBook: Book){
     return this.http.put(`${this.API_URI}/${Isbn}`, updatedBook);
 }
+  deleteBook(Isbn: String){
+    return this.http.delete(`${this.API_URI}/${Isbn}`);
+  }
 }
