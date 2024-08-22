@@ -3,21 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro de Usuario</title>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 0.5em;
+    }
+    .controls {
+      display: block;
+      margin: 0.5em 0;
+      padding: 0.5em;
+      width: 100%;
+    }
+    .btn-custom {
+      padding: 0.5em 1em;
+      margin: 0.5em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <h1>BiblioTec</h1>
   <section class="form-login">
     <h5>Regístrate</h5>
     <form id="registerForm" (submit)="onSubmit($event)">
-      <input class="controls" type="text" name="Matricula" placeholder="Matricula" required autofocus>
-      <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)" required>
-      <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno" required>
-      <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno" required>
-      <input class="controls" type="email" name="Correo" placeholder="Correo electrónico" required>
+      <input id="Matricula" class="controls" type="text" name="Matricula" placeholder="Matrícula" required autofocus>
+      <div id="matriculaError" class="error-message"></div>
+
+      <input id="Nombre" class="controls" type="text" name="Nombre" placeholder="Nombre(s)" required>
+      <div id="nombreError" class="error-message"></div>
+
+      <input id="ApPaterno" class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno" required>
+      <div id="apPaternoError" class="error-message"></div>
+
+      <input id="ApMaterno" class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno" required>
+      <div id="apMaternoError" class="error-message"></div>
+
+      <input id="Correo" class="controls" type="email" name="Correo" placeholder="Correo electrónico" required>
+      <div id="correoError" class="error-message"></div>
+
       <input class="controls" type="text" name="Direccion" placeholder="Dirección" required>
+      <div id="direccionError" class="error-message"></div>
+
       <input class="controls" type="text" name="Telefono" placeholder="Teléfono" required>
+      <div id="telefonoError" class="error-message"></div>
+
       <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña" required>
+      <div id="contraseniaError" class="error-message"></div>
+
       <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña" required>
+      <div id="confirmarContraseniaError" class="error-message"></div>
+
       <p>
         <button class="btn-custom" type="submit">Aceptar</button>
         <button class="btn-custom" type="button" onclick="window.history.back();">Regresar</button>
