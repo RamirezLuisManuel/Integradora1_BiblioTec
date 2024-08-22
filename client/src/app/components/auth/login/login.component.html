@@ -10,6 +10,12 @@
         <form (ngSubmit)="onSubmit()">
             <input class="controls" type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario" required autofocus>
             <input class="controls" type="password" [(ngModel)]="contrasenia" name="contrasenia" placeholder="Contraseña" required>
+
+            <!-- Mostrar mensaje de error si existe -->
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+
             <p>
                 <button class="btn-custom" type="submit">Ingresar</button>
             </p>

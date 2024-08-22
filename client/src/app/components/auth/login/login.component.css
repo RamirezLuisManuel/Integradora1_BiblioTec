@@ -111,3 +111,9 @@ h1{
 }
 
 
+.error-message {
+    color: red;
+    margin-top: 0px;
+    font-size: 0.9em;
+  }
+  

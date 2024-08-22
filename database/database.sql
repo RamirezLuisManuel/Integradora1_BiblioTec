@@ -11,7 +11,7 @@ CREATE TABLE TipoUsuario (
 );
 
 -- Crear la tabla Usuarios
-CREATE TABLE Usuarios (
+CREATE TABLE Usuario (
     Matricula INT PRIMARY KEY, -- Identificador único del usuario
     Nombre VARCHAR(25) NOT NULL, -- Nombre del usuario
     ApPaterno VARCHAR(50) NOT NULL, -- Apellido paterno del usuario
@@ -26,7 +26,7 @@ CREATE TABLE Usuarios (
 );
 
 -- Crear la tabla Libros
-CREATE TABLE Libros (
+CREATE TABLE Libro (
     Isbn VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
     Titulo VARCHAR(255) NOT NULL, -- Título del libro
     Autor VARCHAR(100) NOT NULL, -- Autor del libro
@@ -40,7 +40,7 @@ CREATE TABLE Libros (
 );
 
 -- Crear la tabla Prestamos
-CREATE TABLE Prestamos (
+CREATE TABLE Prestamo (
     IdPrestamo INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del préstamo
     Matricula INT, -- Número de control del préstamo
     Isbn VARCHAR(20), -- Código ISBN del libro prestado
@@ -68,7 +68,7 @@ CREATE TABLE Multa (
 );
 
 -- Crear la tabla Novedades
-CREATE TABLE Novedades (
+CREATE TABLE Novedad (
     IdNovedad INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único de la novedad
     Matricula INT, -- Matrícula del usuario que reporta la novedad
     NomEvent VARCHAR(255) NOT NULL, -- Nombre del evento
@@ -82,7 +82,7 @@ CREATE TABLE Novedades (
 -- Crear el trigger para encriptar la contraseña antes de insertar un usuario
 DELIMITER $$
 CREATE TRIGGER before_insert_usuarios
-BEFORE INSERT ON Usuarios
+BEFORE INSERT ON Usuario
 FOR EACH ROW
 BEGIN
     SET NEW.Contrasenia = SHA2(NEW.Contrasenia, 256);
@@ -92,7 +92,7 @@ DELIMITER $$
 
 -- Crear el trigger para encriptar la contraseña antes de actualizar un usuario
 CREATE TRIGGER before_update_usuarios
-BEFORE UPDATE ON Usuarios
+BEFORE UPDATE ON Usuario
 FOR EACH ROW
 BEGIN
     IF NEW.Contrasenia != OLD.Contrasenia THEN
