@@ -8,7 +8,7 @@ import { Usuario } from '../../../models/Usuario'; // Ajusta la ruta según tu e
   styleUrls: ['./registro.component.css'] // Asegúrate de que esta ruta sea correcta
 })
 export class RegistroComponent {
-  validDomains: string[] = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com'];
+  validDomains: string[] = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com', 'icloud.com'];
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -56,6 +56,42 @@ export class RegistroComponent {
       return;
     }
 
+    // Validación del Teléfono
+    const telefono = formData.get('Telefono') as string;
+    if (!/^\d{10}$/.test(telefono)) {
+      this.setError('telefonoError', 'El teléfono debe contener exactamente 10 dígitos numéricos.');
+      return;
+    }
+
+    // Validación de Contraseñas
+    const contrasenia = formData.get('Contrasenia') as string;
+    const confirmarContrasenia = formData.get('ConfirmarContrasenia') as string;
+
+    if (contrasenia.length < 8 || contrasenia.length > 16) {
+      this.setError('contraseniaError', 'La contraseña debe tener entre 8 y 16 caracteres.');
+      return;
+    }
+
+    if (!/[A-Z]/.test(contrasenia)) {
+      this.setError('contraseniaError', 'La contraseña debe contener al menos una letra mayúscula.');
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>_]/.test(contrasenia)) {
+      this.setError('contraseniaError', 'La contraseña debe contener al menos un carácter especial.');
+      return;
+    }
+
+    if (!/\d/.test(contrasenia)) {
+      this.setError('contraseniaError', 'La contraseña debe contener al menos un número.');
+      return;
+    }
+
+    if (contrasenia !== confirmarContrasenia) {
+      this.setError('confirmarContraseniaError', 'Las contraseñas no coinciden.');
+      return;
+    }
+
     const data: Usuario = {
       Matricula: matricula,
       Nombre: nombre,
@@ -63,9 +99,9 @@ export class RegistroComponent {
       ApMaterno: apMaterno,
       Direccion: formData.get('Direccion') as string,
       Correo: correo,
-      Telefono: formData.get('Telefono') as string,
+      Telefono: telefono,
       IdTipo: 1, // Valor por defecto
-      Contrasenia: formData.get('Contrasenia') as string,
+      Contrasenia: contrasenia,
       StaUsuario: 'Activo' // Valor por defecto
     };
 
@@ -78,7 +114,7 @@ export class RegistroComponent {
       alert('Usuario registrado exitosamente');
       window.location.href = '/inicio'; // Redirigir a la página de inicio
     } catch (error) {
-      alert('Error al registrar el usuario');
+      alert('Matricula ya existente');
       console.error('Error:', error);
     }
   }
@@ -96,7 +132,7 @@ export class RegistroComponent {
   }
 
   private clearErrors() {
-    const errorIds = ['matriculaError', 'nombreError', 'apPaternoError', 'apMaternoError', 'correoError'];
+    const errorIds = ['matriculaError', 'nombreError', 'apPaternoError', 'apMaternoError', 'correoError', 'telefonoError', 'contraseniaError', 'confirmarContraseniaError'];
     errorIds.forEach(id => {
       const errorElement = document.getElementById(id);
       if (errorElement) {
