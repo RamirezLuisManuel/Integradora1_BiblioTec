@@ -15,9 +15,24 @@ export class RegistroComponent {
 
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
+
+    // Validación de la matrícula
+    const matricula = formData.get('Matricula') as string;
+    if (!/^\d{10}$/.test(matricula)) {
+      alert('La matrícula debe tener exactamente 10 dígitos y solo puede contener números.');
+      return;
+    }
+
+    // Validación de Nombre(s)
+    const nombre = formData.get('Nombre') as string;
+    if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(nombre)) {
+      alert('El nombre solo puede contener letras y espacios. No se permiten números ni caracteres especiales.');
+      return;
+    }
+
     const data: Usuario = {
-      Matricula: formData.get('Matricula') as string,
-      Nombre: formData.get('Nombre') as string,
+      Matricula: matricula,
+      Nombre: nombre,
       ApPaterno: formData.get('ApPaterno') as string,
       ApMaterno: formData.get('ApMaterno') as string,
       Direccion: formData.get('Direccion') as string,

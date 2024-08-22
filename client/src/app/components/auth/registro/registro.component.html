@@ -9,17 +9,19 @@
   <section class="form-login">
     <h5>Regístrate</h5>
     <form id="registerForm" (submit)="onSubmit($event)">
-      <input class="controls" type="text" name="Matricula" placeholder="Matricula" autofocus>
-      <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)">
-      <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno">
-      <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno">
-      <input class="controls" type="email" name="Correo" placeholder="Correo electrónico">
-      <input class="controls" type="text" name="Direccion" placeholder="Dirección">
-      <input class="controls" type="text" name="Telefono" placeholder="Teléfono">
-      <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña">
-      <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña">
-        <p><a class="btn-custom" type="submit">Aceptar</a></p>
-        <p><a class="btn-custom" type="button" onclick="window.history.back();">Regresar</a></p>
+      <input class="controls" type="text" name="Matricula" placeholder="Matricula" required autofocus>
+      <input class="controls" type="text" name="Nombre" placeholder="Nombre(s)" required>
+      <input class="controls" type="text" name="ApPaterno" placeholder="Apellido Paterno" required>
+      <input class="controls" type="text" name="ApMaterno" placeholder="Apellido Materno" required>
+      <input class="controls" type="email" name="Correo" placeholder="Correo electrónico" required>
+      <input class="controls" type="text" name="Direccion" placeholder="Dirección" required>
+      <input class="controls" type="text" name="Telefono" placeholder="Teléfono" required>
+      <input class="controls" type="password" name="Contrasenia" placeholder="Crear contraseña" required>
+      <input class="controls" type="password" name="ConfirmarContrasenia" placeholder="Confirmar contraseña" required>
+      <p>
+        <button class="btn-custom" type="submit">Aceptar</button>
+        <button class="btn-custom" type="button" onclick="window.history.back();">Regresar</button>
+      </p>
     </form>
   </section>
 </body>
