@@ -1,16 +1,16 @@
 body {
     background-color: #d4fdff; /* Color de fondo de respaldo */
-    background-image: url('../../../../assets/fondo\ de\ libros.jpeg'); /* Ruta a tu imagen de textura */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
     background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
-    background-size: 300px 300px; /* Tamaño de la imagen de fondo */
-  }
-  
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
+  } 
   
 
 .card {
     width: 900px;
     height: 550%;
-    background: rgba(102, 102, 102, 0.8); /* Gris con 80% de opacidad */
+    background: rgba(87, 87, 87, 0.9); /* Gris con 80% de opacidad */
     margin: auto;
     border-top: 4px solid #949494;
     color: white;
@@ -24,6 +24,16 @@ body {
 h3 {
     text-align: center;
 }
-.color-message{
-    color: black;
+.color-message {
+    color: rgb(203, 35, 35); /* Color del texto */
+    font-size: 15px; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Pone el texto en negritas */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    width: 250px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Ajusta la altura automáticamente según el contenido */
+    display: inline-block; /* Asegura que el elemento se ajuste al contenido */
+    border-radius: 10px; /* Añade esquinas redondeadas */
 }
+
+
+

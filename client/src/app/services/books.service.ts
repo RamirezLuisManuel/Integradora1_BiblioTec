@@ -17,7 +17,7 @@ export class BooksService {
   }
 
   getBook(Isbn : string){
-    return this.http.get(`${this.API_URI}/${Isbn}`);
+    return this.http.get<Book>(`${this.API_URI}/${Isbn}`);
   }
 
   setBooks(){}

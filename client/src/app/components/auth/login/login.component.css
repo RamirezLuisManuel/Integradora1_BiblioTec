@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 body {
-    font-family: sans-serif;
-    background-image: url("../../../../assets/wooden-tree-books-on-blur-600nw-2290914857.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
+  }
+  
 
 .form-login {
     width: 400px;
@@ -87,7 +88,7 @@ h1{
     color: white;
     height: 80px;
     padding: 0%;
-    background-color: rgb(55, 55, 55);
+    background-color: #225438;
 }
 
 

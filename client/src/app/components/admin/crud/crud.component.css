@@ -1,8 +1,9 @@
 body {
     background-color: #d4fdff; /* Color de fondo de respaldo */
-    background-image: url('../../../../assets/fondo\ de\ libros.jpeg'); /* Ruta a tu imagen de textura */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
     background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
-    background-size: 300px 300px; /* Tamaño de la imagen de fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
   }
 main>.container {
     padding: 20px 0px;

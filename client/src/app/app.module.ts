@@ -8,9 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navegacion/navigation/navigation.component';
-import { FooterComponent } from './components/navegacion/footer/footer.component';
 import { InicioComponent } from './components/usuario/inicio/inicio.component';
 import { NovedadesComponent } from './components/usuario/novedades/novedades.component';
+import { FooterComponent } from './components/navegacion/footer/footer.component';
 import { NavigationAdminComponent } from './components/navegacion/navigation-admin/navigation-admin.component';
 import { InicioadminComponent } from './components/admin/inicioadmin/inicioadmin.component';
 import { CrudComponent } from './components/admin/crud/crud.component';
@@ -25,6 +25,7 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RolesComponent } from './components/admin/roles/roles.component';
+import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RolesComponent } from './components/admin/roles/roles.component';
     UsuariosComponent,
     PerfilComponent,
     LoginComponent,
-    RolesComponent
+    RolesComponent,
+    EditarlibroComponent,
   ],
   imports: [
     BrowserModule,
