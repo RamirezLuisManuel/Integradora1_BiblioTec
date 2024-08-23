@@ -75,10 +75,11 @@ class UsuarioController {
             try {
                 const { Matricula, Contrasenia } = req.body;
                 // Consulta para verificar el usuario y la contraseña
-                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
+                const usuarios = yield database_1.default.query('SELECT Matricula, IdTipo FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
                 if (usuarios.length > 0) {
-                    // Si se encuentra el usuario, enviar respuesta de éxito
-                    resp.json({ success: true });
+                    // Si se encuentra el usuario, enviar respuesta de éxito con el tipo de usuario
+                    const usuario = usuarios[0];
+                    resp.json({ success: true, IdTipo: usuario.IdTipo });
                 }
                 else {
                     // Si no se encuentra el usuario, enviar respuesta de error

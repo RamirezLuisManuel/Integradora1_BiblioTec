@@ -10,7 +10,15 @@
         <form (ngSubmit)="onSubmit()">
             <input class="controls" type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario" required autofocus>
             <input class="controls" type="password" [(ngModel)]="contrasenia" name="contrasenia" placeholder="Contraseña" required>
-            <button class="btn-custom" type="submit">Ingresar</button>
+
+            <!-- Mostrar mensaje de error si existe -->
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+
+            <p>
+                <button class="btn-custom" type="submit">Ingresar</button>
+            </p>
         </form>
         <br>
         <p><a class="btn-custom" routerLink="/registro">¿No tienes cuenta?</a></p>

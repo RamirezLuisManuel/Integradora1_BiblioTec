@@ -21,4 +21,5 @@ export class UsuarioService {
   registerUsuario(usuario: Usuario): Observable<any> {
     return this.http.post(`${this.API_URI}/`, usuario);
   }
+
 }
