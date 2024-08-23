@@ -15,105 +15,136 @@
                 <div class="card-body">
                     <h3>Nuevo Libro</h3>
                     <form #form="ngForm" (ngSubmit)="saveNewBook(form)" class="row g-3 needs-validation" novalidate>
+                        <!-- ISBN -->
                         <div class="col-md-6">
-                            <label for="isbn" class="form-label">ISBN</label>
-                            <input 
-                              type="text" 
-                              id="isbn" 
-                              class="form-control" 
-                              [(ngModel)]="book.isbn" 
-                              name="isbn" 
-                              required 
-                              minlength="10" 
-                              maxlength="13"  
-                              #isbnInput="ngModel" 
-                              (input)="onIsbnChange($event)"
-                              [ngClass]="{'is-invalid': isbnInput.invalid && isbnInput.touched}">
-                            
-                            <div *ngIf="isbnInput.errors?.['required'] && isbnInput.touched" class="invalid-feedback color-message">
-                              Este campo es obligatorio.
-                            </div>
-                            <div *ngIf="isbnInput.errors?.['minlength'] && isbnInput.touched" class="invalid-feedback color-message">
-                              El ISBN debe tener al menos 10 caracteres.
-                            </div>
-                            <div *ngIf="isbnInput.errors?.['maxlength'] && isbnInput.touched" class="invalid-feedback color-message">
-                              El ISBN no debe superar los 13 caracteres.
-                            </div>
-                            <div *ngIf="isbnInput.errors?.['invalidIsbn'] && isbnInput.touched" class="invalid-feedback color-message">
-                              El ISBN debe ser un formato válido (ISBN-10 o ISBN-13).
-                            </div>
+                          <label for="isbn" class="form-label">ISBN</label>
+                          <input 
+                            type="text" 
+                            id="isbn" 
+                            class="form-control" 
+                            [(ngModel)]="book.Isbn" 
+                            name="isbn" 
+                            required 
+                            minlength="10" 
+                            maxlength="13"  
+                            #isbnInput="ngModel" 
+                            (input)="onIsbnChange($event)"
+                            [ngClass]="{
+                              'is-invalid': isbnInput.invalid && isbnInput.touched,
+                              'is-valid': isbnInput.valid && isbnInput.touched
+                            }">
+                          <div *ngIf="isbnInput.errors?.['required'] && isbnInput.touched" class="invalid-feedback">
+                            Este campo es obligatorio.
+                          </div>
+                          <div *ngIf="isbnInput.errors?.['minlength'] && isbnInput.touched" class="invalid-feedback">
+                            El ISBN debe tener al menos 10 caracteres.
+                          </div>
+                          <div *ngIf="isbnInput.errors?.['maxlength'] && isbnInput.touched" class="invalid-feedback">
+                            El ISBN no debe superar los 13 caracteres.
+                          </div>
+                          <div *ngIf="isbnInput.errors?.['invalidIsbn'] && isbnInput.touched" class="invalid-feedback">
+                            El ISBN debe ser un formato válido (ISBN-10 o ISBN-13).
+                          </div>
                         </div>
-
+                      
+                        <!-- Título -->
                         <div class="col-md-6">
-                            <label for="titulo" class="form-label">Título</label>
-                            <input type="text" id="titulo" class="form-control" [(ngModel)]="book.titulo" name="titulo" required #tituloInput="ngModel" (input)="onTituloChange($event)">
-                            <div *ngIf="tituloInput.errors?.['required'] && tituloInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
-                            </div>
+                          <label for="titulo" class="form-label">Título</label>
+                          <input 
+                            type="text" 
+                            id="titulo" 
+                            class="form-control" 
+                            [(ngModel)]="book.Titulo" 
+                            name="titulo" 
+                            required 
+                            #tituloInput="ngModel" 
+                            (input)="onTituloChange($event)"
+                            [ngClass]="{
+                              'is-invalid': tituloInput.invalid && tituloInput.touched,
+                              'is-valid': tituloInput.valid && tituloInput.touched
+                            }">
+                          <div *ngIf="tituloInput.errors?.['required'] && tituloInput.touched" class="invalid-feedback">
+                            Este campo es obligatorio.
+                          </div>
                         </div>
-
+                      
+                        <!-- Autor -->
                         <div class="col-md-6">
-                            <label for="autor" class="form-label">Autor</label>
-                            <input type="text" id="autor" class="form-control" [(ngModel)]="book.autor" name="autor" required #autorInput="ngModel" (input)="onAutorChange($event)">
-                            <div *ngIf="autorInput.errors?.['required'] && autorInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
-                            </div>
+                          <label for="autor" class="form-label">Autor</label>
+                          <input 
+                            type="text" 
+                            id="autor" 
+                            class="form-control" 
+                            [(ngModel)]="book.Autor" 
+                            name="autor" 
+                            required 
+                            #autorInput="ngModel" 
+                            (input)="onAutorChange($event)"
+                            [ngClass]="{
+                              'is-invalid': autorInput.invalid && autorInput.touched,
+                              'is-valid': autorInput.valid && autorInput.touched
+                            }">
+                          <div *ngIf="autorInput.errors?.['required'] && autorInput.touched" class="invalid-feedback">
+                            Este campo es obligatorio.
+                          </div>
                         </div>
-
+                      
+                        <!-- Género -->
                         <div class="col-md-6">
-                            <label for="tema" class="form-label">Género</label>
-                            <input
-                              type="text"
-                              id="tema"
-                              class="form-control"
-                              #temaInput="ngModel"
-                              [(ngModel)]="book.tema"
-                              name="tema"
-                              required 
-                              minlength="5"
-                              (input)="onTemaChange($event)"
-                              [ngClass]="{'is-invalid': temaInput.invalid && temaInput.touched,'is-valid': isbnInput.valid && isbnInput.touched}">
-                            <div *ngIf="temaInput.errors?.['required'] && temaInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
-                            </div>
-                            <div *ngIf="temaInput.errors?.['minlength'] && temaInput.touched" class="invalid-feedback color-message">
-                              El género debe contener al menos 5 letras.
-                            </div>
+                          <label for="tema" class="form-label">Género</label>
+                          <input
+                            type="text"
+                            id="tema"
+                            class="form-control"
+                            #temaInput="ngModel"
+                            [(ngModel)]="book.Genero"
+                            name="tema"
+                            required 
+                            minlength="5"
+                            (input)="onTemaChange($event)"
+                            [ngClass]="{
+                              'is-invalid': temaInput.invalid && temaInput.touched,
+                              'is-valid': temaInput.valid && temaInput.touched
+                            }">
+                          <div *ngIf="temaInput.errors?.['required'] && temaInput.touched" class="invalid-feedback">
+                            Este campo es obligatorio.
+                          </div>
+                          <div *ngIf="temaInput.errors?.['minlength'] && temaInput.touched" class="invalid-feedback">
+                            El género debe contener al menos 5 letras.
+                          </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="tipolibro" class="form-label">Tipo de Libro</label>
-                            <select id="tipolibro" class="form-select" [(ngModel)]="book.tipolibro" name="tipolibro" required #tipolibroInput="ngModel">
-                                <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="físico">Físico</option>
-                                <option value="digital">Digital</option>
-                            </select>
-                            <div *ngIf="tipolibroInput.errors?.['required'] && tipolibroInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="disponibilidad" class="form-label">Disponibilidad</label>
-                            <input type="text" id="disponibilidad" class="form-control" [(ngModel)]="book.disponibilidad" name="disponibilidad" required #disponibilidadInput="ngModel">
-                            <div *ngIf="disponibilidadInput.errors?.['required'] && disponibilidadInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
-                            </div>
-                        </div>
-
+                        <!-- Descripción -->
                         <div class="col-md-6">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea id="descripcion" class="form-control" [(ngModel)]="book.descripcion" name="descripcion" rows="2" required #descripcionInput="ngModel" (input)="onDescripcionChange($event)"></textarea>
-                            <div *ngIf="descripcionInput.errors?.['required'] && descripcionInput.touched" class="invalid-feedback color-message">
-                                Este campo es obligatorio.
+                            <input
+                            type="text"
+                            id="descripcion"
+                            class="form-control"
+                            #descripcionInput="ngModel"
+                            [(ngModel)]="book.Descripcion"
+                            name="descripcion"
+                            required
+                            (input)="onDescripcionChange($event)"
+                            [ngClass]="{
+                                'is-invalid': descripcionInput.invalid && descripcionInput.touched,
+                                'is-valid': descripcionInput.valid && descripcionInput.touched
+                            }">
+                            <div *ngIf="descripcionInput.errors?.['custom'] && descripcionInput.touched" class="invalid-feedback">
+                            La descripcion no puede tener menos de 5 palabras.
+                            </div>
+                            <div *ngIf="descripcionInput.errors?.['required'] && descripcionInput.touched" class="invalid-feedback">
+                            Este campo es obligatorio.
                             </div>
                         </div>
-
+  
+                        <!-- Botones -->
                         <div class="col-12">
-                            <a href="/crud" class="btn btn-secondary">Regresar</a>
-                            <button type="submit" class="btn btn-success">Guardar</button>
+                          <a href="/crud" class="btn btn-secondary">Regresar</a>
+                          <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                     </form>
+                      
                     <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
                         El libro ha sido guardado exitosamente.
                     </div>          

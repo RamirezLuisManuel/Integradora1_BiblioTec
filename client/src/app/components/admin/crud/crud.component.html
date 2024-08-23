@@ -12,12 +12,11 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
+            <h2 class="text-center"><b>Inventario</b></h2>
             <a href="/agregarlibro" class="btn btn-success">Agregar</a>
-
             <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
                 <thead class="table-dark">
                     <tr>
@@ -25,10 +24,7 @@
                         <th scope="col">Titulo</th>
                         <th scope="col">Genero</th>
                         <th scope="col">Autor</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Disponibilidad</th>
-                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripcion</th> 
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -37,14 +33,12 @@
                     <tr>
                         <td>{{book.Isbn}}</td>
                         <td>{{book.Titulo}}</td>
-                        <td>{{book.Tema}}</td>
+                        <td>{{book.Genero}}</td>
                         <td>{{book.Autor}}</td>  
                         <td>{{book.Descripcion}}</td>
-                        <td>{{book.TipoLibro}}</td>
-                        <td>{{book.Disponibilidad}}</td> 
-                        <td>{{book.FechaRegistro}}</td>
                         <td>
-                            <a [routerLink]="['/editarlibro', book.isbn]" type="button" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/copias" type="button" class="btn btn-success btn-sm">Copias</a>
+                            <a [routerLink]="['/agregarlibro', book.Isbn]" type="button" class="btn btn-warning btn-sm">Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminaModal" (click)="prepareDelete(book.Isbn)">
                               Eliminar
                             </button>

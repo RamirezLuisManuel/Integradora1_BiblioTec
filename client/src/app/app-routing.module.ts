@@ -18,8 +18,8 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { NovedadesAdComponent } from './components/admin/novedades-ad/novedades-ad.component';
 import { RolesComponent } from './components/admin/roles/roles.component';
-import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
-
+import { CopialibroComponent } from './components/admin/copialibro/copialibro.component';
+import { AgregarcopiaComponent } from './components/admin/agregarcopia/agregarcopia.component';
 
 const routes: Routes = [
   {
@@ -64,12 +64,6 @@ const routes: Routes = [
     component: AgregarlibroComponent
   },
   {
-    path: 'editarlibro',
-    component: EditarlibroComponent
-  },
-  { path: 'editarlibro/:isbn',
-    component: EditarlibroComponent },
-  {
     path: 'estatus',
     component: EstatusComponent
   },
@@ -96,6 +90,14 @@ const routes: Routes = [
   {
     path: 'roles',
     component: RolesComponent
+  },
+  {
+    path: 'copias',
+    component: CopialibroComponent
+  },
+  {
+    path: 'agregarcopia',
+    component: AgregarcopiaComponent
   }
 ];
 

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarlibroComponent } from './editarlibro.component';
+import { CopialibroComponent } from './copialibro.component';
 
-describe('EditarlibroComponent', () => {
-  let component: EditarlibroComponent;
-  let fixture: ComponentFixture<EditarlibroComponent>;
+describe('CopialibroComponent', () => {
+  let component: CopialibroComponent;
+  let fixture: ComponentFixture<CopialibroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EditarlibroComponent]
+      declarations: [CopialibroComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditarlibroComponent);
+    fixture = TestBed.createComponent(CopialibroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
