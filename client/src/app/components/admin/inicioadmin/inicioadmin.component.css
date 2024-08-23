@@ -1,32 +1,86 @@
-body{
-    background-color: #D5A6BD;
+h1{
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    height: 80px;
+    padding: 0%;
 }
 p{
-    font-size: 25px;
+    font-size: 20px;
     font-family: sans-serif;
     text-align: center;
     margin-left: 0px;
-    color: rgb(0, 0, 0);
+    color: rgb(236, 236, 236);
+}
+body {
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
+  }
+  .form-login {
+    width: 70%;
+    height: 1070px; /* Ajusta la altura automáticamente */
+    background: rgba(102, 102, 102, 0.7); /* Gris con 70% de opacidad */
+    margin: auto;
+    margin-top: 70px;
+    padding: 20px 30px;
+    border-top: 4px solid #949494;
+    border-radius: 15px; /* Esquinas redondeadas */
+    box-shadow: 7px 13px 37px #000000; /* Sombra del formulario */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
-.alto{
-    height: 200px;
-}
-.fondo_imagen{
-    height: 280px;
-    background: url(https://www.dipucadiz.es/export/sites/default/cultura/.galerias/lectura/Banner_Biblioteca.jpg_541957993.jpg);
-    background-size: 100%;
-}
 
-h1{
-    font-size:  45px;
-    font-style: normal;
-    font-family: sans-serif;
-    color:white;
-    
-}
-h3{
+.form-login h5{
+    margin: 0;
     text-align: center;
-    align-items: center;
-    margin-left: 20px;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+}
+
+.controls {
+    width: 100%;
+    border: 1px solid #006f9b;
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background: #c4c1c1;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.buttons {
+    width: 100%;
+    height: 40px;
+    background: #017bab;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.form-login p{
+    height: 35px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.form-login a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-login button{
+    padding: 3px 10px;
+    background-color: #bcbcbc;
+    border: 0px;
+}
+.form-login div{
+    margin-left: 50%;
+    background-color: #666666;
+
 }

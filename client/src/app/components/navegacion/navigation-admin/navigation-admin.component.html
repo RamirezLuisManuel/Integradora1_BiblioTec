@@ -1,11 +1,19 @@
 <nav class="navbar navbar-expand-lg bg-custom" data-bs-theme="dark">
     <div class="container p-2">
-      <a class="navbar-brand" href="/inicioadmin"><b>BiblioTec</b></a>
+      <div class="position-relative" style="z-index: 1000;">
+        <a class="navbar-brand" href="/inicioadmin"><b>BiblioTec</b></a>
+      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/roles">Roles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/agrnovedades">Novedades</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/crud">Inventario</a>
           </li>
@@ -19,17 +27,17 @@
             <a class="nav-link" href="/usuarios">Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/registro">Registro</a>
+            <a class="nav-link" href="/registro">Regístrar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Cerrar sesion</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/perfil">
+              <i class="fas fa-user"></i> Perfil
+            </a>
           </li>
         </ul>
-        <form class="d-flex margin-custom">
-          <input class="form-control me-sm-2" type="search" placeholder="Buscar">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
       </div>
     </div>
-  </nav>
+  </nav> 
   

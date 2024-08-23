@@ -1,6 +1,10 @@
-.bg-custom{
-    background-color: #A64D79;
+.navbar .navbar-toggler, 
+.navbar .navbar-collapse, 
+.navbar .dropdown-menu, 
+.navbar .form-control {
+  z-index: 1; /* Ajusta si es necesario */
 }
-.margin-custom{
-    margin-left: 53px;
+
+.bg-custom{
+  background-color: #225438;    
 }

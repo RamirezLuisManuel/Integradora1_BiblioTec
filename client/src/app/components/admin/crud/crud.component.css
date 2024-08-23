@@ -1,6 +1,10 @@
-body{
-    background-color: #D5A6BD;
-}
+body {
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
+  }
 main>.container {
     padding: 20px 0px;
 }
@@ -13,4 +17,17 @@ main>.container {
 /* Reduce el tamaño de la fuente en el encabezado de la tabla */
 .table thead th {
     font-size: 12px; /* Ajusta el tamaño según lo que necesites */
+}
+h2 {
+    background-color:  rgba(77, 98, 80, 0.947);
+    color: rgb(238, 238, 238); /* Color del texto */
+    text-align: center;
+    width: 50%; /* Ajuste del ancho para un mejor equilibrio */
+    margin: 20px auto; /* Añade margen superior e inferior */
+    padding: 10px; /* Más espacio interno para un diseño más espacioso */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    font-family: 'Arial', sans-serif; /* Cambia la tipografía */
+    font-size: 1.8rem; /* Ajusta el tamaño de la fuente */
+    letter-spacing: 1px; /* Espaciado entre letras */
 }

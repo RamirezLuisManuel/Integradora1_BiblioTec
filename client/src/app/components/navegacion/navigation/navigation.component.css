@@ -4,3 +4,7 @@
 .navbar .form-control {
   z-index: 1; /* Ajusta si es necesario */
 }
+
+.bg-custom{
+  background-color: #225438;
+}

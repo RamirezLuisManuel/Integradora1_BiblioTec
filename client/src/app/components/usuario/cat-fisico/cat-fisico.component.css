@@ -11,16 +11,37 @@
     margin-left: 300px;
     margin-right: 400px;
 }
-body{
-    background-color: #9FC5F8;
+body {
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
+  }
+
+h2 {
+    background-color:  rgba(77, 98, 80, 0.947);
+    color: rgb(238, 238, 238); /* Color del texto */
+    text-align: center;
+    width: 50%; /* Ajuste del ancho para un mejor equilibrio */
+    margin: 20px auto; /* Añade margen superior e inferior */
+    padding: 10px; /* Más espacio interno para un diseño más espacioso */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    font-family: 'Arial', sans-serif; /* Cambia la tipografía */
+    font-size: 1.8rem; /* Ajusta el tamaño de la fuente */
+    letter-spacing: 1px; /* Espaciado entre letras */
 }
-h2{
-    background-color: rgb(79, 173, 255);
-    text-align: center;    
-}
+
 p{
     text-align: left;
     line-height: 0.9; 
 }
-
+.img-fixed {
+    width: 100%; /* Asegura que ocupe el ancho del contenedor */
+    height: 200px; /* Fija la altura de todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la recorta si es necesario */
+    border-radius: 5px; /* (Opcional) Añade bordes redondeados a las imágenes */
+  }
+  
     

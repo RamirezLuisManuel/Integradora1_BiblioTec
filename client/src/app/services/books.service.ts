@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //interfaz que permite las peticiones 
 import { Book } from '../models/Book';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn : 'root'
@@ -17,7 +18,11 @@ export class BooksService {
   }
 
   getBook(Isbn : string){
-    return this.http.get(`${this.API_URI}/${Isbn}`);
+    return this.http.get<Book>(`${this.API_URI}/${Isbn}`);
+  }
+
+  getBookByIsbn(isbn: string): Observable<Book> {
+    return this.http.get<Book>(`/api/books/${isbn}`);
   }
 
   setBooks(){}
@@ -28,4 +33,7 @@ export class BooksService {
   updateBook(Isbn: String, updatedBook: Book){
     return this.http.put(`${this.API_URI}/${Isbn}`, updatedBook);
 }
+  deleteBook(Isbn: String){
+    return this.http.delete(`${this.API_URI}/${Isbn}`);
+  }
 }
