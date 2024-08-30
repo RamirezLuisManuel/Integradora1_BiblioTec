@@ -2,8 +2,8 @@ export interface Novedades{
     IdNovedad?: Number,
     Matricula?: Number,
     NomEvent?: String,
-    FechaInicioEvent?: Date,
-    FechaFinEvent?: Date,
+    FechaInicioEvent?: String,
+    FechaFinEvent?: String,
     DesEvent?: String,
     StaEvent?:String
 }

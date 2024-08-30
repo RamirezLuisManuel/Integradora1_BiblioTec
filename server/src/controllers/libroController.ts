@@ -2,12 +2,9 @@ import{Request, Response} from 'express';
 import pool from '../database';
 
 	class LibrosController{
-		public async list(req:Request, resp:Response){
-			const libros = await pool.query('SELECT * FROM Libro');
-			resp.json(libros);
 		public async list(req: Request, resp: Response): Promise<void> {
 			try {
-				const libros = await pool.query('SELECT * FROM Libros');
+				const libros = await pool.query('SELECT * FROM Libro');
 				resp.json(libros);
 			} catch (error) {
 				console.error('Error al listar libros:', error);
@@ -39,7 +36,7 @@ import pool from '../database';
 		public async delete(req: Request, resp: Response) {
 			try{
 				const { Isbn } = req.params;
-				const libro = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+				const libro = await pool.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
 				if (libro.length > 0) {
 					await pool.query('DELETE FROM Libros WHERE Isbn = ?', [Isbn]);
 					resp.json({ message: 'El libro fue eliminado' });
@@ -55,7 +52,7 @@ import pool from '../database';
 		public async update(req: Request, resp: Response): Promise<void> {
 			try {
 				const { Isbn } = req.params;
-				const libro = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+				const libro = await pool.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
 				if (libro.length > 0) {
 					await pool.query('UPDATE Libros set ? WHERE Isbn = ?', [req.body, Isbn]);
 					resp.json({ message: 'El libro fue actualizado' });
@@ -74,7 +71,7 @@ import pool from '../database';
 				const { Isbn } = req.params; // Se recupera el ISBN de los parámetros de la solicitud.
 			
 				// Ejecuta la consulta en la base de datos.
-				const libros = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+				const libros = await pool.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
 			
 				// Verifica si se encontró algún libro.
 				if (libros.length > 0) {

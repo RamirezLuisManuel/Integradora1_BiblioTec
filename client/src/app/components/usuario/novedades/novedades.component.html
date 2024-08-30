@@ -1,30 +1,34 @@
-<app-navigation>
-</app-navigation>
-<body></body> 
+<app-navigation></app-navigation>
+<body></body>
 <div class="container p-4 align-items-end">
-    <h2>Intinerario de eventos</h2>
-    <main class="flex-shrink-0">
-        <div class="container">
-          <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
-              <thead class="table-dark">
-                  <tr>
-                      <th scope="col">Nombre de Evento</th>
-                      <th scope="col">Fecha de Inicio</th>
-                      <th scope="col">Fecha de Termino</th>
-                      <th scope="col">Descripción</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+  <h2>Itinerario de eventos</h2>
+  <main class="flex-shrink-0">
+    <div class="container">
+      <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Matrícula</th>
+            <th scope="col">Nombre de Evento</th>
+            <th scope="col">Fecha de Inicio</th>
+            <th scope="col">Fecha de Terminación</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estatus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let novedad of novedades">
+            <td>{{ novedad.IdNovedad }}</td>
+            <td>{{ novedad.Matricula }}</td>
+            <td>{{ novedad.NomEvent }}</td>
+            <td>{{ novedad.FechaInicioEvent }}</td>
+            <td>{{ novedad.FechaFinEvent }}</td>
+            <td>{{ novedad.DesEvent }}</td>
+            <td>{{ novedad.StaEvent }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 </div>
-<app-footer>
-</app-footer>
+<app-footer></app-footer>

@@ -8,7 +8,7 @@ import inventarioRoutes from './routes/inventarioRoutes';
 import usuarioRoutes from './routes/usuarioRoutes';
 import multaRoutes from './routes/multaRoutes';
 import prestamoRoutes from './routes/prestamoRoutes';
-import novedadesRouter from './routes/novedadesRouter';
+import novedadesRouter from './routes/novedadesRoutes';
 
 class Server{
     public app:Application;
