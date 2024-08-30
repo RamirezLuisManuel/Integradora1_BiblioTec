@@ -28,6 +28,22 @@ import pool from '../database';
 			}
 			resp.status(404).json({text: 'EL libro no existe'});
 		} 
+
+		 // Nuevo método para obtener las copias de un libro según el ISBN
+		 public async getByIsbn(req: Request, resp: Response): Promise<void> {
+			const { isbn } = req.query; // Recuperar el valor de 'isbn' desde query params
+			try {
+				const inventario = await pool.query('SELECT * FROM Inventario WHERE Isbn = ?', [isbn]);
+				if (inventario.length > 0) {
+					resp.json(inventario);
+				} else {
+					resp.status(404).json({ message: 'No se encontraron copias para el ISBN proporcionado.' });
+				}
+			} catch (error) {
+				console.error('Error en la consulta:', error);
+				resp.status(500).json({ message: 'Error en la consulta.' });
+			}
+		} 
 	}
 	
 const inventarioController = new InventarioController();

@@ -1,103 +1,162 @@
 <app-navigation-admin></app-navigation-admin>
-<!DOCTYPE html>
-<html lang="es" class="h-100">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="./agregarlibro.component.css" rel="stylesheet">
-</head>
 <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
-        <div class="container my-5">
-            <div class="card shadow-lg">
-                <div class="card-body">
-                    <h3 class="my-3">Nuevo Libro</h3>
-                    <form action="#" class="row g-3" method="post" autocomplete="off">
-                        <div class="col-md-6">
-                            <label for="nombre" class="form-label">ISBN</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.isbn" name="autor" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="nombre" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.titulo" name="autor" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="nombre" class="form-label">Autor</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.autor" name="autor" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="nombre" class="form-label">Tema</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.tema" name="genero" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="fecha_nacimiento" class="form-label">Fecha de creacion</label>
-                            <input type="date" class="form-control" [(ngModel)]="book.fecharegistro" name="fecha_de_creacion" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="telefono" class="form-label">Tipo de Libro</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.tipolibro" name="genero" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="telefono" class="form-label">Disponibilidad</label>
-                            <input type="text" class="form-control" [(ngModel)]="book.disponibilidad" name="genero" required>
-                        </div>
-                        <div class="col-md-5">
-                            <label for="text" class="form-label">Imagen</label>
-                            <textarea class="form-control" [(ngModel)]="book.imagenlibro" name="imagen" rows="1"></textarea>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="text" class="form-label">Descripcion</label>
-                            <textarea class="form-control" [(ngModel)]="book.descripcion" name="genero" rows="2"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <a href="/crud" class="btn btn-secondary">Regresar</a>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#guardaModal" data-bs-id="1" (click)="saveNewBook()">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
+  <main class="flex-shrink-0">
+      <div class="container my-5">
+          <div class="card shadow-lg">
+              <div class="card-body">
+                  <h3>Libro</h3>
+<form #form="ngForm" (ngSubmit)="saveBook(form)" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
+  <!-- ISBN -->
+  <div class="col-md-6">
+      <label for="isbn" class="form-label">ISBN</label>
+      <input 
+        type="text" 
+        id="isbn" 
+        class="form-control" 
+        [(ngModel)]="book.Isbn" 
+        name="isbn" 
+        required 
+        minlength="10" 
+        maxlength="13"  
+        #isbnInput="ngModel" 
+        [ngClass]="{
+          'is-invalid': isbnInput.invalid && isbnInput.touched,
+          'is-valid': isbnInput.valid && isbnInput.touched
+        }">
+      <!-- Mensajes de error -->
+      <div *ngIf="isbnInput.errors?.['required'] && isbnInput.touched" class="invalid-feedback">
+        Este campo es obligatorio.
+      </div>
+      <div *ngIf="isbnInput.errors?.['minlength'] && isbnInput.touched" class="invalid-feedback">
+        El ISBN debe tener al menos 10 caracteres.
+      </div>
+      <div *ngIf="isbnInput.errors?.['maxlength'] && isbnInput.touched" class="invalid-feedback">
+        El ISBN no debe superar los 13 caracteres.
+      </div>
+      <div *ngIf="isbnInput.errors?.['invalidIsbn'] && isbnInput.touched" class="invalid-feedback">
+        El ISBN debe ser un formato válido (ISBN-10 o ISBN-13).
+      </div>
+  </div>
 
-    <!-- Modal de confirmación -->
-    <div class="modal fade" id="guardaModal" tabindex="-1" aria-labelledby="guardaModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="guardaModalLabel">Aviso</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Libro guardado con éxito.
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
+<!-- Título -->
+<div class="col-md-6">
+  <label for="titulo" class="form-label">Título</label>
+  <input 
+    type="text" 
+    id="titulo" 
+    class="form-control" 
+    [(ngModel)]="book.Titulo" 
+    name="titulo" 
+    required 
+    #tituloInput="ngModel" 
+    [ngClass]="{
+      'is-invalid': tituloInput.invalid && tituloInput.touched,
+      'is-valid': tituloInput.valid && tituloInput.touched
+    }"
+    (ngModelChange)="onTituloChange($event)">
+  <div *ngIf="tituloInput.errors?.['required'] && tituloInput.touched" class="invalid-feedback">
+    Este campo es obligatorio.
+  </div>
+</div>
+
+
+  <!-- Autor -->
+  <div class="col-md-6">
+      <label for="autor" class="form-label">Autor</label>
+      <input 
+        type="text" 
+        id="autor" 
+        class="form-control" 
+        [(ngModel)]="book.Autor" 
+        name="autor" 
+        required 
+        #autorInput="ngModel" 
+        [ngClass]="{
+          'is-invalid': autorInput.invalid && autorInput.touched,
+          'is-valid': autorInput.valid && autorInput.touched
+        }">
+      <div *ngIf="autorInput.errors?.['required'] && autorInput.touched" class="invalid-feedback">
+        Este campo es obligatorio.
+      </div>
+  </div>
+
+  <!-- Género -->
+  <div class="col-md-6">
+      <label for="tema" class="form-label">Género</label>
+      <input
+        type="text"
+        id="tema"
+        class="form-control"
+        [(ngModel)]="book.Genero"
+        name="tema"
+        required 
+        minlength="5"
+        #temaInput="ngModel"
+        [ngClass]="{
+          'is-invalid': temaInput.invalid && temaInput.touched,
+          'is-valid': temaInput.valid && temaInput.touched
+        }">
+      <div *ngIf="temaInput.errors?.['required'] && temaInput.touched" class="invalid-feedback">
+        Este campo es obligatorio.
+      </div>
+      <div *ngIf="temaInput.errors?.['minlength'] && temaInput.touched" class="invalid-feedback">
+        El género debe contener al menos 5 letras.
+      </div>
+  </div>
+
+  <!-- Descripción -->
+  <div class="col-md-6">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <input
+        type="text"
+        id="descripcion"
+        class="form-control"
+        [(ngModel)]="book.Descripcion"
+        name="descripcion"
+        required
+        #descripcionInput="ngModel"
+        [ngClass]="{
+          'is-invalid': descripcionInput.invalid && descripcionInput.touched,
+          'is-valid': descripcionInput.valid && descripcionInput.touched
+        }">
+      <div *ngIf="descripcionInput.errors?.['custom'] && descripcionInput.touched" class="invalid-feedback">
+        La descripcion no puede tener menos de 5 palabras.
+      </div>
+      <div *ngIf="descripcionInput.errors?.['required'] && descripcionInput.touched" class="invalid-feedback">
+        Este campo es obligatorio.
+      </div>
+  </div>
+
+  <!-- Imagen -->
+  <div class="col-md-6">
+    <label for="imagen" class="form-label">Imagen</label>
+    <input 
+      type="file" 
+      id="imagen" 
+      class="form-control" 
+      (change)="onFileChange($event)"
+      name="imagen">
+    <div *ngIf="imageError" class="invalid-feedback">
+      {{ imageError }}
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-    <script>
-    const guardaModal = document.getElementById('guardaModal');
-    if (guardaModal) {
-    guardaModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget;
+  <!-- Botones -->
+  <div class="col-12">
+    <a href="/crud" class="btn btn-secondary">Regresar</a>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </div>
+</form>
 
-        // Update the modal's content.
-        const form = guardaModal.querySelector('#form-guarda');
-        form.setAttribute('action', './agregarlibro.component.html');
-    });
-    }
-    </script>
-
+<div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
+  El libro ha sido guardado exitosamente.
+</div>          
+<div *ngIf="showDuplicateIsbnMessage" class="alert alert-danger" role="alert">
+  El ISBN ingresado ya existe en la base de datos. Por favor, ingrese un ISBN diferente.
+</div>
+</div>
+</div>
+</div>
+</main>
 </body>
-</html>
-<app-footeradmin></app-footeradmin>
+

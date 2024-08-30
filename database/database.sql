@@ -41,19 +41,9 @@ CREATE TABLE Libro (
     Isbn VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
     Titulo VARCHAR(255) NOT NULL, -- Título del libro
     Autor VARCHAR(100) NOT NULL, -- Autor del libro
-    Tema VARCHAR(50) NOT NULL, -- Tema del libro
-    Descripcion VARCHAR(255), -- Descripción del libro opcional
-    Disponibilidad VARCHAR(15), -- Muestra si está disponible o no
-    Contenido VARCHAR(50) NOT NULL, -- Contenido del libro
-    TipoLibro VARCHAR(50) NOT NULL, -- Tipo al que pertenece
-    ImagenLibro VARCHAR(255) NOT NULL, -- Imagen del libro
-    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Fecha de registro del libro
-);
--- Crear la tabla Inventario
-CREATE TABLE Inventario (
-    CodLibro INT PRIMARY KEY, -- Código único del libro en inventario
-    Isbn VARCHAR(20), -- Código ISBN del libro
-    FOREIGN KEY (Isbn) REFERENCES Libro(Isbn) ON DELETE CASCADE
+    Genero VARCHAR(50) NOT NULL, -- Tema del libro
+    Descripcion VARCHAR(255), -- Descripción del libro
+    Imagen LONGBLOB -- Columna para almacenar imágenes
 );
 
 -- Crear la tabla Prestamos
@@ -63,8 +53,19 @@ CREATE TABLE Prestamo (
     CodLibro INT, -- Código ISBN del libro prestado
     FechaPrestamos TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha del préstamo
     FechaDevolucion DATE, -- Fecha de devolución del libro
-    FOREIGN KEY (Matricula) REFERENCES Usuario(Matricula) ON DELETE CASCADE,
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Fecha de registro del libro
+    FOREIGN KEY (Matricula) REFERENCES Usuarios(Matricula) ON DELETE CASCADE,
     FOREIGN KEY (CodLibro) REFERENCES Inventario(CodLibro) ON DELETE CASCADE
+);
+
+-- Crear la tabla Inventario
+CREATE TABLE Inventario (
+    CodLibro INT PRIMARY KEY, -- Código único del libro en inventario 
+    Isbn VARCHAR(13), -- Código ISBN del libro
+    Formato ENUM('Físico', 'Digital') NOT NULL,
+    FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Estado VARCHAR(50) DEFAULT 'Disponible',
+    FOREIGN KEY (Isbn) REFERENCES Libros(Isbn) ON DELETE CASCADE
 );
 
 -- Crear la tabla Multa

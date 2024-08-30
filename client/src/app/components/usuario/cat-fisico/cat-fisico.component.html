@@ -3,23 +3,31 @@
   <div class="container mt-4">
     <h2 class="text-center"><b>Catálogo Físico</b></h2>
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let Libro of books">
-        <div class="card text-center h-100">
-          <div class="card-header bg-custom1 text-white d-flex justify-content-between align-items-center">
-            {{Libro.Titulo}}
-          </div>
-          <div class="card-body bg-custom2">
-            <img [src]="Libro.ImagenLibro" class="card-img-top img-fixed mb-3"> <!-- Clase img-fixed aplicada -->
-            <p><b>Genero: </b>{{Libro.Tema}}</p>
-            <p><b>Autor: </b>{{Libro.Autor}}</p>
-            <p><b>Disponibilidad: </b>{{Libro.Disponibilidad}}</p>
-            <p><b>Descriccion: </b>{{Libro.Descripcion}}</p>
-            <a href="" class="btn btn-primary btn-block">Reservar</a>
-          </div>
-        </div>
-      </div>
+        <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
+          <thead class="table-dark">
+              <tr>
+                  <th scope="col">Titulo</th>
+                  <th scope="col">Genero</th>
+                  <th scope="col">Autor</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Disponibilidad</th>
+              </tr>
+          </thead>
+          <tbody  *ngFor="let book of books">
+            <tr>
+              <td>{{book.Titulo}}</td>
+              <td>{{book.Tema}}</td>
+              <td>{{book.Autor}}</td>  
+              <td>{{book.Descripcion}}</td>
+              <td>{{book.TipoLibro}}</td>
+              <td>{{book.Disponibilidad}}</td>             
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
   <br>
 </body>
 <app-footer></app-footer>
+

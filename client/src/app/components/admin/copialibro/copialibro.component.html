@@ -1,0 +1,39 @@
+<app-navigation-admin></app-navigation-admin>
+<body class="d-flex flex-column h-100">
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+        <div class="container">
+            <br>
+            <h2 class="text-center"><b>Copias del libro: {{ isbn }}</b></h2>
+            <a href="/agregarcopia" class="btn btn-success me-6">Agregar</a>
+            <a href="/crud" class="btn btn-primary">Regresar</a>
+            <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Formato</th> 
+                        <th scope="col">Contenido</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inventario of inventario">
+                        <td>{{inventario.CodLibro}}</td>
+                        <td>{{inventario.Formato}}</td>
+                        <td>{{inventario.Contenido}}</td>
+                        <td>{{inventario.Estado}}</td>
+                        <td>{{inventario.FechaRegistro}}</td>
+                        <td>
+                            <a type="button" class="btn btn-warning btn-sm me-2">Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm" >
+                              Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+<app-footeradmin></app-footeradmin>

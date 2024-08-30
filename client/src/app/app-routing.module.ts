@@ -10,7 +10,6 @@ import { InicioadminComponent } from './components/admin/inicioadmin/inicioadmin
 import { CrudComponent } from './components/admin/crud/crud.component';
 
 import { AgregarlibroComponent } from './components/admin/agregarlibro/agregarlibro.component';
-import { EditarlibroComponent } from './components/admin/editarlibro/editarlibro.component';
 import { EstatusComponent } from './components/usuario/estatus/estatus.component';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
 import { PrestamosComponent } from './components/admin/prestamos/prestamos.component';
@@ -19,7 +18,9 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { NovedadesAdComponent } from './components/admin/novedades-ad/novedades-ad.component';
 import { RolesComponent } from './components/admin/roles/roles.component';
-
+import { CopialibroComponent } from './components/admin/copialibro/copialibro.component';
+import { AgregarcopiaComponent } from './components/admin/agregarcopia/agregarcopia.component';
+import { InventarioService } from './services/inventario.service';
 
 const routes: Routes = [
   {
@@ -64,10 +65,6 @@ const routes: Routes = [
     component: AgregarlibroComponent
   },
   {
-    path: 'editarlibro',
-    component: EditarlibroComponent
-  },
-  {
     path: 'estatus',
     component: EstatusComponent
   },
@@ -94,7 +91,17 @@ const routes: Routes = [
   {
     path: 'roles',
     component: RolesComponent
-  }
+  },
+  {
+    path: 'agregarcopia',
+    component: AgregarcopiaComponent
+  },
+  { 
+    path: 'copias/:isbn', 
+    component: CopialibroComponent },
+  {
+     path: 'agregarlibro/:isbn', 
+    component: AgregarlibroComponent },
 ];
 
 @NgModule({

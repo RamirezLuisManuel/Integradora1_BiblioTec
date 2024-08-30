@@ -1,53 +1,37 @@
+h1{
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    height: 80px;
+    padding: 0%;
+}
 p{
-    font-size: 25px;
+    font-size: 20px;
     font-family: sans-serif;
     text-align: center;
     margin-left: 0px;
-    color: rgb(45, 45, 45);
+    color: rgb(236, 236, 236);
 }
 body {
-    font-family: sans-serif;
-    background-image: url("../../../../assets/libroyfoco.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.alto{
-    height: 200px;
-}
-.fondo_imagen{
-    height: 280px;
-    background: url(https://www.dipucadiz.es/export/sites/default/cultura/.galerias/lectura/Banner_Biblioteca.jpg_541957993.jpg);
-    background-size: 100%;
-}
-.carousel-inner {
-    height: 300px; /* Ajusta la altura del carrusel */
+    background-color: #d4fdff; /* Color de fondo de respaldo */
+    background-image: url('../../../../assets/patrondeestante.jpg'); /* Ruta a tu imagen de textura */
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo al desplazarse */
+    background-repeat: repeat; /* Hace que el patrón se repita en todo el fondo */
+    background-size: 300px 300px; /* Ajusta el tamaño de la imagen a 50x50 píxeles */
   }
-  
-  .carousel-custom {
-    object-fit: cover; /* Mantiene el aspecto de la imagen al cubrir el área */
-    height: 100%; /* Asegura que la imagen cubra toda la altura del contenedor */
-    width: 100%;
-  }
-  
-  .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .form-login {
-    width: 800px;
-    height: 1450px;
-    background: rgba(160, 160, 160, 0.8); /* Fondo con transparencia */
+    width: 70%;
+    height: 1070px; /* Ajusta la altura automáticamente */
+    background: rgba(102, 102, 102, 0.7); /* Gris con 70% de opacidad */
     margin: auto;
     margin-top: 70px;
     padding: 20px 30px;
-    border-top: 4px solid #017bab;
-    border-radius: 15px; /* Añade esquinas redondeadas */
-    box-shadow: 7px 13px 37px #b94747; /* Sombra del formulario */
+    border-top: 4px solid #949494;
+    border-radius: 15px; /* Esquinas redondeadas */
+    box-shadow: 7px 13px 37px #000000; /* Sombra del formulario */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
-
 
 
 .form-login h5{
@@ -90,10 +74,6 @@ body {
     font-size: 14px;
 }
 
-.buttons a:hover {
-    text-decoration: underline;
-}
-
 .form-login button{
     padding: 3px 10px;
     background-color: #bcbcbc;
@@ -103,12 +83,4 @@ body {
     margin-left: 50%;
     background-color: #666666;
 
-}
-h1{
-    line-height: 40px;
-    text-align: center;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    height: 80px;
-    padding: 0%;
 }

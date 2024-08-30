@@ -11,6 +11,7 @@ class InventarioRoutes {
         this.config();
     }
     config() {
+        this.router.get('/copias', inventarioController_1.default.getByIsbn); // Nueva ruta para obtener copias por ISBN
         this.router.get('/', inventarioController_1.default.list); //Creando una ruta de mi aplicación del servidor para  la ruta inicial y se devuelve el mensaje Hello.
         this.router.post('/', inventarioController_1.default.create);
         this.router.delete('/:CodLibro', inventarioController_1.default.delete); //aquí se indica que recibe como parámetro el id  del juego para poder eliminarlo.
