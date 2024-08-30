@@ -20,7 +20,7 @@ export class LoginComponent {
     this.usuarioService.login(this.usuario, this.contrasenia).subscribe(response => {
       if (response.success) {
         // Redirigir según el tipo de usuario
-        if (response.IdTipo === 2) {
+        if (response.IdTipo === 1) {
           this.router.navigate(['/inicioadmin']);
         } else {
           this.router.navigate(['/inicio']);

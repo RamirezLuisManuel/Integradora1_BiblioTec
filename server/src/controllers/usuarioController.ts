@@ -4,7 +4,7 @@ import pool from '../database';
 class UsuarioController {
   public async list(req: Request, resp: Response): Promise<void> {
     try {
-      const usuarios = await pool.query('SELECT * FROM Usuarios');
+      const usuarios = await pool.query('SELECT * FROM Usuario');
       resp.json(usuarios);
     } catch (error) {
       resp.status(500).json({ message: 'Error al obtener los usuarios', error });
@@ -13,7 +13,7 @@ class UsuarioController {
 
   public async create(req: Request, resp: Response): Promise<void> {
     try {
-      await pool.query('INSERT INTO Usuarios SET ?', [req.body]);
+      await pool.query('INSERT INTO Usuario SET ?', [req.body]);
       resp.json({ message: 'Usuario guardado' });
     } catch (error) {
       resp.status(500).json({ message: 'Error al crear el usuario', error });
@@ -23,7 +23,7 @@ class UsuarioController {
   public async delete(req: Request, resp: Response): Promise<void> {
     try {
       const { Matricula } = req.params;
-      const result = await pool.query('DELETE FROM Usuarios WHERE Matricula = ?', [Matricula]);
+      const result = await pool.query('DELETE FROM Usuario WHERE Matricula = ?', [Matricula]);
       if (result.affectedRows > 0) {
         resp.json({ message: 'El usuario fue eliminado' });
       } else {
@@ -37,7 +37,7 @@ class UsuarioController {
   public async update(req: Request, resp: Response): Promise<void> {
     try {
       const { Matricula } = req.params;
-      const result = await pool.query('UPDATE Usuarios SET ? WHERE Matricula = ?', [req.body, Matricula]);
+      const result = await pool.query('UPDATE Usuario SET ? WHERE Matricula = ?', [req.body, Matricula]);
       if (result.affectedRows > 0) {
         resp.json({ message: 'El usuario fue actualizado' });
       } else {
@@ -53,7 +53,7 @@ class UsuarioController {
       const { Matricula, Contrasenia } = req.body;
   
       // Consulta para verificar el usuario y la contraseña
-      const usuarios = await pool.query('SELECT Matricula, IdTipo FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
+      const usuarios = await pool.query('SELECT Matricula, IdTipo FROM Usuario WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
   
       if (usuarios.length > 0) {
         // Si se encuentra el usuario, enviar respuesta de éxito con el tipo de usuario

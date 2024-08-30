@@ -3,7 +3,7 @@ import pool from '../database';
 
 	class LibrosController{
 		public async list(req:Request, resp:Response){
-			const libros = await pool.query('SELECT * FROM Libros');
+			const libros = await pool.query('SELECT * FROM Libro');
 			resp.json(libros);
 		}
 		
@@ -12,7 +12,7 @@ import pool from '../database';
 				const { Isbn } = req.body;
 				
 				// Verificar si el ID ya existe en la base de datos
-				const existingBook = await pool.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+				const existingBook = await pool.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
 				
 				if (existingBook.length > 0) {
 					resp.status(400).json({ message: 'El ISBN ya existe. No se puede duplicar.' });
@@ -20,7 +20,7 @@ import pool from '../database';
 				}
 	
 				// Si no existe, proceder a insertar el nuevo libro
-				await pool.query('INSERT INTO Libros SET ?', [req.body]);
+				await pool.query('INSERT INTO Libro SET ?', [req.body]);
 				resp.json({ message: 'Libro guardado' });
 			} catch (error) {
 				console.error('Error al crear el libro:', error);

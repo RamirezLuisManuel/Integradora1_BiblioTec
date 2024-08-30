@@ -16,34 +16,34 @@ const database_1 = __importDefault(require("../database"));
 class NovedadesController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const novedades = yield database_1.default.query('SELECT * FROM Novedades');
+            const novedades = yield database_1.default.query('SELECT * FROM Novedad');
             resp.json(novedades);
         });
     }
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO Novedades set ?', [req.body]);
+            yield database_1.default.query('INSERT INTO Novedad set ?', [req.body]);
             resp.json({ message: 'Novedad guardada' });
         });
     }
     delete(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { IdNovedad } = req.params;
-            yield database_1.default.query('DELETE FROM Novedades WHERE IdNovedad=?', [IdNovedad]);
+            yield database_1.default.query('DELETE FROM Novedad WHERE IdNovedad=?', [IdNovedad]);
             resp.json({ message: 'La novedad fue eliminado' });
         });
     }
     update(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { IdNovedad } = req.params;
-            yield database_1.default.query('UPDATE Novedades set ? WHERE IdNovedad = ?', [req.body, IdNovedad]);
+            yield database_1.default.query('UPDATE Novedad set ? WHERE IdNovedad = ?', [req.body, IdNovedad]);
             resp.json({ message: 'La novedad fue atualizado' });
         });
     }
     getOne(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             const { IdNovedad } = req.params; //se recupera el id del request params.
-            const novedades = yield database_1.default.query('SELECT * FROM Novedades WHERE IdNovedad=?', [IdNovedad]);
+            const novedades = yield database_1.default.query('SELECT * FROM Novedad WHERE IdNovedad=?', [IdNovedad]);
             if (novedades.length > 0) {
                 return resp.json(novedades[0]);
             }
