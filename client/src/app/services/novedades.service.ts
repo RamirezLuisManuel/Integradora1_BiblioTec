@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; //interfaz que permite las peticiones 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Novedades } from '../models/Novedades';
 
 @Injectable({
-  providedIn : 'root'
+  providedIn: 'root'
 })
 export class NovedadesService {
+  API_URI = `http://localhost:3000/api/novedades`;
 
-  API_URI = `http://localhost:3000/api/novedades`;   //Back-end
-  //API_URI = `http://localhost:3000/books`;    //Front-end con acceso a datos json.
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient){}
-
-  getNovedades(){
+  getNovedades(): Observable<any> {
     return this.http.get(`${this.API_URI}`);
   }
 
-  getNovedad(IdNovedad : Number){
-    return this.http.get(`${this.API_URI}/${IdNovedad}`);
+  getNovedad(IdNovedad: number): Observable<Novedades> {
+    return this.http.get<Novedades>(`${this.API_URI}/${IdNovedad}`);
   }
 
-  setNovedades(){}
+  saveNovedad(novedades: Novedades): Observable<any> {
+    return this.http.post(this.API_URI, novedades);
+  }
 
-  saveNovedad(novedades:Novedades){
-		return this.http.post(`${this.API_URI}`,novedades);
-}
-  updateNovedad(IdNovedad: Number, updatedNovedad: Novedades){
+  updateNovedad(IdNovedad: number, updatedNovedad: Novedades): Observable<any> {
     return this.http.put(`${this.API_URI}/${IdNovedad}`, updatedNovedad);
-}
+  }
 }

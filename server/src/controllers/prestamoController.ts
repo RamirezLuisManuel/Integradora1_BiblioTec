@@ -4,7 +4,7 @@ import pool from '../database';
 class PrestamoController {
   public async list(req: Request, resp: Response): Promise<void> {
     try {
-      const prestamo = await pool.query('SELECT * FROM Prestamos');
+      const prestamo = await pool.query('SELECT * FROM Prestamo');
       resp.json(prestamo);
     } catch (error) {
       resp.status(500).json({ message: 'Error al obtener los préstamos', error });
@@ -13,7 +13,7 @@ class PrestamoController {
 
   public async create(req: Request, resp: Response): Promise<void> {
     try {
-      await pool.query('INSERT INTO Prestamos SET ?', [req.body]);
+      await pool.query('INSERT INTO Prestamo SET ?', [req.body]);
       resp.json({ message: 'Datos de préstamo guardados' });
     } catch (error) {
       resp.status(500).json({ message: 'Error al crear el préstamo', error });
@@ -23,7 +23,7 @@ class PrestamoController {
   public async delete(req: Request, resp: Response): Promise<void> {
     try {
       const { IdPrestamo } = req.params;
-      const result = await pool.query('DELETE FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+      const result = await pool.query('DELETE FROM Prestamo WHERE IdPrestamo = ?', [IdPrestamo]);
       if (result.affectedRows > 0) {
         resp.json({ message: 'El préstamo fue eliminado' });
       } else {
@@ -37,7 +37,7 @@ class PrestamoController {
   public async update(req: Request, resp: Response): Promise<void> {
     try {
       const { IdPrestamo } = req.params;
-      const result = await pool.query('UPDATE Prestamos SET ? WHERE IdPrestamo = ?', [req.body, IdPrestamo]);
+      const result = await pool.query('UPDATE Prestamo SET ? WHERE IdPrestamo = ?', [req.body, IdPrestamo]);
       if (result.affectedRows > 0) {
         resp.json({ message: 'El préstamo fue actualizado' });
       } else {
@@ -51,7 +51,7 @@ class PrestamoController {
   public async getOne(req: Request, resp: Response): Promise<void> {
     try {
       const { IdPrestamo } = req.params; // Se recupera el id del request params.
-      const prestamo = await pool.query('SELECT * FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+      const prestamo = await pool.query('SELECT * FROM Prestamo WHERE IdPrestamo = ?', [IdPrestamo]);
       if (prestamo.length > 0) {
          resp.json(prestamo[0]);
       }

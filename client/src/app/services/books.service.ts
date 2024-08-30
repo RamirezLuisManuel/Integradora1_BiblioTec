@@ -25,7 +25,7 @@ export class BooksService {
 
 
   getBookByIsbn(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`/api/books/${isbn}`);
+    return this.http.get<Book>(`/api/libros/${isbn}`);
   }
 
   setBooks(){}

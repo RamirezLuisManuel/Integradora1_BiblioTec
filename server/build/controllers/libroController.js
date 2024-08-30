@@ -17,7 +17,7 @@ class LibrosController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const libros = yield database_1.default.query('SELECT * FROM Libros');
+                const libros = yield database_1.default.query('SELECT * FROM Libro');
                 resp.json(libros);
             }
             catch (error) {
@@ -31,13 +31,13 @@ class LibrosController {
             try {
                 const { Isbn } = req.body;
                 // Verificar si el ID ya existe en la base de datos
-                const existingBook = yield database_1.default.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+                const existingBook = yield database_1.default.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
                 if (existingBook.length > 0) {
                     resp.status(400).json({ message: 'El ISBN ya existe. No se puede duplicar.' });
                     return;
                 }
                 // Si no existe, proceder a insertar el nuevo libro
-                yield database_1.default.query('INSERT INTO Libros SET ?', [req.body]);
+                yield database_1.default.query('INSERT INTO Libro SET ?', [req.body]);
                 resp.json({ message: 'Libro guardado' });
             }
             catch (error) {
@@ -50,7 +50,7 @@ class LibrosController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { Isbn } = req.params;
-                const libro = yield database_1.default.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+                const libro = yield database_1.default.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
                 if (libro.length > 0) {
                     yield database_1.default.query('DELETE FROM Libros WHERE Isbn = ?', [Isbn]);
                     resp.json({ message: 'El libro fue eliminado' });
@@ -69,7 +69,7 @@ class LibrosController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { Isbn } = req.params;
-                const libro = yield database_1.default.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+                const libro = yield database_1.default.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
                 if (libro.length > 0) {
                     yield database_1.default.query('UPDATE Libros set ? WHERE Isbn = ?', [req.body, Isbn]);
                     resp.json({ message: 'El libro fue actualizado' });
@@ -89,7 +89,7 @@ class LibrosController {
             try {
                 const { Isbn } = req.params; // Se recupera el ISBN de los parámetros de la solicitud.
                 // Ejecuta la consulta en la base de datos.
-                const libros = yield database_1.default.query('SELECT * FROM Libros WHERE Isbn = ?', [Isbn]);
+                const libros = yield database_1.default.query('SELECT * FROM Libro WHERE Isbn = ?', [Isbn]);
                 // Verifica si se encontró algún libro.
                 if (libros.length > 0) {
                     resp.json(libros[0]);

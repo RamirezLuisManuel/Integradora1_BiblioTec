@@ -17,7 +17,7 @@ class PrestamoController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const prestamo = yield database_1.default.query('SELECT * FROM Prestamos');
+                const prestamo = yield database_1.default.query('SELECT * FROM Prestamo');
                 resp.json(prestamo);
             }
             catch (error) {
@@ -28,7 +28,7 @@ class PrestamoController {
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.default.query('INSERT INTO Prestamos SET ?', [req.body]);
+                yield database_1.default.query('INSERT INTO Prestamo SET ?', [req.body]);
                 resp.json({ message: 'Datos de préstamo guardados' });
             }
             catch (error) {
@@ -40,7 +40,7 @@ class PrestamoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { IdPrestamo } = req.params;
-                const result = yield database_1.default.query('DELETE FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+                const result = yield database_1.default.query('DELETE FROM Prestamo WHERE IdPrestamo = ?', [IdPrestamo]);
                 if (result.affectedRows > 0) {
                     resp.json({ message: 'El préstamo fue eliminado' });
                 }
@@ -57,7 +57,7 @@ class PrestamoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { IdPrestamo } = req.params;
-                const result = yield database_1.default.query('UPDATE Prestamos SET ? WHERE IdPrestamo = ?', [req.body, IdPrestamo]);
+                const result = yield database_1.default.query('UPDATE Prestamo SET ? WHERE IdPrestamo = ?', [req.body, IdPrestamo]);
                 if (result.affectedRows > 0) {
                     resp.json({ message: 'El préstamo fue actualizado' });
                 }
@@ -74,7 +74,7 @@ class PrestamoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { IdPrestamo } = req.params; // Se recupera el id del request params.
-                const prestamo = yield database_1.default.query('SELECT * FROM Prestamos WHERE IdPrestamo = ?', [IdPrestamo]);
+                const prestamo = yield database_1.default.query('SELECT * FROM Prestamo WHERE IdPrestamo = ?', [IdPrestamo]);
                 if (prestamo.length > 0) {
                     resp.json(prestamo[0]);
                 }

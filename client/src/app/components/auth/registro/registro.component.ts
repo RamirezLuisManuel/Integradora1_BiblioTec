@@ -100,7 +100,7 @@ export class RegistroComponent {
       Direccion: formData.get('Direccion') as string,
       Correo: correo,
       Telefono: telefono,
-      IdTipo: 1, // Valor por defecto
+      IdTipo: 2, // Valor por defecto
       Contrasenia: contrasenia,
       StaUsuario: 'Activo' // Valor por defecto
     };

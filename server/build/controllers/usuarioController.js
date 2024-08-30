@@ -17,7 +17,7 @@ class UsuarioController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const usuarios = yield database_1.default.query('SELECT * FROM Usuarios');
+                const usuarios = yield database_1.default.query('SELECT * FROM Usuario');
                 resp.json(usuarios);
             }
             catch (error) {
@@ -28,7 +28,7 @@ class UsuarioController {
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.default.query('INSERT INTO Usuarios SET ?', [req.body]);
+                yield database_1.default.query('INSERT INTO Usuario SET ?', [req.body]);
                 resp.json({ message: 'Usuario guardado' });
             }
             catch (error) {
@@ -40,7 +40,7 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { Matricula } = req.params;
-                const result = yield database_1.default.query('DELETE FROM Usuarios WHERE Matricula = ?', [Matricula]);
+                const result = yield database_1.default.query('DELETE FROM Usuario WHERE Matricula = ?', [Matricula]);
                 if (result.affectedRows > 0) {
                     resp.json({ message: 'El usuario fue eliminado' });
                 }
@@ -57,7 +57,7 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { Matricula } = req.params;
-                const result = yield database_1.default.query('UPDATE Usuarios SET ? WHERE Matricula = ?', [req.body, Matricula]);
+                const result = yield database_1.default.query('UPDATE Usuario SET ? WHERE Matricula = ?', [req.body, Matricula]);
                 if (result.affectedRows > 0) {
                     resp.json({ message: 'El usuario fue actualizado' });
                 }
@@ -75,7 +75,7 @@ class UsuarioController {
             try {
                 const { Matricula, Contrasenia } = req.body;
                 // Consulta para verificar el usuario y la contraseña
-                const usuarios = yield database_1.default.query('SELECT Matricula, IdTipo FROM Usuarios WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
+                const usuarios = yield database_1.default.query('SELECT Matricula, IdTipo FROM Usuario WHERE Matricula = ? AND Contrasenia = SHA2(?, 256)', [Matricula, Contrasenia]);
                 if (usuarios.length > 0) {
                     // Si se encuentra el usuario, enviar respuesta de éxito con el tipo de usuario
                     const usuario = usuarios[0];
