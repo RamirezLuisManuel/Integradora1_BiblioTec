@@ -37,12 +37,12 @@
                         <td>{{book.Autor}}</td>  
                         <td>{{book.Descripcion}}</td>
                         <td>
-                            <a href="/copias" type="button" class="btn btn-success btn-sm">Copias</a>
+                            <a [routerLink]="['/copias', book.Isbn]" class="btn btn-success btn-sm">Copias</a>
                             <a [routerLink]="['/agregarlibro', book.Isbn]" type="button" class="btn btn-warning btn-sm">Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminaModal" (click)="prepareDelete(book.Isbn)">
                               Eliminar
                             </button>
-                          </td>
+                        </td>
                     </tr>
 
                 </tbody>

@@ -20,6 +20,7 @@ import { NovedadesAdComponent } from './components/admin/novedades-ad/novedades-
 import { RolesComponent } from './components/admin/roles/roles.component';
 import { CopialibroComponent } from './components/admin/copialibro/copialibro.component';
 import { AgregarcopiaComponent } from './components/admin/agregarcopia/agregarcopia.component';
+import { InventarioService } from './services/inventario.service';
 
 const routes: Routes = [
   {
@@ -92,13 +93,15 @@ const routes: Routes = [
     component: RolesComponent
   },
   {
-    path: 'copias',
-    component: CopialibroComponent
-  },
-  {
     path: 'agregarcopia',
     component: AgregarcopiaComponent
-  }
+  },
+  { 
+    path: 'copias/:isbn', 
+    component: CopialibroComponent },
+  {
+     path: 'agregarlibro/:isbn', 
+    component: AgregarlibroComponent },
 ];
 
 @NgModule({

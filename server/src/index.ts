@@ -2,7 +2,6 @@ import express, {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import librosRoutes from './routes/librosRoutes';
 import tipousuarioRoutes from './routes/tipousuarioRoutes';
-
 import morgan from 'morgan';
 import cors from 'cors';
 import inventarioRoutes from './routes/inventarioRoutes';

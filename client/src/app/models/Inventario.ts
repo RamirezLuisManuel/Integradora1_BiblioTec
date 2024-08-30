@@ -1,5 +1,7 @@
 export interface Inventario{
-    CodLibro?: String,
-    Isbn?: String
-    TipoLibro?:String;
+    CodLibro?: String;
+    Isbn?: String;
+    Formato?:String;
+    FechaRegistro?: String;
+    Estado?:String;
 }

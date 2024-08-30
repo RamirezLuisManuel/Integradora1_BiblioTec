@@ -16,8 +16,14 @@ const database_1 = __importDefault(require("../database"));
 class LibrosController {
     list(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            const libros = yield database_1.default.query('SELECT * FROM Libros');
-            resp.json(libros);
+            try {
+                const libros = yield database_1.default.query('SELECT * FROM Libros');
+                resp.json(libros);
+            }
+            catch (error) {
+                console.error('Error al listar libros:', error);
+                resp.status(500).json({ message: 'Error interno del servidor' });
+            }
         });
     }
     create(req, resp) {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //interfaz que permite las peticiones 
 import { Inventario } from '../models/Inventario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn : 'root'
@@ -25,7 +26,16 @@ export class InventarioService {
   saveInventario(inventario:Inventario){
 		return this.http.post(`${this.API_URI}`,inventario);
 }
-  updateBook(CodLibro: String, updatedInventario: Inventario){
+  updateInventario(CodLibro: String, updatedInventario: Inventario){
     return this.http.put(`${this.API_URI}/${CodLibro}`, updatedInventario);
+}
+deleteInventario(CodLibro: String){
+  return this.http.delete(`${this.API_URI}/${CodLibro}`);
+}
+getByIsbn(isbn: string): Observable<any> {
+  return this.http.get<any>(`${this.API_URI}/copias?isbn=${isbn}`);
+}
+getCopiasPorIsbn(isbn: string): Observable<Inventario[]> {
+  return this.http.get<Inventario[]>(`${this.API_URI}/inventario/${isbn}`);
 }
 }

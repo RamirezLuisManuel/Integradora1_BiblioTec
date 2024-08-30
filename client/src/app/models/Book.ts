@@ -1,7 +1,8 @@
 export interface Book{
-    Isbn:String;
-    Titulo?:String;
-    Autor?:String;
-    Genero?:String;
-    Descripcion?:String;
-}//El signo de interrogación nos dice que el campo es opcional
+    Isbn:string;
+    Titulo?:string;
+    Autor?:string;
+    Genero?:string;
+    Descripcion?:string;
+    Imagen?:Blob | null; // Permitir nulo para casos sin imagen
+}

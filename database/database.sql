@@ -26,12 +26,13 @@ CREATE TABLE Usuario (
 );
 
 -- Crear la tabla Libros
-CREATE TABLE Libro (
+CREATE TABLE Libros (
     Isbn VARCHAR(20) PRIMARY KEY, -- Código ISBN del libro
     Titulo VARCHAR(255) NOT NULL, -- Título del libro
     Autor VARCHAR(100) NOT NULL, -- Autor del libro
     Genero VARCHAR(50) NOT NULL, -- Tema del libro
     Descripcion VARCHAR(255), -- Descripción del libro
+    Imagen LONGBLOB -- Columna para almacenar imágenes
 );
 
 -- Crear la tabla Prestamos

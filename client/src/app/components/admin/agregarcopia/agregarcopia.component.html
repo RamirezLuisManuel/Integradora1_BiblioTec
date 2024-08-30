@@ -5,63 +5,67 @@
             <div class="card shadow-lg">
                 <div class="card-body">
                     <h3>Agregar copia</h3>
-                    <form class="row g-3">
-                        <!-- ISBN -->
+                    <form class="row g-3 needs-validation" novalidate #form="ngForm" (ngSubmit)="saveNewInventario(form)">
+
+                        <!-- ISBN (se llena automáticamente) -->
                         <div class="col-md-6">
                           <label for="isbn" class="form-label">ISBN</label>
                           <input 
                             type="text" 
                             id="isbn" 
                             class="form-control" 
-                            required>
-                        </div>
-                      
-                        <!-- Título -->
-                        <div class="col-md-6">
-                          <label for="titulo" class="form-label">Título</label>
-                          <input 
-                            type="text" 
-                            id="titulo" 
-                            class="form-control" 
-                            required>
-                        </div>
-                      
-                        <!-- Autor -->
-                        <div class="col-md-6">
-                          <label for="autor" class="form-label">Autor</label>
-                          <input 
-                            type="text" 
-                            id="autor" 
-                            class="form-control" 
-                            required>
-                        </div>
-                      
-                        <!-- Género -->
-                        <div class="col-md-6">
-                          <label for="tema" class="form-label">Género</label>
-                          <input
-                            type="text"
-                            id="tema"
-                            class="form-control"
-                            required>
+                            [(ngModel)]="inventario.Isbn" 
+                            name="Isbn" 
+                            readonly>
                         </div>
 
-                        <!-- Descripción -->
+                        <!-- ID -->
                         <div class="col-md-6">
-                            <label for="descripcion" class="form-label">Descripción</label>
-                            <input
-                            type="text"
-                            id="descripcion"
-                            class="form-control"
-                            required>
+                            <label for="CodLibro" class="form-label">ID de la copia</label>
+                            <input 
+                                type="text" 
+                                id="CodLibro" 
+                                class="form-control" 
+                                [(ngModel)]="inventario.CodLibro" 
+                                name="CodLibro" 
+                                required>
+                            <div *ngIf="form.submitted && form.controls['CodLibro']?.invalid" class="invalid-feedback">
+                                El ID es requerido.
+                            </div>
                         </div>
-  
+
+                        <!-- Formato -->
+                        <div class="col-md-4">
+                            <label for="formato" class="form-label">Formato</label>
+                            <select 
+                                id="formato" 
+                                [(ngModel)]="inventario.Formato" 
+                                class="form-select" 
+                                name="Formato" 
+                                required>
+                                <option value="" disabled selected>Seleccione un formato</option>
+                                <option value="físico">Físico</option>
+                                <option value="digital">Digital</option>
+                            </select>
+                            <div *ngIf="form.submitted && form.controls['Formato']?.invalid" class="invalid-feedback">
+                                Seleccione un formato.
+                            </div>
+                        </div>
+
                         <!-- Botones -->
                         <div class="col-12">
-                          <a href="/copias" class="btn btn-secondary">Regresar</a>
-                          <button type="submit" class="btn btn-success">Guardar</button>
+                            <a class="btn btn-secondary" onclick="window.history.back()">Regresar</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                     </form>
+
+                    <!-- Mensajes de alerta -->
+                    <div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
+                        La copia ha sido guardada exitosamente.
+                    </div>
+                    <div *ngIf="showDuplicateIdMessage" class="alert alert-danger mt-3" role="alert">
+                        El ID ingresado ya existe en la base de datos. Por favor, ingrese un ID diferente.
+                    </div>
                 </div>
             </div>
         </div>

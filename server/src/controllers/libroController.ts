@@ -2,9 +2,14 @@ import{Request, Response} from 'express';
 import pool from '../database';
 
 	class LibrosController{
-		public async list(req:Request, resp:Response){
-			const libros = await pool.query('SELECT * FROM Libros');
-			resp.json(libros);
+		public async list(req: Request, resp: Response): Promise<void> {
+			try {
+				const libros = await pool.query('SELECT * FROM Libros');
+				resp.json(libros);
+			} catch (error) {
+				console.error('Error al listar libros:', error);
+				resp.status(500).json({ message: 'Error interno del servidor' });
+			}
 		}
 		
 		public async create(req: Request, resp: Response): Promise<void> {
